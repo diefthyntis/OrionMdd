@@ -1,0 +1,30 @@
+.halfscreen {
+    height: 50vh; /* 50% de la hauteur de la vue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Couleur de fond, modifiable */
+  font-size: 24px;
+  font-weight: bold;
+  }
+
+.button {
+    border: solid 1px;
+    border-radius: 20px;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: large;
+    font-weight: bold;
+    color: cadetblue;
+    background-color: white;
+    width: 18%;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    width: 30%;
+    text-align: center;
+}
+
+
+

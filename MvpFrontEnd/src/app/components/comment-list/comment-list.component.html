@@ -1,0 +1,15 @@
+<app-connected-header></app-connected-header>
+<br>
+<div class="data"><h2>Commentaires&nbsp;pour&nbsp;l'article&nbsp;"{{articleTitle}}"</h2>
+  <br>
+<div class="container" *ngFor="let oneKomment of kommentList">
+  
+    <div class="block">
+      <div class="data"><h3>Par&nbsp;{{oneKomment.pseudonymSpeaker}}&nbsp;le&nbsp;{{oneKomment.creationDate}}</h3></div>
+      <div class="data">{{oneKomment.sentence}}</div>
+    </div>
+</div>
+  <div class="block">
+    <button type="submit" (click)="createComment(connectedSpeakerId,currentArticleId); $event.stopPropagation()">Ajouter un commentaire</button>
+  </div>
+  {{ bigErrorMessage }}

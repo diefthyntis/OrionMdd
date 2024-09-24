@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-between; // Répartir uniformément l'espace entre les éléments
+    align-items: center;            // Aligner les éléments verticalement au centre
+
+    
+  }
+  
+  .item {
+    text-align: center;
+    flex: 1;  // Chaque élément prendra une part égale de l'espace disponible
+    margin: 0 10px;  // Espacement entre les éléments
+  }
+  

@@ -1,0 +1,32 @@
+<app-auth-header></app-auth-header>
+<div *ngIf="onError" class="error-message">
+  Une erreur est survenue lors de l'inscription. Veuillez réessayer.
+</div>
+
+<div class="container">
+    
+  
+      <form class="register-form" [formGroup]="buildedForm" (ngSubmit)="submit()" >
+      <div class="line" ><div class="title">INSCRIPTION</div></div><br>
+      <div class="line" >
+        <div class="fieldlabel"><label for="pseudonym">Nom d'utilisateur :</label></div>
+        <div class="data"><input type="text" id="pseudonym" class="form-control" formControlName="varPseudonym"></div>
+      </div>
+      <br>
+      <div class="line">
+        <div class="fieldlabel"><label for="emailaddress">Adresse e-mail :</label></div>
+        <div class="data"><input type="emailaddress" id="emailaddress" class="form-control" formControlName="varEmailAddress"></div>
+      </div>
+      <br>
+      <div class="line">
+        <div class="fieldlabel"><label for="password">Mot de passe :</label></div>
+        <div class="data">  <input type="password" id="password" class="form-control" formControlName="varPassword"></div>
+      </div>
+      <br>
+      <div class="line">
+        <button type="submit" >S'inscrire</button>
+      </div>
+   
+  </form>
+  
+</div>

@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+    margin: 0 auto; 
+    font-weight: bold;
+    color: cadetblue;
+    background-color: white;
+
+}
+
+.line {
+    display: flex;
+
+  justify-content: space-between; // Répartir uniformément l'espace entre les éléments
+
+  
+    margin: 10px;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+}
+
+.data {
+    width:200px
+
+}
+
+.blablabla {
+    height: 200px;
+    width: 200px;
+}
+
+.label {
+    width:40%;
+}

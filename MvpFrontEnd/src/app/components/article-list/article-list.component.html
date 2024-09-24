@@ -1,0 +1,16 @@
+<app-connected-header></app-connected-header>
+<div class="data"><h1>Mon fil d'actualité</h1>
+<button type="submit" (click)="createArticle()">Créer un article</button></div><br>
+<div class="container" *ngFor="let oneArticle of articleList">
+  
+    <div class="block">
+      <div class="data"><b>{{ oneArticle.id }}&nbsp;-&nbsp;{{ oneArticle.title }}</b></div>
+      <div class="data">Date de création:&nbsp;{{ oneArticle.creationDate | date: 'dd/MM/yyyy' }}</div>
+      <div class="data">Auteur:&nbsp;{{ oneArticle.speakerId }}</div>
+      <div class="data">{{ oneArticle.sentence }}</div>
+
+      <a (click)="navigateToCommentList(oneArticle.speakerId,oneArticle.id)">Voir les commentaires</a>
+
+       
+    </div>
+  </div>

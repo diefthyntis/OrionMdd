@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+  // Variable pour la couleur des liens
+  $lavande-color: rgb(150, 131, 236); // Exemple d'une couleur bleue
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+    margin: 0 !important;
+}
+
+.error {
+    color: red;
+}
+
+
+button {
+  display: flex;
+    border: solid 1px;
+    border-radius: 20px;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    background-color:$lavande-color;    
+    flex-wrap: nowrap;
+    width: auto;
+    height:45px;
+    padding: 10px 20px;
+    align-items: center;
+    // ajoute 10 pixels d'espace en haut et en bas et 20 pixels à gauche et à droite, ce qui crée un peu plus de distance entre le texte et les bords du bouton.
+    margin-top: 30px; // espace supplémentaire en haut
+  }
+
+
+
+// Styles globaux pour les liens
+a {
+  color: $lavande-color;
+  font-weight: bold;
+  text-decoration: none; /* Supprime le soulignement par défaut */
+}
+
+a:hover {
+  color: darken($lavande-color, 10%); /* Couleur plus foncée au survol */
+  text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+//
+//a:visited {
+//  color: lighten($lavande-color, 20%); /* Couleur plus claire pour les liens déjà visités */
+//}
+//
+
+a.active-link {
+    color: lighten($lavande-color, 10%);  /* Couleur noire pour le lien actif */
+    font-weight: normal;
+  }

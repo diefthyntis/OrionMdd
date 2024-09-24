@@ -1,0 +1,12 @@
+<app-connected-header></app-connected-header>
+<div class="container" *ngFor="let oneTopic of topicList">
+    <div class="block">
+      <div class="data"><h2>Thème&nbsp;{{ oneTopic.title }}</h2>
+        <div *ngIf="oneTopic.subskriptionActivated"><h3> {{ oneTopic.informationMessage }}</h3></div>
+       
+      </div>
+      <div class="data">{{ oneTopic.description }}</div>
+      <button *ngIf="!oneTopic.subskriptionActivated" type="submit" (click)="subscribeToThisTopic(oneTopic.id)">S'abonner</button>
+      
+    </div>
+  </div>
