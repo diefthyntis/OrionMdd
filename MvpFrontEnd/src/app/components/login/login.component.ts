@@ -49,9 +49,9 @@ public submit(): void {
       this.router.navigate(['/topicList']);
       console.log("login.component.ts.submit redirection vers witness termninée");
     },
-    (obj) => {
-      console.error("login.component.ts.submit Erreur lors de la connexion", obj.error);
-      this.bigErrorMessage=obj.error;
+    (error) => {
+      console.error("login.component.ts.submit Erreur lors de la connexion", error.error);
+      this.bigErrorMessage=error.error;
       ;
     }
   );

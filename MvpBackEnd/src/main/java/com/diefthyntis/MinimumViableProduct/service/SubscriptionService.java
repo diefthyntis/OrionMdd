@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.diefthyntis.MinimumViableProduct.dto.response.ProductResponse;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Subscription;
 import com.diefthyntis.MinimumViableProduct.repository.SubscriptionRepository;
@@ -35,5 +36,8 @@ public class SubscriptionService {
 		subscriptionRepository.deleteById(id);
 	}
 
+	public List<ProductResponse> getProductList(String speakerId) {
+        return subscriptionRepository.getProductList(speakerId);
+    }
 
 }

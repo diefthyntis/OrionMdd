@@ -8,6 +8,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.SubscriptionRequest;
+import com.diefthyntis.MinimumViableProduct.dto.response.CommentResponse;
+import com.diefthyntis.MinimumViableProduct.dto.response.ProductResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.ServerResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.SubscriptionResponse;
 import com.diefthyntis.MinimumViableProduct.mapping.SubscriptionMapping;
@@ -95,5 +98,17 @@ public class SubscriptionController {
 		return ResponseEntity.ok(new ServerResponse(sentence));
 		
 	}
+	
+	@GetMapping("/productList/{speakerId}")
+	public List<ProductResponse> getProductList (@PathVariable String speakerId) {
+		log.info(speakerId);
+		final List<ProductResponse> productList = subscriptionService.getProductList(speakerId);
+		
+		return productList;
+	}
+	
+	
+	
+		
 	
 }

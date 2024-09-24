@@ -1,1 +1,19 @@
-<p>profile works!</p>
+<app-connected-header></app-connected-header>
+
+<h2>Profil utilisateur</h2>
+<div class="container">
+<form [formGroup]="buildedForm" class="register-form"  (ngSubmit)="submit()">
+<div >
+  <label for="pseudonym">Pseudo:</label>
+  <input formControlName="varPseudonym" type="text" id="login" class="form-control" [(ngModel)]="connectedSpeaker.pseudonym">
+</div>
+<div >
+  <label for="emailAddress">Mot de passe :</label>
+  <input formControlName="varEmailAddress" type="text" id="emailAddress" class="form-control" [(ngModel)]="connectedSpeaker.emailaddress">
+</div>
+<div>
+  <button [disabled]="buildedForm.invalid" type="submit" >Se connecter</button>
+</div>
+</form>
+</div>
+{{ bigErrorMessage }}

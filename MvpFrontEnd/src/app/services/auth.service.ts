@@ -39,7 +39,7 @@ export class AuthService {
 
   public me(): Observable<SpeakerResponse> {
     let apiUrl =`${this.pathService}/me`;
-    console.log("auth.service.ts.me apiUrl="+apiUrl)
+    console.log("AuthService.me apiUrl="+apiUrl)
     let speakerToCome=this.httpClient.get<SpeakerResponse>(apiUrl);
     return speakerToCome;
   }

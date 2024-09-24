@@ -9,6 +9,7 @@ import { WitnessPageComponent } from './components/witness-page/witness-page.com
 import { NewArticleComponent } from './components/new-article/new-article.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'newArticle',component:NewArticleComponent},
   { path: 'commentList/:speakerId/:articleId', component: CommentListComponent },
   { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
-  { path: 'profile', component: NewCommentComponent }
+  { path: 'profile', component: ProfileComponent }
 
   
 ];
