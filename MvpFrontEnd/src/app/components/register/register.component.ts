@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import { SessionService } from 'src/app/services/session.service';
 
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

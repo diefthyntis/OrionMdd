@@ -28,6 +28,12 @@ import { CommonModule } from '@angular/common';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SpeakerDetailComponent } from './components/speaker-detail/speaker-detail.component';
+import { WhitePageComponent } from './components/white-page/white-page.component';
+
+import { ShapeListComponent } from './components/shape-list/shape-list.component';
+import { ChangeCredentialsComponent } from './components/witness-page/change-credentials.component';
+
 
 
 registerLocaleData(localeFr);
@@ -57,7 +63,11 @@ Injection
     ConnectedHeaderComponent,
     NewCommentComponent,
     CommentListComponent,
-    ProfileComponent
+    ProfileComponent,
+    SpeakerDetailComponent,
+    WhitePageComponent,
+    ChangeCredentialsComponent,
+    ShapeListComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule

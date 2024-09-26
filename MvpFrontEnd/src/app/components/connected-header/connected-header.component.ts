@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ConnectedHeaderComponent implements OnInit {
 
-  public bigErrorMessage=""; 
+ /// public bigErrorMessage=""; 
+
+  /*
 navigateToArticleList() {
   this.router.navigateByUrl('articleList');
 
@@ -17,6 +19,7 @@ navigateToTopicList() {
   this.router.navigateByUrl('topicList');
 
 }
+  */
 
   constructor(private router: Router) { }
 

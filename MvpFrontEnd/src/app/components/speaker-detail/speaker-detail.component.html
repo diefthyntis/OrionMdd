@@ -3,7 +3,7 @@
 <h2>Profil utilisateur</h2>
 
 <div class="container">
-<form [formGroup]="updateSpeakerForm" (ngSubmit)="updateProfile()">
+<form [formGroup]="buildedForm" (ngSubmit)="sayHello()">
   <div class="line" >
     <div class="fieldlabel"><label for="pseudonym">Nom d'utilisateur :</label></div>
     <div class="data"><input type="text" id="pseudonym" class="form-control" formControlName="varPseudonym"></div>
@@ -17,19 +17,11 @@
     <div class="data">  <input type="password" id="password" class="form-control" formControlName="varPassword"></div>
   </div>
 <div>
-  <button [disabled]="updateSpeakerForm.invalid" type="submit" >Se connecter</button>
+  <button [disabled]="buildedForm.invalid" type="submit" >Se connecter</button>
 </div>
 </form>
 </div>
 
-<div class="container" *ngFor="let oneShapeResponse of shapeResponseList">
-  <div class="block">
-      <div class="data">Thème&nbsp;{{oneShapeResponse.topicTitle}}</div>
-      <div class="data">{{oneShapeResponse.topicSentence}}</div>
-      <button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subskriptionId)">Se désabonner</button>
-  </div>
-</div>
-
 <div *ngIf="bigErrorMessage" class="alert alert-danger">
-  {{ bigErrorMessage }}
-</div>
+    {{ bigErrorMessage }}
+  </div>

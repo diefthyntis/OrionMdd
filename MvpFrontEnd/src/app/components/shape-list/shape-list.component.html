@@ -1,0 +1,12 @@
+<p>shape-list works!</p>
+<div class="container" *ngFor="let oneShapeResponse of shapeResponseList">
+    <div class="block">
+        <div class="data">Thème&nbsp;{{oneShapeResponse.topicTitle}}</div>
+        <div class="data">{{oneShapeResponse.topicSentence}}</div>
+        <button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subskriptionId)">Se désabonner</button>
+    </div>
+  </div>
+  
+  <div *ngIf="bigErrorMessage" class="alert alert-danger">
+    {{ bigErrorMessage }}
+  </div>

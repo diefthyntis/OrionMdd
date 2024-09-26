@@ -93,10 +93,12 @@ public class SubscriptionController {
 		
 	}
 	
-	@DeleteMapping("/deleteSubscription/{id}")
-	public ResponseEntity<ServerResponse> delete (@PathVariable Integer id) {
-		subscriptionService.delete(id);
-		final String sentence = "Subscription #" + NumberUtils.convertToString(id) + " has been deleted";
+	@DeleteMapping("/deleteSubscription/{subscriptionId}")
+	public ResponseEntity<ServerResponse> delete (@PathVariable String susbscriptionId) {
+		log.info("### susbscriptionId",susbscriptionId);
+		final Integer integerId=NumberUtils.convertToInteger(susbscriptionId);
+		subscriptionService.delete(integerId);
+		final String sentence = "Subscription #" + susbscriptionId + " has been deleted";
 		return ResponseEntity.ok(new ServerResponse(sentence));
 		
 	}

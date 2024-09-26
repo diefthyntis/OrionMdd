@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WitnessPageComponent } from './witness-page.component';
+import { WhitePageComponent } from './white-page.component';
 
-describe('WitnessPageComponent', () => {
-  let component: WitnessPageComponent;
-  let fixture: ComponentFixture<WitnessPageComponent>;
+describe('WhitePageComponent', () => {
+  let component: WhitePageComponent;
+  let fixture: ComponentFixture<WhitePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WitnessPageComponent ]
+      declarations: [ WhitePageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WitnessPageComponent);
+    fixture = TestBed.createComponent(WhitePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
