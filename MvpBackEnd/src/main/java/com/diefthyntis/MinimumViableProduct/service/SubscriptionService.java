@@ -1,10 +1,11 @@
 package com.diefthyntis.MinimumViableProduct.service;
 
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.diefthyntis.MinimumViableProduct.dto.response.ProductResponse;
+import com.diefthyntis.MinimumViableProduct.model.Shape;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Subscription;
 import com.diefthyntis.MinimumViableProduct.repository.SubscriptionRepository;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class SubscriptionService {
 
 	private final SubscriptionRepository subscriptionRepository;
-	private final SpeakerService speakerService;
+
 	
 	public void save(Subscription subscription) {
 		subscriptionRepository.save(subscription);
@@ -36,8 +37,12 @@ public class SubscriptionService {
 		subscriptionRepository.deleteById(id);
 	}
 
-	public List<ProductResponse> getProductList(String speakerId) {
-        return subscriptionRepository.getProductList(speakerId);
+	public List<Shape> getShapeList(Integer speakerId) {
+		//final List<Shape> shapeList = new ArrayList<Shape>();
+		final List<Shape> shapeList =subscriptionRepository.getShapeList(speakerId);
+		return shapeList;
+        //return subscriptionRepository.getShapeList(speakerId);
+		//return subscriptionRepository.getShapeListWithLog(speakerId);
     }
 
 }

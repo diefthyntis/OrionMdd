@@ -4,8 +4,10 @@ import org.springframework.stereotype.Component;
 
 
 import com.diefthyntis.MinimumViableProduct.dto.request.SubscriptionRequest;
+import com.diefthyntis.MinimumViableProduct.dto.response.ShapeResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.SubscriptionResponse;
 import com.diefthyntis.MinimumViableProduct.model.Subscription;
+import com.diefthyntis.MinimumViableProduct.model.Shape;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Topic;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
@@ -53,5 +55,16 @@ public class SubscriptionMapping {
 		return subscriptionResponse;
 		
 	}
-
+	
+	public ShapeResponse mapShapeToShapeResponse(Shape shape) {
+		final ShapeResponse shapeResponse = new ShapeResponse();
+		
+		
+		shapeResponse.setSubscriptionId(NumberUtils.convertToString(shape.getSubscriptionId()));
+		shapeResponse.setTopicDescription(shape.getTopicDescription());
+		shapeResponse.setTopicTitle(shape.getTopicTitle());
+		shapeResponse.setTopicId(NumberUtils.convertToString(shape.getTopicId()));
+		return shapeResponse;
+		
+	}
 }

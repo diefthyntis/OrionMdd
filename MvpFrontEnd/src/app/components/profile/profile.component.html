@@ -16,4 +16,11 @@
 </div>
 </form>
 </div>
+<div class="container" *ngFor="let oneProductResponse of productResponseList">
+  <div class="block">
+      <div class="data">Thème&nbsp;{{oneProductResponse.topicTitle}}</div>
+      <div class="data">{{oneProductResponse.topicSentence}}</div>
+      <button type="submit" (click)="unsubscribeToThisTopic(oneProductResponse.subskriptionId)">Se désabonner</button>
+  </div>
+</div>
 {{ bigErrorMessage }}

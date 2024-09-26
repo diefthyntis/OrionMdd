@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.diefthyntis.MinimumViableProduct.exception.CommentNotFoundException;
 import com.diefthyntis.MinimumViableProduct.model.Article;
 import com.diefthyntis.MinimumViableProduct.model.Comment;
-import com.diefthyntis.MinimumViableProduct.model.Speaker;
+
 import com.diefthyntis.MinimumViableProduct.repository.ArticleRepository;
 import com.diefthyntis.MinimumViableProduct.repository.CommentRepository;
 

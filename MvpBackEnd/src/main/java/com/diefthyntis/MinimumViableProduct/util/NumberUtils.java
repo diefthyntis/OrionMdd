@@ -15,5 +15,14 @@ public class NumberUtils {
 		return Integer.toString(data);
 	
 	}
+	
+	public static Long convertToLong(String data){
+	      return Optional.ofNullable(data).map(Long::parseLong).orElse((long) 0f);
+	    }
+	
+	public static String convertLongToString(Long data) {
+		return Long.toString(data);
+	
+	}
 
 }

@@ -8,7 +8,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +16,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.SubscriptionRequest;
-import com.diefthyntis.MinimumViableProduct.dto.response.CommentResponse;
-import com.diefthyntis.MinimumViableProduct.dto.response.ProductResponse;
+
+
+import com.diefthyntis.MinimumViableProduct.dto.response.ShapeResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.ServerResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.SubscriptionResponse;
 import com.diefthyntis.MinimumViableProduct.mapping.SubscriptionMapping;
+import com.diefthyntis.MinimumViableProduct.model.Shape;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Subscription;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
@@ -81,7 +83,7 @@ public class SubscriptionController {
 		final String emailAddress = principal.getName();
 		final Speaker speaker = speakerService.findByEmailaddress(emailAddress);
 		final List<Subscription> subscriptionsList = subscriptionService.getSubscriptionsBySpeaker(speaker);
-		final List<SubscriptionResponse> subscriptionResponseList =new ArrayList();
+		final List<SubscriptionResponse> subscriptionResponseList =new ArrayList<SubscriptionResponse>();
 		
 		subscriptionsList.stream().forEach(subscription -> {
 			final SubscriptionResponse subscriptionResponse= subscriptionMapping.mapSubscriptionToSubscriptionResponse(subscription);
@@ -91,7 +93,7 @@ public class SubscriptionController {
 		
 	}
 	
-	@DeleteMapping("/subscriptions/{id}")
+	@DeleteMapping("/deleteSubscription/{id}")
 	public ResponseEntity<ServerResponse> delete (@PathVariable Integer id) {
 		subscriptionService.delete(id);
 		final String sentence = "Subscription #" + NumberUtils.convertToString(id) + " has been deleted";
@@ -99,15 +101,39 @@ public class SubscriptionController {
 		
 	}
 	
-	@GetMapping("/productList/{speakerId}")
-	public List<ProductResponse> getProductList (@PathVariable String speakerId) {
-		log.info(speakerId);
-		final List<ProductResponse> productList = subscriptionService.getProductList(speakerId);
+
+	
+	
+	@GetMapping("/shapeList/{speakerId}")
+	public List<ShapeResponse> getShapeList (@PathVariable String speakerId) {
+		log.info("### speakerId",speakerId);
+		final Integer integerId= NumberUtils.convertToInteger(speakerId);
+		log.info("### integerId",integerId);
+		final List<Shape> shapeList = subscriptionService.getShapeList(integerId);
 		
-		return productList;
+		final List<ShapeResponse> shapeResponseList =new ArrayList<ShapeResponse>();
+		
+		/*
+		final ShapeResponse shapeResponse = new ShapeResponse();
+		shapeResponse.setSubscriptionId("1");
+		shapeResponse.setTopicId("1");
+		shapeResponse.setTopicTitle("JB");
+		shapeResponse.setTopicDescription("Le plus gentleman des espions");
+		shapeResponseList.add(shapeResponse);
+		*/
+		
+		
+		shapeList.stream().forEach(shape -> {
+			
+			final ShapeResponse shapeResponse= subscriptionMapping.mapShapeToShapeResponse(shape);
+			shapeResponseList.add(shapeResponse);
+		});
+		
+		
+		
+		return shapeResponseList;
+	
 	}
-	
-	
 	
 		
 	

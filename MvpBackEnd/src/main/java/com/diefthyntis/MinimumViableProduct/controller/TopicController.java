@@ -35,7 +35,7 @@ public class TopicController {
 	@GetMapping("/topics")
     public List<TopicResponse> getTopics() {
 		List<Topic> topics =  topicService.getTopics();
-		List<TopicResponse> topicResponses = new ArrayList();
+		List<TopicResponse> topicResponses = new ArrayList<TopicResponse>();
 		
 		
         topics.stream().forEach(topic -> {

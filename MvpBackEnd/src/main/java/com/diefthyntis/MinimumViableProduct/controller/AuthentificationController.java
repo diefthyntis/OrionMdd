@@ -3,7 +3,7 @@ package com.diefthyntis.MinimumViableProduct.controller;
 
 import java.security.Principal;
 
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diefthyntis.MinimumViableProduct.dto.request.RegisterRequest;
 import com.diefthyntis.MinimumViableProduct.dto.request.SignInRequest;
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressAlreadyExistsException;
-import com.diefthyntis.MinimumViableProduct.exception.LoginAlreadyExistsException;
+
 import com.diefthyntis.MinimumViableProduct.exception.PseudonymAlreadyExistsException;
-import com.diefthyntis.MinimumViableProduct.mapping.ArticleMapping;
+
 import com.diefthyntis.MinimumViableProduct.mapping.SpeakerMapping;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.security.JsonWebToken;

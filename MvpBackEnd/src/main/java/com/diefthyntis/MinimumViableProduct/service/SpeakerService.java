@@ -1,7 +1,5 @@
 package com.diefthyntis.MinimumViableProduct.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressNotFoundException;

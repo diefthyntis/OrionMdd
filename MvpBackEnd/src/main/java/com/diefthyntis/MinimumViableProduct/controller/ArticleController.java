@@ -80,7 +80,7 @@ public class ArticleController {
 		//final Speaker speaker = speakerService.findByEmailaddress(emailAddress);
 		final Speaker speaker = speakerService.findBylogin(emailAddress);
 		final List<Article> articles = articleService.getArticlesBySpeaker(speaker);
-		final List<ArticleResponse> articleResponses = new ArrayList();
+		final List<ArticleResponse> articleResponses = new ArrayList<ArticleResponse>();
 		articles.stream().forEach(article -> {
 			final ArticleResponse articleResponse = articleMapping.mapArticleToArticleResponse(article);
 			articleResponses.add(articleResponse);
@@ -94,7 +94,7 @@ public class ArticleController {
 	@GetMapping("/articles")
 	public List<ArticleResponse> getArticles() {
 		final List<Article> articles = articleService.getArticles();
-		final List<ArticleResponse> articleResponses = new ArrayList();
+		final List<ArticleResponse> articleResponses = new ArrayList<ArticleResponse>();
 		articles.stream().forEach(article -> {
 			final ArticleResponse articleResponse = articleMapping.mapArticleToArticleResponse(article);
 			articleResponses.add(articleResponse);

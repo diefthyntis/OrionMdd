@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.diefthyntis.MinimumViableProduct.dto.request.ArticleRequest;
+
 import com.diefthyntis.MinimumViableProduct.dto.request.CommentRequest;
 import com.diefthyntis.MinimumViableProduct.dto.response.CommentResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.ServerResponse;
@@ -79,7 +79,7 @@ public class CommentController {
 	public List<CommentResponse> GetCommentsByArticle(@PathVariable Integer articleid) {
 		final Article article = articleService.getArticleById(articleid);
 		final List<Comment> comments = commentService.GetCommentsByArticle(article);
-		final List<CommentResponse> commentResponses = new ArrayList();
+		final List<CommentResponse> commentResponses = new ArrayList<CommentResponse>();
 		comments.stream().forEach(comment -> {
 			final CommentResponse commentResponse = commentMapping.mapCommentToCommentResponse(comment);
 			commentResponses.add(commentResponse);
@@ -92,7 +92,7 @@ public class CommentController {
 	   @GetMapping("/comments")
 		public List<CommentResponse> GetComments() {
 			final List<Comment> comments = commentService.GetComments();
-			final List<CommentResponse> commentResponses = new ArrayList();
+			final List<CommentResponse> commentResponses = new ArrayList<CommentResponse>();
 			comments.stream().forEach(comment -> {
 				final CommentResponse commentResponse = commentMapping.mapCommentToCommentResponse(comment);
 				commentResponses.add(commentResponse);
