@@ -67,7 +67,7 @@ public class Speaker {
     private java.time.LocalDateTime modificationdate;
     
     public Speaker(){
-    	modificationdate=LocalDateTime.now();
+    	//modificationdate=LocalDateTime.now();
     	creationdate = LocalDateTime.now();
     }
     

@@ -1,5 +1,7 @@
 package com.diefthyntis.MinimumViableProduct.mapping;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Component;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.RegisterRequest;
@@ -34,10 +36,11 @@ public class SpeakerMapping {
 	
 	public Speaker mapSpeakerRequestToSpeaker(SpeakerRequest speakerRequest) {
 		final Speaker speaker = new Speaker();
-		speaker.setId(NumberUtils.convertToInteger(speakerRequest.getId()));
-		speaker.setEmailaddress(speakerRequest.getEmailaddress());
+		speaker.setId(NumberUtils.convertToInteger(speakerRequest.getSpeakerId()));
+		speaker.setEmailaddress(speakerRequest.getEmailAddress());
 		speaker.setPassword(speakerRequest.getPassword());
 		speaker.setPseudonym(speakerRequest.getPseudonym());
+		speaker.setModificationdate(LocalDateTime.now());
 		return speaker;
 		
 	}

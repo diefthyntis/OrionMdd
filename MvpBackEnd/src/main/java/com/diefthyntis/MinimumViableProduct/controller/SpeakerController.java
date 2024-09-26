@@ -30,17 +30,17 @@ public class SpeakerController {
 	
 	@PutMapping("/updateSpeaker")
 	public ResponseEntity<ServerResponse> update(
-			final @RequestPart("id") String id,
+			final @RequestPart("speakerId") String speakerId,
 			final @RequestPart("pseudonym") String pseudonym,
-			final @RequestPart("emailaddress") String emailaddress, 
+			final @RequestPart("emailAddress") String emailaddress, 
 			final @RequestPart("password") String password) throws IOException, java.io.IOException {
 		log.info("RentalController - Début de la modification de rental");
 
 		final SpeakerRequest speakerRequest = new SpeakerRequest();
-		speakerRequest.setEmailaddress(emailaddress);
+		speakerRequest.setEmailAddress(emailaddress);
 		speakerRequest.setPseudonym(pseudonym);
 		speakerRequest.setPassword(password);
-		speakerRequest.setId(id);
+		speakerRequest.setSpeakerId(speakerId);
 		final Speaker speaker = this.speakerMapping.mapSpeakerRequestToSpeaker(speakerRequest);
 		speaker.setPassword(passwordEncoder.encode(speaker.getPassword()));
 		

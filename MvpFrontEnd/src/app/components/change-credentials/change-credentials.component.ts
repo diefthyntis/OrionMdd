@@ -51,46 +51,56 @@ export class ChangeCredentialsComponent implements OnInit {
 
     
   updateCredentials() {
-      if (this.buildedForm.invalid) {
-        console.log('Le formulaire est invalide');
-        this.bigErrorMessage = 'Veuillez corriger les erreurs dans le formulaire.';
-        return;
-      }
-      const formData = new FormData();
-      const pseudonym = this.buildedForm.value.varPseudonym;
-      const email = this.buildedForm.value.varEmailaddress;
-      const password = this.buildedForm.value.varPassword;
-    
-      if (pseudonym) {
-        formData.append('pseudonym', pseudonym);
-      } else {
-        console.log('Pseudonym est manquant');
-      }
-    
-      if (email) {
-        formData.append('emailaddress', email);
-      } else {
-        console.log('Email est manquant');
-      }
-    
-      if (password) {
-        formData.append('password', password);
-      } else {
-        console.log('Mot de passe est manquant');
-      }
-    
-     
-      // Appel au service pour mettre à jour le profil, et abonnement à l'observable
-      this.speakerService.updateSpeaker(formData).subscribe(
-        GenericResponse => {
-        console.log('Profil mis à jour avec succès', GenericResponse);
-      },
-      error => {
-        console.error('Erreur lors de la mise à jour du profil', error);
-      }
-    );  // Appel au service pour mettre à jour le profil, et abonnement à l'observable
-    throw new Error('Method not implemented.');
+    if (this.buildedForm.invalid) {
+      console.log("ChangeCredentialsComponent.updateCredentials","Le formulaire est invalide");
+      this.bigErrorMessage = 'Veuillez corriger les erreurs dans le formulaire.';
+      return;
     }
+    const formData = new FormData();
+
+    //const id=this.connectedSpeaker.id;
+    formData.append('speakerId', this.connectedSpeaker.id);
+
+    const modificationDate=new Date();
+    formData.append('modificationDate', modificationDate.toString());
+
+    const pseudonym = this.buildedForm.value.varPseudonym;
+    const emailaddress = this.buildedForm.value.varEmailaddress;
+    const password = this.buildedForm.value.varPassword;
+
+  
+    if (pseudonym) {
+      formData.append('pseudonym', pseudonym);
+    } else {
+      console.log("ChangeCredentialsComponent.updateCredentials",'Pseudonym est manquant');
+    }
+  
+    if (emailaddress) {
+      formData.append('emailAddress', emailaddress);
+    } else {
+      console.log("ChangeCredentialsComponent.updateCredentials",'Email est manquant');
+    }
+  
+    if (password) {
+      formData.append('password', password);
+    } else {
+      console.log("ChangeCredentialsComponent.updateCredentials",'Mot de passe est manquant');
+    }
+
+    console.log("ChangeCredentialsComponent.updateCredentials formData",formData);
+  
+    // Appel au service pour mettre à jour le profil, et abonnement à l'observable
+    this.speakerService.updateSpeaker(formData).subscribe(
+        GenericResponse => {
+        console.log("ChangeCredentialsComponent.updateCredentials OK",GenericResponse);
+        this.bigErrorMessage="Vos modifications ont été enregistrées"
+        },
+      error => {
+        console.error("ChangeCredentialsComponent.updateCredentials KO",error);
+      });
+    
+  }
+
     
     
 }
