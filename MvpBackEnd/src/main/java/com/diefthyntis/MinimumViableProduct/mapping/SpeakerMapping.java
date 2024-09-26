@@ -3,9 +3,11 @@ package com.diefthyntis.MinimumViableProduct.mapping;
 import org.springframework.stereotype.Component;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.RegisterRequest;
+import com.diefthyntis.MinimumViableProduct.dto.request.SpeakerRequest;
 import com.diefthyntis.MinimumViableProduct.dto.response.SpeakerResponse;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.util.DateUtils;
+import com.diefthyntis.MinimumViableProduct.util.NumberUtils;
 
 
 
@@ -26,6 +28,16 @@ public class SpeakerMapping {
 		speaker.setEmailaddress(registerRequest.getEmailaddress());
 		speaker.setPassword(registerRequest.getPassword());
 		speaker.setPseudonym(registerRequest.getPseudonym());
+		return speaker;
+		
+	}
+	
+	public Speaker mapSpeakerRequestToSpeaker(SpeakerRequest speakerRequest) {
+		final Speaker speaker = new Speaker();
+		speaker.setId(NumberUtils.convertToInteger(speakerRequest.getId()));
+		speaker.setEmailaddress(speakerRequest.getEmailaddress());
+		speaker.setPassword(speakerRequest.getPassword());
+		speaker.setPseudonym(speakerRequest.getPseudonym());
 		return speaker;
 		
 	}

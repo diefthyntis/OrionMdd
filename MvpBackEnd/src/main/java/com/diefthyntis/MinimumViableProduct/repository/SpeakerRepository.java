@@ -26,6 +26,7 @@ public interface SpeakerRepository extends JpaRepository<Speaker, Integer> {
 
 	
 	
+	
 		
 
 }

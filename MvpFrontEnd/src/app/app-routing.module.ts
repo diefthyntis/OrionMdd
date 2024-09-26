@@ -5,11 +5,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { TopicListComponent } from './components/topic-list/topic-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
-import { ChangeCredentialsComponent } from './components/witness-page/change-credentials.component';
+import { ChangeCredentialsComponent } from './components/change-credentials/change-credentials.component';
 import { NewArticleComponent } from './components/new-article/new-article.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { ShapeListComponent } from './components/shape-list/shape-list.component';
 import { WhitePageComponent } from './components/white-page/white-page.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'newArticle',component:NewArticleComponent},
   { path: 'commentList/:speakerId/:articleId', component: CommentListComponent },
   { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'shapeList',component:ShapeListComponent},
   { path: 'changeCredentials',component:ChangeCredentialsComponent}
   
