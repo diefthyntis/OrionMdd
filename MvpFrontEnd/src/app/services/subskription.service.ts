@@ -60,7 +60,7 @@ export class SubskriptionService {
 }
 
   public delete(subskriptionId:String): Observable<GenericResponse> {
-    let apiTargetUrl="/deleteSubscription/"+subskriptionId;
+    let apiTargetUrl="api/deleteSubscription/"+subskriptionId;
     console.log("SubskriptionService.delete apiTargetUrl=",apiTargetUrl)
     let asyncDelete$=this.httpClient.delete<GenericResponse>(apiTargetUrl);
     return asyncDelete$;

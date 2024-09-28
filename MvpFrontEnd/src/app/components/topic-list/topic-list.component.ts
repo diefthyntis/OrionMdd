@@ -15,7 +15,7 @@ import { TopicService } from 'src/app/services/topic.service';
 import { DateTool } from 'src/app/tools/date.tool';
 
 @Component({
-  selector: 'app-topics-list',
+  selector: 'app-topic-list',
   templateUrl: './topic-list.component.html',
   styleUrls: ['./topic-list.component.scss']
 })
@@ -43,6 +43,7 @@ public informationMessage!:string;
 
   ngOnInit() {
     this.loadTopic();
+    
   }
  
   subscribeToThisTopic(topicId: string) {
@@ -58,6 +59,7 @@ public informationMessage!:string;
       console.log("TopicListComponent.subscribeToThisTopic genericResponseReturnedByApi.message="+genericResponseReturnedByApi.message); 
       this.informationMessage="Abonné";
       this.loadTopic();
+     
     })
   }
 
@@ -87,8 +89,10 @@ public informationMessage!:string;
         return this.topicService.getTopics();
       })
     ).subscribe({
+      
       next: (list: TopicResponse[]) => {
         this.topicList=[];
+        
         list.forEach((instance: TopicResponse) => {
           
           const oneTopic: Topic = new Topic(instance.id, instance.title, instance.description);
@@ -97,9 +101,12 @@ public informationMessage!:string;
             oneTopic.informationMessage = "Abonné!";
           }
           this.topicList.push(oneTopic);
-        });
+        }
+        
+      );
       },
       complete: () => {
+        console.log("TopicListComponent.loadTopic topicList=",this.topicList);
         console.log('Toutes les données ont été chargées.');
       },
       error: (err) => {

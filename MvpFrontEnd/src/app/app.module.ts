@@ -19,7 +19,6 @@ import { TopicListComponent } from './components/topic-list/topic-list.component
 import { httpInterceptorProviders } from './interceptors';
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { NewArticleComponent } from './components/new-article/new-article.component';
-import { ConnectedHeaderComponent } from './components/connected-header/connected-header.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -32,7 +31,13 @@ import { WhitePageComponent } from './components/white-page/white-page.component
 
 import { ShapeListComponent } from './components/shape-list/shape-list.component';
 import { ChangeCredentialsComponent } from './components/change-credentials/change-credentials.component';
-
+import { FeedComponent } from './components/feed/feed.component';
+import { TitleComponent } from './components/title/title.component';
+import { ArticleContainerComponent } from './components/article-container/article-container.component';
+import { TopicContainerComponent } from './components/topic-container/topic-container.component';
+import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
+import { ConnectedHeaderComponent } from './components/connected-header/connected-header.component';
+import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 
 
 registerLocaleData(localeFr);
@@ -64,7 +69,14 @@ Injection
     CommentListComponent,
     WhitePageComponent,
     ChangeCredentialsComponent,
-    ShapeListComponent
+    ShapeListComponent,
+    FeedComponent,
+    TitleComponent,
+    ShapeContainerComponent,
+    TopicContainerComponent,
+    ArticleContainerComponent,
+    CommentContainerComponent
+
   ],
   imports: [
     BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule

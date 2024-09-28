@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
   // Variable pour la couleur des liens
   $lavande-color: rgb(150, 131, 236); // Exemple d'une couleur bleue
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  $headerHeight:10vh;
+  $titleHeight:10vh;
+  $borderSize:10px;
+  $buttonWidth:200px;
 
 h1 {
     margin: 0 !important;
@@ -14,29 +14,27 @@ h1 {
     color: red;
 }
 
-
 button {
-  display: flex;
+    margin:10px;
+    display: flex;
+    justify-content: center;  /* Centre le texte horizontalement */
+    align-items: center;      /* Centre le texte verticalement */
     border: solid 1px;
     border-radius: 20px;
-    vertical-align: middle;
+
     line-height: 50px;
     font-size: large;
     font-weight: bold;
     color: white;
     background-color:$lavande-color;    
     flex-wrap: nowrap;
-    width: auto;
+    width: $buttonWidth ;
     height:45px;
     padding: 10px 20px;
-    align-items: center;
-    // ajoute 10 pixels d'espace en haut et en bas et 20 pixels à gauche et à droite, ce qui crée un peu plus de distance entre le texte et les bords du bouton.
-    margin-top: 30px; // espace supplémentaire en haut
+
   }
 
 
-
-// Styles globaux pour les liens
 a {
   color: $lavande-color;
   font-weight: bold;
@@ -48,13 +46,102 @@ a:hover {
   text-decoration: underline; /* Ajoute un soulignement au survol */
 }
 
-//
-//a:visited {
-//  color: lighten($lavande-color, 20%); /* Couleur plus claire pour les liens déjà visités */
-//}
-//
-
 a.active-link {
     color: lighten($lavande-color, 10%);  /* Couleur noire pour le lien actif */
     font-weight: normal;
+}
+
+
+app-connected-header {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: 0; /* Fixe le header au sommet de la fenêtre */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+ background-color: green; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:2
+}
+
+app-title {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: 10vh; /* Juste sous le header */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+  background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:1;
+}
+
+
+app-article-list {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: 20vh; /* Commence après le header (10vh) et le titre (10vh) */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+  // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:0;
+  height: calc(100vh - $headerHeight - $titleHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
   }
+
+app-shape-list {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: 10vh; /* Juste sous le header */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+  //background-color: yellow; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:1;
+  height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
+}
+
+app-topic-list {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: 10vh; /* Juste sous le header */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  //background-color: blue; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:1;
+  height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
+  width: 100%;
+}
+
+.collection, .block, .data {
+  box-sizing: border-box;
+  border: $borderSize solid;
+}
+
+.frame {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.item {
+  text-align: center;
+  background-color: #f2f2f2;
+  gap: 100px; /* Ajoute un espace entre les éléments */
+  border: $borderSize solid red;
+  width: calc(33% - 20px); 
+  min-width: calc($buttonWidth + 2 * $borderSize);
+}
+
+.block {
+  
+
+
+  
+  /* Chaque bloc occupe 50% de la largeur, avec un espace entre */
+  border: $borderSize solid blue;
+
+}
+
+.data {
+  font-family: 'Georgia', serif;
+  text-align: left;
+  border: $borderSize solid green;
+  word-wrap: break-word;
+  white-space: normal;
+  width: 100%;
+
+}

@@ -46,7 +46,7 @@ public submit(): void {
     (response: AuthSuccess) => {
       this.authService.saveToken(response.content);
       console.log("login.component.ts.submit token sauvegardé");
-      this.router.navigate(['/topicList']);
+      this.router.navigate(['/articleContainer']);
       console.log("login.component.ts.submit redirection vers witness termninée");
     },
     (error) => {

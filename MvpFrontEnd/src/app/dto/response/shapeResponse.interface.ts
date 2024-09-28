@@ -1,5 +1,5 @@
 export interface ShapeResponse {
-    subskriptionId:string;
+    subscriptionId:string;
     topicTitle:string;
     topicSentence:string;
     topicId:string

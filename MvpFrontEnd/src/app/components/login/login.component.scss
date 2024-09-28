@@ -1,0 +1,43 @@
+.container {
+    font-weight: bold;
+    color: cadetblue;
+    background-color: white;
+    font-size: large;
+    
+}
+
+.title {
+    font-size:xx-large;
+  }
+
+.logo {
+    width: 30%;
+    text-align: center;
+}
+
+.input {
+    line-height: 50px;
+    margin: 10px;
+    width: 600px;
+}
+
+
+
+
+.fieldlabel {
+    line-height: 50px;
+    margin: 10px;
+    white-space: nowrap;  /* Empêche le texte de passer à la ligne */
+  width: 350px;          /* Ajuste automatiquement la largeur */
+
+}
+
+
+.line {
+    align-items: center;//nécéssaire
+    display: flex;//nécéssaire
+    width: 100%;
+    height: 50px;
+
+}
+

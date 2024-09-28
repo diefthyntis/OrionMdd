@@ -1,14 +1,38 @@
+/* 
+  Le conteneur principal du header utilise Flexbox pour aligner les éléments horizontalement.
+  Cela permet une répartition égale entre le logo, les liens et l'icône de profil.
+*/
 .container {
-    display: flex;
-    justify-content: space-between; // Répartir uniformément l'espace entre les éléments
-    align-items: center;            // Aligner les éléments verticalement au centre
+  display: flex; /* Flexbox permet d'aligner les éléments sur une ligne */
+  justify-content: space-between; /* Espace les éléments uniformément entre eux */
+  align-items: center; /* Centre les éléments verticalement */
+  padding: 0px;/*Ajoute des marges internes pour espacer le contenu du bord */
+  height:50px; 
+}
 
-    
-  }
   
-  .item {
-    text-align: center;
-    flex: 1;  // Chaque élément prendra une part égale de l'espace disponible
-    margin: 0 10px;  // Espacement entre les éléments
-  }
-  
+
+
+.item {
+  margin: 0 10px; /* Espace entre chaque élément dans le header */
+}
+
+
+/* 
+  Ajuste la taille de l'image du logo.
+  Modifie la hauteur si nécessaire pour mieux s'adapter à la taille de ton header.
+*/
+/* Définit la hauteur de l'image du logo */
+
+.logo {
+  height: 50px; 
+}
+
+/* 
+  Style pour les liens actifs dans le header.
+  La classe 'active-link' changera la couleur du lien lorsque celui-ci est actif (page actuelle).
+
+.active-link {
+  color: #ff00ff; /* Couleur lavande pour le lien actif
+}
+*/

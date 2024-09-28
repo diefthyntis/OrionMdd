@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { concatMap, switchMap } from 'rxjs';
 import { GenericResponse } from 'src/app/dto/response/genericResponse.interface';
 import { ShapeResponse } from 'src/app/dto/response/shapeResponse.interface';
 import { SpeakerResponse } from 'src/app/dto/response/speakerResponse.interface';
@@ -26,25 +27,30 @@ public shapeResponseList!:ShapeResponse[];
   ) { }
 
   ngOnInit(): void {
+    this.authService.me().pipe(
+      concatMap((returnedInstanceByApi: SpeakerResponse) => {
+        this.connectedSpeaker = returnedInstanceByApi;
+        console.log("ShapeListComponent.ngOnInit connectedSpeaker=", this.connectedSpeaker);
   
-      let asyncGetConnectedSpeaker$=this.authService.me();
-      asyncGetConnectedSpeaker$.subscribe((returnedInstanceByApi:SpeakerResponse)=> {
-        this.connectedSpeaker=returnedInstanceByApi;
-        console.log("ProfileComponent.ngOnInit connectedSpeaker=",this.connectedSpeaker);
-      } )
-      let asyncGetShapeList$=this.subskriptionService.getShapeList(this.connectedSpeaker.id);
-      asyncGetShapeList$.subscribe(returnedArrayByApi => {
-        this.shapeResponseList=returnedArrayByApi;
-        console.log("ProfileComponent.ngOnInit productResponseList=",this.shapeResponseList);
+        // Maintenant que `this.connectedSpeaker.id` est défini, fais l'appel suivant
+        return this.subskriptionService.getShapeList(this.connectedSpeaker.id);
       })
-  
+    ).subscribe(returnedArrayByApi => {
+      this.shapeResponseList = returnedArrayByApi;
+      console.log("ShapeListComponent.ngOnInit productResshapeResponseListponseList=", this.shapeResponseList);
+    }, error => {
+      console.error("ShapeListComponent.ngOnInit Erreur lors du chargement de la liste des shapes :", error);
+      // Gérer l'erreur ici
+    });
   }
 
-  unsubscribeToThisTopic(subskriptionId: string) {
-    let asyncDeleteSubskription$=this.subskriptionService.delete(subskriptionId);
-    asyncDeleteSubskription$.subscribe((returnedResult:GenericResponse)=>{
+  unsubscribeToThisTopic(subscriptionId: string) {
+    console.log("ShapeListComponent.unsubscribeToThisTopic subscriptionId=",subscriptionId);
+    let asyncDeleteSubskription$=this.subskriptionService.delete(subscriptionId);
+    asyncDeleteSubskription$.subscribe(
+      (returnedResult:GenericResponse)=>{
       console.log("ProfileComponent.unsubscribeToThisTopic GenericResponse=",returnedResult.message);
-      const index = this.shapeResponseList.findIndex(obj => obj.subskriptionId === subskriptionId);
+      const index = this.shapeResponseList.findIndex(obj => obj.subscriptionId === subscriptionId);
       if (index !== -1) {
         this.shapeResponseList.splice(index, 1);
       }

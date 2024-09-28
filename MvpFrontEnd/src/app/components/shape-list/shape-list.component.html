@@ -1,12 +1,18 @@
-<p>shape-list works!</p>
-<div class="container" *ngFor="let oneShapeResponse of shapeResponseList">
+<div class="frame">
+<div class="item" *ngFor="let oneShapeResponse of shapeResponseList">
     <div class="block">
         <div class="data">Thème&nbsp;{{oneShapeResponse.topicTitle}}</div>
         <div class="data">{{oneShapeResponse.topicSentence}}</div>
-        <button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subskriptionId)">Se désabonner</button>
+        <button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
     </div>
   </div>
-  
-  <div *ngIf="bigErrorMessage" class="alert alert-danger">
+
+   </div>
+  <!--
+  <div *ngIf="bigErrorMessage" class="display">
     {{ bigErrorMessage }}
   </div>
+  <div *ngIf="!shapeResponseList.length" class="display">
+    Pas d'abonnement pour le moment
+  </div>
+  -->

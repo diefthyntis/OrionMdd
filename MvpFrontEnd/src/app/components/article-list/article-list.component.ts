@@ -23,10 +23,6 @@ navigateToCommentList(speakerId: string,articleId: string) {
 
 }
 
-createArticle() {
-  this.router.navigate(['/newArticle']);
-
-}
 
 
   public connectedSpeaker?:SpeakerResponse;

@@ -5,14 +5,12 @@
 
   <div class="container">
     
-    <div class="block"><h1>Ajout d'un commentaire</h1></div>
+    <div class="block"><h1>Ajout d'un commentaire pour l'article "{{ currentArticle.title }}"</h1></div>
 
     <div class="block">
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
 
-      <div class="line">
-        <div class="label"><label for="articleTitle">{{ articleTitle }}</label></div>
-      </div>
+      
       <div class="line">
         <div class="label"><label for="sentence">Rédaction :</label></div>
         <div class="data">
