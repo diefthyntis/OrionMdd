@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { concatMap } from 'rxjs';
 
@@ -21,6 +21,10 @@ import { DateTool } from 'src/app/tools/date.tool';
 })
 export class CommentListComponent implements OnInit {
 
+  
+  @Input() speakerIdToReceive:string | undefined;
+  @Input() articleIdToReceive:string | undefined;
+
   public connectedSpeaker!:SpeakerResponse;
   public kommentList:Komment[]=[];
   public bigErrorMessage?:string="";
@@ -40,9 +44,14 @@ export class CommentListComponent implements OnInit {
   ) { }
 
     ngOnInit(): void {
+
+      console.log("### comment-list.component.ts.ngOnInit speakerIdToReceive=" + this.speakerIdToReceive);
+      console.log("### comment-list.component.ts.ngOnInit articleIdToReceive=" + this.articleIdToReceive);
       // Utilisation de paramMap pour récupérer les paramètres et enchaîner les appels via concatMap
       this.parentRoute.paramMap.pipe(
         concatMap(params => {
+          console.log("CommentListComponent.ngOnInit",params);
+          /*
           const speakerId = params.get('speakerId');
           
           const articleId = params.get('articleId');
@@ -59,9 +68,8 @@ export class CommentListComponent implements OnInit {
           this.connectedSpeakerId = speakerId ?? "";
           this.currentArticleId = articleId ?? "";
     
-          console.log("comment-list.component.ts.ngOnInit connectedSpeakerId=" + this.connectedSpeakerId);
-          console.log("comment-list.component.ts.ngOnInit articleId=" + this.currentArticleId);
-    
+          
+          */
           // Retourner l'observable de l'appel à authService.me() pour continuer avec concatMap
           return this.authService.me();
         }),
@@ -70,7 +78,7 @@ export class CommentListComponent implements OnInit {
           this.connectedSpeaker = speakerResponseReturnedByApi;
           console.log("comment-list.component.ts.ngOnInit speakerResponseReturnedByApi.id=" + speakerResponseReturnedByApi.id);
           // Retourner l'observable de l'appel pour obtenir les détails de l'article
-          return this.articleService.detail(this.currentArticleId);
+          return this.articleService.detail(this.articleIdToReceive ?? '');
         }),
         concatMap(articleResponseReturnedByApi => {
           console.log("comment-list.component.ts.ngOnInit articleResponseReturnedByApi.title=" + articleResponseReturnedByApi.title);
@@ -90,7 +98,7 @@ export class CommentListComponent implements OnInit {
           */
     
           // Retourner l'observable de la liste des commentaires de l'article
-          return this.commentService.getListByArticleId(this.currentArticleId);
+          return this.commentService.getListByArticleId(this.articleIdToReceive ?? '');
         })
       ).subscribe(returnedCommentListByApi => {
         // Parcourir les commentaires et les ajouter à la liste
@@ -117,10 +125,6 @@ export class CommentListComponent implements OnInit {
     
 
 
-  createComment(speakerId:string,articleId:string) {
-    // Utilisation de connectedSpeakerId et currentArticle.id pour générer l'URL de redirection
-    this.router.navigate(['/newComment', speakerId, articleId]);
-  }
-  
+
 
 }

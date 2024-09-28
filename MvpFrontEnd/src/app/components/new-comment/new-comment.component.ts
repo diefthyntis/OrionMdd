@@ -128,7 +128,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
         (returnedCommentResponseByApi)  => { 
           this.createdComment = returnedCommentResponseByApi;
           console.log('new-comment.component.ts.submit createdComment='+this.createdComment);
-          this.router.navigate(['/commentList',this.connectedSpeaker.id,this.articleId]);
+          this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
         },
         (error) => {
           // Gestion des erreurs retournées par l'API

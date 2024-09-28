@@ -1,11 +1,5 @@
 
-<app-connected-header></app-connected-header>
-<h2>Commentaires&nbsp;pour&nbsp;l'article&nbsp;"{{articleTitle}}"</h2>
 
-{{ bigErrorMessage }}
-<div >
-  <button class="bigbutton" type="submit" (click)="createComment(connectedSpeakerId,currentArticleId); $event.stopPropagation()">Ajouter un commentaire</button>
-</div>
 
 <div class="frame">
 <div class="item" *ngFor="let oneKomment of kommentList">

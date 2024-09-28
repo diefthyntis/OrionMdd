@@ -17,7 +17,7 @@ export class ArticleListComponent implements OnInit {
 
 
 navigateToCommentList(speakerId: string,articleId: string) {
-  this.router.navigate(['/commentList', speakerId,articleId]);
+  this.router.navigate(['/commentContainer', speakerId,articleId]);
 
 
 

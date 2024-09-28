@@ -1,14 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
   // Variable pour la couleur des liens
   $lavande-color: rgb(150, 131, 236); // Exemple d'une couleur bleue
-  $headerHeight:10vh;
+  
   $titleHeight:10vh;
-  $borderSize:10px;
+  $borderSize:0vh;
   $buttonWidth:200px;
+  $lineHeight:5vh;
+  $headerHeight:25vh ;
 
-h1 {
-    margin: 0 !important;
-}
+
+
 
 .error {
     color: red;
@@ -57,13 +58,22 @@ app-connected-header {
   top: 0; /* Fixe le header au sommet de la fenêtre */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
- background-color: green; /* Fond blanc pour éviter de voir le contenu derrière le header */
-  z-index:2
+  z-index:2;
+  height: $headerHeight;
 }
 
-app-title {
+app-article-title {
   position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: 10vh; /* Juste sous le header */
+  top: $headerHeight; /* Juste sous le header */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+  background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:1;
+}
+
+app-comment-title {
+  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  top: $headerHeight  ; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
   background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
@@ -73,18 +83,30 @@ app-title {
 
 app-article-list {
   position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: 20vh; /* Commence après le header (10vh) et le titre (10vh) */
+  top: calc($headerHeight + 2 * $lineHeight + 7 * $borderSize); /* Commence après le header (10vh) et le titre (10vh) */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
   // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:0;
-  height: calc(100vh - $headerHeight - $titleHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  height: calc(100vh + 2 * $lineHeight + 7 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
   overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
   }
+  
+  app-comment-list {
+    position: fixed; /* Position fixe pour garder le header en haut de la page */
+    top: $headerHeight + 2*$lineHeight + 8 * $borderSize; /* Commence après le header (10vh) et le titre (10vh) */
+    left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+    width: 100%; /* Le header occupe toute la largeur de la page */
+    // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
+    z-index:0;
+    height: calc(100vh - $headerHeight - 2*$lineHeight - 8 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+    overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
+    } 
 
+    
 app-shape-list {
   position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: 10vh; /* Juste sous le header */
+  top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
   //background-color: yellow; /* Fond blanc pour éviter de voir le contenu derrière le header */
@@ -95,7 +117,7 @@ app-shape-list {
 
 app-topic-list {
   position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: 10vh; /* Juste sous le header */
+  top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   //background-color: blue; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:1;
@@ -104,44 +126,76 @@ app-topic-list {
   width: 100%;
 }
 
-.collection, .block, .data {
-  box-sizing: border-box;
-  border: $borderSize solid;
+
+
+.blackLine {
+  height:1px;
 }
 
 .frame {
   display: flex;
-
   flex-wrap: wrap;
   justify-content: flex-start;
-
+  box-sizing: border-box;
 }
 
 .item {
   text-align: center;
-  background-color: #f2f2f2;
+  background-color: #f1ecec;
   gap: 100px; /* Ajoute un espace entre les éléments */
-  border: $borderSize solid red;
-  width: calc(33% - 20px); 
+  //border: $borderSize solid red;
+  width: 25%; 
   min-width: calc($buttonWidth + 2 * $borderSize);
+  box-sizing: border-box;
+  margin: 0.1%;
+  border-radius: 20px;
 }
 
-.block {
-  
 
-
-  
-  /* Chaque bloc occupe 50% de la largeur, avec un espace entre */
-  border: $borderSize solid blue;
-
-}
 
 .data {
   font-family: 'Georgia', serif;
   text-align: left;
-  border: $borderSize solid green;
+  //border: $borderSize solid green;
   word-wrap: break-word;
   white-space: normal;
   width: 100%;
+  height: somethingHeight;
+  box-sizing: border-box;
+  
+}
 
+
+.line {
+  display: flex;
+  font-family: 'Georgia', serif;
+  text-align: left;
+  border: $borderSize solid pink;
+  overflow-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f1ecec;    
+
+}
+
+
+.header {
+  display: flex;
+  font-family: 'Georgia', serif;
+  text-align: left;
+  border: $borderSize solid #0a911c;
+  overflow-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f1ecec;    
+
+}
+
+
+.label {
+  width: 20%;
+}
+
+.river {
+  width: 80%;
 }

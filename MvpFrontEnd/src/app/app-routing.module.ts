@@ -11,11 +11,12 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
 import { ShapeListComponent } from './components/shape-list/shape-list.component';
 import { WhitePageComponent } from './components/white-page/white-page.component';
-import { FeedComponent } from './components/feed/feed.component';
+
 import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
 import { TopicComponent } from './components/topic/topic.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
 import { ArticleContainerComponent } from './components/article-container/article-container.component';
+import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 
 
 
@@ -27,9 +28,8 @@ const routes: Routes = [
   { path: 'articleContainer',component:ArticleContainerComponent},
   { path: 'shapeContainer',component:ShapeContainerComponent},
   { path: 'newArticle',component:NewArticleComponent},
-  { path: 'commentList/:speakerId/:articleId', component: CommentListComponent },
+  { path: 'commentContainer/:speakerId/:articleId', component: CommentContainerComponent },
   { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
-
   { path: 'changeCredentials',component:ChangeCredentialsComponent},
   { path: 'welcome',component:LandingComponent},
   

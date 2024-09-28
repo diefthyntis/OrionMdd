@@ -31,13 +31,16 @@ import { WhitePageComponent } from './components/white-page/white-page.component
 
 import { ShapeListComponent } from './components/shape-list/shape-list.component';
 import { ChangeCredentialsComponent } from './components/change-credentials/change-credentials.component';
-import { FeedComponent } from './components/feed/feed.component';
-import { TitleComponent } from './components/title/title.component';
+
+
 import { ArticleContainerComponent } from './components/article-container/article-container.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
 import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
 import { ConnectedHeaderComponent } from './components/connected-header/connected-header.component';
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
+import { CommentTitleComponent } from './components/comment-title/comment-title.component';
+import { ArticleTitleComponent } from './components/article-title/title.component';
+
 
 
 registerLocaleData(localeFr);
@@ -70,12 +73,12 @@ Injection
     WhitePageComponent,
     ChangeCredentialsComponent,
     ShapeListComponent,
-    FeedComponent,
-    TitleComponent,
+    ArticleTitleComponent,
     ShapeContainerComponent,
     TopicContainerComponent,
     ArticleContainerComponent,
-    CommentContainerComponent
+    CommentContainerComponent,
+    CommentTitleComponent
 
   ],
   imports: [
