@@ -1,43 +1,40 @@
 <app-connected-header></app-connected-header>
-
-
-
-
-  <div class="container">
-    
-    <div class="block"><h1>Création d'un nouvel article</h1></div>
-
-    <div class="block">
+<div class="container">
+    <div class="title-line"><h1>Création d'un nouvel article</h1>
+    </div>
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
-        <div class="line" >
-          <div class="label"><label for="topic">Thème :</label></div>
-          <div class="data">
-            <select (change)="onOptionSelected($event)" formControlName="varTopic">
-            <option *ngFor="let oneTopic of topicList" [value]="oneTopic.id">
-              {{ oneTopic.title }}
-            </option>
-            </select>
-          </div>
-      </div>
-      <div class="line">
-        <div class="label"><label for="title">Titre :</label></div>
-        <div class="data"><input type="text" id="title" class="form-control" formControlName="varTitle"></div>
-      </div>
-      <div class="line">
-        <div class="label"><label for="sentence">Rédaction :</label></div>
-        <div class="data">
-          <input class="blablabla" type="text" id="sentence" formControlName="varSentence">
+
+      <div class="input-line">
+        <label class="input-label" for="title">Titre :</label>
+        <div class="input-box"><input class="input" type="text" id="title" formControlName="varTitle">
         </div>
       </div>
-      <div class="block">
-        <button type="submit" >Créer</button>
+      <div class="input-line">
+        <label class="input-label" for="sentence">Rédaction :</label>
+        <div class="input-box"><input class="input" type="text" id="sentence" formControlName="varSentence">
+        </div>
+      </div>
+      <div class="input-line" >
+        <label class="input-label" for="topic">Thème :</label>
+        <div class="input-box">
+          <select class="input" (change)="onOptionSelected($event)" formControlName="varTopic">
+          <option *ngFor="let oneTopic of topicList" [value]="oneTopic.id">
+            {{ oneTopic.title }}
+          </option>
+          </select>
+        </div>
     </div>
-    </form>
-  </div>
-
-
-
+      <div class="button-line">
+        <button type="submit" >Créer</button>
+      </div>
+      
+      </form>
 </div>
+
+
+
+
+
 
 <p>Valeur sélectionnée: {{ selectedOption }}</p>
 {{ bigErrorMessage }}

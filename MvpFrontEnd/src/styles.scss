@@ -1,76 +1,112 @@
 /* You can add global styles to this file, and also import other style files */
   // Variable pour la couleur des liens
-  $lavande-color: rgb(150, 131, 236); // Exemple d'une couleur bleue
+  $lavandeColor: rgb(150, 131, 236); // Exemple d'une couleur bleue
+  $greyPearlColor:#f1ecec;
   
   $titleHeight:10vh;
-  $borderSize:0vh;
-  $buttonWidth:200px;
-  $lineHeight:5vh;
+  $borderSize:1vh;
+
+  $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
   $headerHeight:25vh ;
+  $buttonHeight:5vh;
+  $buttonWidth:25vw;
+  $lineWidth:100%;
 
+  body {
+    font-size: 1vh; /* Taille de police par défaut */
+    color: #333; /* Couleur de texte par défaut */
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: inherit;
+  }
 
+  h1 {
+    font-size: 4vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
+  }
+  h2 {
+    font-size: 3vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
+  }
+  h3 {
+    font-size: 2vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
+  }
 
-
-.error {
-    color: red;
-}
 
 button {
-    margin:10px;
     display: flex;
     justify-content: center;  /* Centre le texte horizontalement */
     align-items: center;      /* Centre le texte verticalement */
-    border: solid 1px;
+    border: $borderSize solid white;
     border-radius: 20px;
-
-    line-height: 50px;
-    font-size: large;
-    font-weight: bold;
     color: white;
-    background-color:$lavande-color;    
-    flex-wrap: nowrap;
-    width: $buttonWidth ;
-    height:45px;
-    padding: 10px 20px;
+    background-color:$lavandeColor;    
+    //flex-wrap: nowrap;
 
+    padding: 1vh 2vw; /* Ajoute du padding autour du texte, vertical horizontal */
+    //white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
+    width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
+    height: auto;
+    max-width: 42vh;
+    max-height: 7vh;
+    margin: 1vh;
+
+    // obliger le remettre car celui du body n'est pas appliqué
+    font-family: 'Georgia', serif;
+    font-weight: bold;
   }
 
 
 a {
-  color: $lavande-color;
-  font-weight: bold;
+  color: $lavandeColor;
+
   text-decoration: none; /* Supprime le soulignement par défaut */
 }
 
 a:hover {
-  color: darken($lavande-color, 10%); /* Couleur plus foncée au survol */
+  color: darken($lavandeColor, 10%); /* Couleur plus foncée au survol */
   text-decoration: underline; /* Ajoute un soulignement au survol */
 }
 
 a.active-link {
-    color: lighten($lavande-color, 10%);  /* Couleur noire pour le lien actif */
+    color: lighten($lavandeColor, 10%);  /* Couleur noire pour le lien actif */
     font-weight: normal;
 }
 
 
 app-connected-header {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
+  position: relative; /* Position fixe pour garder le header en haut de la page */
   top: 0; /* Fixe le header au sommet de la fenêtre */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
-  z-index:2;
+  z-index:3;
   height: $headerHeight;
+  
 }
 
 app-article-title {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: $headerHeight; /* Juste sous le header */
+  position: relative; /* Position fixe pour garder le header en haut de la page */
+  //top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
   background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
-  z-index:1;
+  z-index:2;
+ 
 }
 
+
+
+app-article-list {
+  position: relative; /* Position fixe pour garder le header en haut de la page */
+  //top: calc($headerHeight + 2 * $lineHeight + 7 * $borderSize); /* Commence après le header (10vh) et le titre (10vh) */
+  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
+  width: 100%; /* Le header occupe toute la largeur de la page */
+  // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
+  z-index:1;
+  height: calc(100vh + 2 * $lineHeight + 7 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  overflow: auto; /* Active le défilement vertical dans ce conteneur */
+  }
+
+
+  
 app-comment-title {
   position: fixed; /* Position fixe pour garder le header en haut de la page */
   top: $headerHeight  ; /* Juste sous le header */
@@ -79,18 +115,6 @@ app-comment-title {
   background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:1;
 }
-
-
-app-article-list {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: calc($headerHeight + 2 * $lineHeight + 7 * $borderSize); /* Commence après le header (10vh) et le titre (10vh) */
-  left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
-  width: 100%; /* Le header occupe toute la largeur de la page */
-  // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
-  z-index:0;
-  height: calc(100vh + 2 * $lineHeight + 7 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
-  overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
-  }
   
   app-comment-list {
     position: fixed; /* Position fixe pour garder le header en haut de la page */
@@ -116,86 +140,224 @@ app-shape-list {
 }
 
 app-topic-list {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: $headerHeight; /* Juste sous le header */
+  //position: fixed; /* Position fixe pour garder le header en haut de la page */
+  //top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   //background-color: blue; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:1;
-  height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  //height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
   overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
   width: 100%;
 }
 
 
 
-.blackLine {
-  height:1px;
+
+
+.blablabla {
+  height: 50vh;
+  width: 50vh;
 }
 
+//=======================================================================
+// Header 
+//=======================================================================
+.header {
+
+  border: $borderSize solid #130a91;
+  box-sizing: border-box;
+  background-color:$greyPearlColor;    
+  width: 100%;
+}
+
+
+
+
+
+
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+@media (orientation: portrait) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+@media (orientation: landscape) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+}
+
+.header-link {
+
+  border: $borderSize solid rgb(219, 120, 141);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.header-row {
+  border: none; /* Retire les bordures par défaut */
+  border-top: 2px solid black; /* Crée un trait noir de 2px d'épaisseur */
+  width: 100%; /* Occupe 100% de la largeur de la fenêtre */
+  margin: 0; /* Retire les marges par défaut */
+}
+
+//=======================================================================
+// Form 
+//=======================================================================
+
+
+$containerHeight:50vh;
+$containerWidth:85vw; // parfait pour iPad
+
+
+.container {
+  border: $borderSize solid #31c2e6;
+  box-sizing: border-box;
+
+  background-color:$greyPearlColor; 
+}
+.input-line{
+  display: flex;
+
+  border: $borderSize solid pink;
+  overflow-wrap: break-word;
+  width: $lineWidth;
+  box-sizing: border-box;
+  background-color: #f1ecec;   
+  color: cadetblue; 
+
+  justify-content: center;
+  //height: $lineHeight;
+}
+
+
+.input-button {
+  display: flex;
+
+  border: $borderSize solid pink;
+  overflow-wrap: break-word;
+  width: $lineWidth;
+  box-sizing: border-box;
+  background-color:$greyPearlColor;   
+  color: cadetblue; 
+
+  justify-content: center;
+  width: $lineWidth;
+  height: $lineHeight;
+}
+
+.input-title {
+  display: flex;
+  border: $borderSize solid pink;
+  background-color:$greyPearlColor;   
+  color: cadetblue; 
+  justify-content: center;
+}
+
+.input-block {
+  border: $borderSize solid rgb(227, 192, 255);
+}
+
+.input-box {
+  border: $borderSize solid rgb(150, 140, 142);
+  width:calc(50% - 2 * $borderSize);
+}
+
+
+.input-label {
+  width: calc(50% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+  border: $borderSize solid red;
+  }
+
+.input {
+  width: calc(100% - 2 * $borderSize);
+  border: $borderSize solid rgb(0, 255, 234);
+
+}
+
+
+//=======================================================================
+// displayed data coming from api
+//=======================================================================
 .frame {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
   box-sizing: border-box;
+
+  word-break: break-all; 
 }
+
+
 
 .item {
   text-align: center;
-  background-color: #f1ecec;
+  background-color:$greyPearlColor;
   gap: 100px; /* Ajoute un espace entre les éléments */
-  //border: $borderSize solid red;
+  border: $borderSize solid red;
   width: 25%; 
   min-width: calc($buttonWidth + 2 * $borderSize);
-  box-sizing: border-box;
-  margin: 0.1%;
   border-radius: 20px;
 }
 
-
-
-.data {
-  font-family: 'Georgia', serif;
-  text-align: left;
-  //border: $borderSize solid green;
-  word-wrap: break-word;
-  white-space: normal;
-  width: 100%;
-  height: somethingHeight;
-  box-sizing: border-box;
-  
-}
-
-
-.line {
-  display: flex;
-  font-family: 'Georgia', serif;
-  text-align: left;
+.item-line{
+  display: flex; // nécessaire poutr activer justify-content: center;
   border: $borderSize solid pink;
-  overflow-wrap: break-word;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f1ecec;    
 
+  width: $lineWidth;
+  box-sizing: border-box;
+  background-color: #f1ecec;   
+  color: cadetblue; 
+
+  justify-content: center;
+   align-items: center;
 }
 
 
-.header {
+.item-data {
+  height: calc(100% - 2 * $borderSize);
+  width:calc(100% - 2 * $borderSize);
+  border: $borderSize solid rgb(14, 52, 223);
   display: flex;
-  font-family: 'Georgia', serif;
-  text-align: left;
-  border: $borderSize solid #0a911c;
-  overflow-wrap: break-word;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f1ecec;    
-
+  justify-content: left;
+  
+  align-items: center;
 }
 
 
-.label {
-  width: 20%;
+
+.item-button {
+  border: $borderSize solid rgb(194, 19, 48);
+  background-color:$greyPearlColor;   
+  color: cadetblue; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 2 * $borderSize);
+  width:calc(100% - 2 * $borderSize);
 }
 
-.river {
-  width: 80%;
+.item-information {
+
+  background-color: $lavandeColor;  
+  border: $borderSize solid rgb(21, 22, 21);
+  color: white; 
+  height: $buttonHeight;
+  width: (0.5 * $buttonWidth);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
 }
+
+.little-button {
+  width: (0.5 * $buttonWidth);
+}
+

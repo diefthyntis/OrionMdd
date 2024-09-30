@@ -1,20 +1,24 @@
 <app-auth-header></app-auth-header>
-
-
 <div class="container">
-<div class="line" ><div class="title">CONNEXION</div></div>
 <form [formGroup]="buildedForm" class="register-form"  (ngSubmit)="submit()">
-<div class="line">
-  <label class="fieldlabel" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
-  <input class="input" formControlName="varEmailAddress" type="text" id="login" class="form-control">
+  <div class="input-title" >
+    <h1>Connexion</h1>
+  </div>
+<div class="input-line">
+  <label class="input-label" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
+  <div class="input-box">
+    <input class="input" formControlName="varEmailAddress" type="text" id="login">
+  </div>
 </div>
-<div class="line">
-  <label class="fieldlabel" for="password">Mot de passe :</label>
-  <input class="input" formControlName="varPassword" type="password" id="password" class="form-control">
+<div class="input-line">
+  <label class="input-label" for="password">Mot de passe :</label>
+  <div class="input-box">
+  <input  class="input" formControlName="varPassword" type="password" id="password"></div>
 </div>
-<div class="line">
+<div class="input-button">
   <button [disabled]="buildedForm.invalid" type="submit" >Se connecter</button>
 </div>
+
 </form>
 {{ bigErrorMessage }}
 </div>

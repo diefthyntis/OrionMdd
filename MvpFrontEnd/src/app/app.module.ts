@@ -40,6 +40,8 @@ import { ConnectedHeaderComponent } from './components/connected-header/connecte
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 import { CommentTitleComponent } from './components/comment-title/comment-title.component';
 import { ArticleTitleComponent } from './components/article-title/title.component';
+import { BlackLineComponent } from './components/black-line/black-line.component';
+
 
 
 
@@ -78,7 +80,8 @@ Injection
     TopicContainerComponent,
     ArticleContainerComponent,
     CommentContainerComponent,
-    CommentTitleComponent
+    CommentTitleComponent,
+    BlackLineComponent
 
   ],
   imports: [

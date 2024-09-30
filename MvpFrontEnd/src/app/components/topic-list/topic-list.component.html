@@ -1,17 +1,23 @@
 
-  <div class="frame">
+<div class="frame">
   <div class="item" *ngFor="let oneTopic of topicList">
-      <div class="block">
-        <div class="data"><h2>Thème&nbsp;{{ oneTopic.title }}</h2></div>
-        <div class="data">
-          <div *ngIf="oneTopic.subskriptionActivated"><h3> {{ oneTopic.informationMessage }}</h3></div>
-        </div>
-        <div class="data">{{ oneTopic.description }}</div>
-        <div class="data">
-          <button *ngIf="!oneTopic.subskriptionActivated" type="submit" (click)="subscribeToThisTopic(oneTopic.id)">S'abonner</button>
-        </div>
+    <div class="item-line">
+      <div class="item-data">
+        
+          <h2>Thème&nbsp;{{ oneTopic.title }}</h2>
+       
       </div>
+    </div>
+    <div class="item-line"><div class="item-data">{{ oneTopic.description }}</div>
 
     </div>
-
+    <div class="item-line">
+      <div *ngIf="oneTopic.subskriptionActivated" class="item-information">
+        <label class="label">{{ oneTopic.informationMessage }}</label>
+      </div>
+      <div *ngIf="!oneTopic.subskriptionActivated" class="item-button">
+        <button class="little-button" type="submit" (click)="subscribeToThisTopic(oneTopic.id)">S'abonner</button>
+      </div>
+    </div>
   </div>
+</div>
