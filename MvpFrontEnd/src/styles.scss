@@ -13,11 +13,32 @@
   $lineWidth:100%;
 
   body {
-    font-size: 1vh; /* Taille de police par défaut */
+
     color: #333; /* Couleur de texte par défaut */
     font-family: 'Georgia', serif;
     font-weight: bold;
-    font-size: inherit;
+    overflow: hidden;
+
+  }
+
+  @media (min-width: 600px) {
+    body {
+      font-size: 18px;
+    }
+
+
+  }
+  
+  @media (min-width: 900px) {
+    body {
+      font-size: 20px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body {
+      font-size: 22px;
+    }
   }
 
   h1 {
@@ -45,8 +66,8 @@ button {
     //white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
     width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
     height: auto;
-    max-width: 42vh;
-    max-height: 7vh;
+    //max-width: 42vh;
+    //max-height: 7vh;
     margin: 1vh;
 
     // obliger le remettre car celui du body n'est pas appliqué
@@ -76,33 +97,30 @@ app-connected-header {
   position: relative; /* Position fixe pour garder le header en haut de la page */
   top: 0; /* Fixe le header au sommet de la fenêtre */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
-  width: 100%; /* Le header occupe toute la largeur de la page */
+  //width: 100%; /* Le header occupe toute la largeur de la page */
   z-index:3;
-  height: $headerHeight;
-  
+  //height:(5vh - 2 * $borderSize);
 }
 
 app-article-title {
   position: relative; /* Position fixe pour garder le header en haut de la page */
   //top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
-  width: 100%; /* Le header occupe toute la largeur de la page */
+  //width: 100%; /* Le header occupe toute la largeur de la page */
   background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:2;
- 
+  //height:(5vh - 2 * $borderSize);
 }
-
-
 
 app-article-list {
   position: relative; /* Position fixe pour garder le header en haut de la page */
   //top: calc($headerHeight + 2 * $lineHeight + 7 * $borderSize); /* Commence après le header (10vh) et le titre (10vh) */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
-  width: 100%; /* Le header occupe toute la largeur de la page */
+  //width: 100%; /* Le header occupe toute la largeur de la page */
   // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:1;
-  height: calc(100vh + 2 * $lineHeight + 7 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
-  overflow: auto; /* Active le défilement vertical dans ce conteneur */
+  //height: calc(100vh + 2 * $lineHeight + 7 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  //height:(5vh - 2 * $borderSize);
   }
 
 
@@ -229,7 +247,7 @@ $containerWidth:85vw; // parfait pour iPad
 
   border: $borderSize solid pink;
   overflow-wrap: break-word;
-  width: $lineWidth;
+  //width: $lineWidth;
   box-sizing: border-box;
   background-color: #f1ecec;   
   color: cadetblue; 
@@ -244,13 +262,13 @@ $containerWidth:85vw; // parfait pour iPad
 
   border: $borderSize solid pink;
   overflow-wrap: break-word;
-  width: $lineWidth;
+  //width: $lineWidth;
   box-sizing: border-box;
   background-color:$greyPearlColor;   
   color: cadetblue; 
 
   justify-content: center;
-  width: $lineWidth;
+
   height: $lineHeight;
 }
 
@@ -291,39 +309,99 @@ $containerWidth:85vw; // parfait pour iPad
   display: flex;
   flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
   box-sizing: border-box;
-
+  border: $borderSize solid rgb(14, 136, 44);
   word-break: break-all; 
+  //height:80vh;
+  //width:calc(100% - 2 * $borderSize);
+  overflow: auto; /* Active le défilement vertical dans ce conteneur */
 }
 
 
 
 .item {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  background-color:$greyPearlColor;
+  background-color: rgb(255, 0, 170);
   gap: 100px; /* Ajoute un espace entre les éléments */
-  border: $borderSize solid red;
-  width: 25%; 
-  min-width: calc($buttonWidth + 2 * $borderSize);
+  border: $borderSize solid rgb(0, 255, 34);
+  //min-width: calc($buttonWidth + 2 * $borderSize);
   border-radius: 20px;
+
 }
 
-.item-line{
-  display: flex; // nécessaire poutr activer justify-content: center;
+@media (min-width: 500px) {
+  .item {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 600px) {
+  .item {
+    width: 75%; 
+  }
+}
+
+@media (min-width: 800px) {
+  .item {
+    width: 50%; 
+  }
+}
+
+@media (min-width: 1000px) {
+  .item {
+    width: 25%; 
+  }
+}
+
+//---------------------------------- 
+@media (min-height: 500px) {
+  .item {
+    height: 50vh; 
+  }
+}
+
+@media (min-height: 600px) {
+  .item {
+    height:50vh;  
+  }
+}
+
+@media (min-height: 800px) {
+  .item {
+    height: 50vh; 
+    //background-color:rgb(255, 0, 242);
+  }
+}
+
+@media (min-height: 1000px) {
+  .item {
+    height: 50vh; 
+  }
+}
+
+.item-box {
+  //display: flex; // nécessaire poutr activer justify-content: center;
+  border: $borderSize solid rgb(212, 161, 20);
+
+}
+.item-row {
+  //display: flex; // nécessaire poutr activer justify-content: center;
   border: $borderSize solid pink;
 
-  width: $lineWidth;
+  //width: calc(100% - 2 * $borderSize);
   box-sizing: border-box;
   background-color: #f1ecec;   
   color: cadetblue; 
 
-  justify-content: center;
-   align-items: center;
+  //justify-content: center;
+  // align-items: center;
 }
 
 
 .item-data {
-  height: calc(100% - 2 * $borderSize);
-  width:calc(100% - 2 * $borderSize);
+  //height: calc(100% - 2 * $borderSize);
+  //width:calc(100% - 2 * $borderSize);
   border: $borderSize solid rgb(14, 52, 223);
   display: flex;
   justify-content: left;
@@ -340,8 +418,8 @@ $containerWidth:85vw; // parfait pour iPad
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 2 * $borderSize);
-  width:calc(100% - 2 * $borderSize);
+  //height: calc(100% - 2 * $borderSize);
+  //width:calc(100% - 2 * $borderSize);
 }
 
 .item-information {
@@ -349,15 +427,17 @@ $containerWidth:85vw; // parfait pour iPad
   background-color: $lavandeColor;  
   border: $borderSize solid rgb(21, 22, 21);
   color: white; 
-  height: $buttonHeight;
-  width: (0.5 * $buttonWidth);
+  //height: $buttonHeight;
+  //width: (0.5 * $buttonWidth);
   display: flex;
   justify-content: center;
   align-items: center;
  
 }
 
-.little-button {
-  width: (0.5 * $buttonWidth);
-}
 
+
+.bigbutton {
+  width: 250px ;
+  height:30px;
+}

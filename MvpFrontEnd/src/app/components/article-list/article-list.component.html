@@ -1,21 +1,26 @@
 
 <div class="frame">
+
 <div class="item" *ngFor="let oneArticle of articleList">
-  
-    <div class="block">
-      <div class="data"><b>{{ oneArticle.title }}</b></div>
-      <div class="data">Date de création:&nbsp;{{ oneArticle.creationDate | date: 'dd/MM/yyyy' }}</div>
-      <div class="data">Auteur:&nbsp;{{ oneArticle.speakerId}}</div>
-      <div class="data">{{ oneArticle.sentence }}</div>
-      <div class="data">
-       <button class="bigbutton" (click)="navigateToCommentList(oneArticle.speakerId,oneArticle.id)">Voir les commentaires</button>
+  <div class="item-box" >
+    <div class="item-row">
+      <div class="item-data">Titre:&nbsp;{{ oneArticle.title }}
       </div>
-       
+   
+    </div>
+   
+    <div class="item-row">
+      <div class="item-data">{{ oneArticle.creationDate | date: 'dd/MM/yyyy' }}</div>
+      <div class="item-data">Auteur:&nbsp;{{ oneArticle.speakerId}}</div>
+    </div>
+    
+    <div class="item-row">
+      <div class="item-data">{{ oneArticle.sentence }}
+      </div>
+    </div> 
+    <div class="item-button">
+      <button class="bigbutton" (click)="navigateToCommentList(oneArticle.speakerId,oneArticle.id)">Voir les commentaires</button>
     </div>
   </div>
 </div>
-
-  <!--
-  <a (click)="navigateToCommentList(oneArticle.speakerId,oneArticle.id)">Voir les commentaires</a>
-     
-  -->
+</div>
