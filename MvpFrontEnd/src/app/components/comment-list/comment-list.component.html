@@ -1,11 +1,11 @@
 
 
 
-<div class="frame">
-<div class="item" *ngFor="let oneKomment of kommentList">
-    <div class="block">
-      <div class="data"><h3>Par&nbsp;{{oneKomment.pseudonymSpeaker}}&nbsp;le&nbsp;{{oneKomment.creationDate}}</h3></div>
-      <div class="data">{{oneKomment.sentence}}</div>
-    </div>
+<div class="many">
+<div class="comment" *ngFor="let oneKomment of kommentList">
+
+      <div class="row">Par&nbsp;{{oneKomment.pseudonymSpeaker}}&nbsp;le&nbsp;{{oneKomment.creationDate}}</div>
+      <div class="row">{{oneKomment.sentence}}</div>
+
 </div>
 

@@ -1,0 +1,154 @@
+$borderSize:0vh;
+$greyPearlColor:#f1ecec;
+$screenWidth:99%;
+$lavandeColor: rgb(150, 131, 236);
+
+
+.many {
+    display: flex;
+    flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
+  
+    border: $borderSize solid rgb(14, 136, 44);
+    //word-break: break-all; 
+
+    //width:calc(100% - 2 * $borderSize);
+    
+  }
+
+  .topic {
+    background-color: $greyPearlColor;
+    margin: 1vh;
+    padding: 1vh;
+    border: $borderSize solide rgb(205, 50, 166);
+  }
+
+  .row {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .information {
+    background-color: $lavandeColor;  
+    border: $borderSize solid rgb(21, 22, 21);
+    //height: $buttonHeight;
+    //width: (0.5 * $buttonWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  .context {
+    margin:1vh;
+  }
+  
+
+  
+//=========================================================
+// ======================= PORTRAIT =======================
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+ 
+@media screen and (orientation: portrait) and (min-height: 666px) {
+    // contexte : iPhone SE
+    .many {
+        height: 400px;
+        overflow: auto; /* Active le défilement vertical dans ce conteneur */
+        display: flex;
+        //flex-direction:column;
+    }
+
+    .topic {
+        width:calc(40% - 2 * $borderSize);
+        
+        display:flex;
+        flex-direction: column;
+        height:calc(30% - 2 * $borderSize);
+        background-color: $greyPearlColor;
+
+ 
+      }
+ 
+  .data {
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid rgb(226, 14, 14);
+  }
+  
+  
+  
+  }
+  
+  @media screen and (orientation: portrait) and (min-height: 1079px) {
+    // contexte : iPad
+
+   
+    .many {
+      display:flex;
+      height:700px;
+      overflow: auto; /* Active le défilement vertical dans ce conteneur */
+    }
+  
+    .topic {
+      width:calc(40% - 2 * $borderSize);
+      display:flex;
+      flex-direction: column;
+      height:50px;
+      margin: 1vh;
+    }
+  
+
+  
+    .row {
+      //width:calc(100% - 2 * $borderSize);
+      border-color: rgb(192, 242, 255);
+      width:calc(100% - 2 * $borderSize);
+    }
+  
+  
+  }
+  
+  
+  
+  //=========================================================
+  // ======================= PAYSAGE =======================
+
+  /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+  
+
+
+  
+  @media screen and (orientation: landscape) and (min-width: 1079px) {
+    // Contexte : iPad en portrait
+    .topic {
+        width: 20%;
+        font-size: 14px;
+    }
+
+    .row {
+      width: 96%;
+      border:$borderSize solid rgb(192, 242, 255);
+    }
+
+    .context {
+        width: 90%;
+        border:$borderSize solid rgb(192, 242, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20%;
+    }
+
+    .suscribe {
+        width: 80%;
+    }
+  
+  
+  }
+  
+  
+  
+  

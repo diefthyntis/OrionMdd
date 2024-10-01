@@ -107,7 +107,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
         (returnedValueByApi)  => { 
           this.createdArticle = returnedValueByApi;
           console.log('new-article.component.ts.submit', this.createdArticle);
-          this.router.navigate(['/articleList']);
+          this.router.navigate(['/articleContainer']);
         },
         (obj) => {
           console.error('new-article.component.ts.submit', obj.error);

@@ -1,6 +1,6 @@
 export interface ShapeResponse {
     subscriptionId:string;
     topicTitle:string;
-    topicSentence:string;
+    topicDescription:string;
     topicId:string
 }   

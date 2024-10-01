@@ -1,13 +1,15 @@
+
 <app-auth-header></app-auth-header>
+
 <br>
 <br>
-<div class="container">
+<div class="form-container">
 <form [formGroup]="buildedForm" class="register-form"  (ngSubmit)="submit()">
-  <div class="form-title" >CONNEXION
+  <div class="form-title" >Connexion
   </div>
 <br>
 <div class="form-line">
-  <label class="form-label" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
+  <label class="form-long-label" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
   <div class="form-data">
     <input class="form-input" formControlName="varEmailAddress" type="text" id="login">
   </div>
@@ -16,7 +18,7 @@
 
 
 <div class="form-line">
-  <label class="form-label" for="password">Mot de passe :</label>
+  <label class="form-long-label" for="password">Mot de passe :</label>
   <div class="form-data">
   <input  class="form-input" formControlName="varPassword" type="password" id="password"></div>
 </div>

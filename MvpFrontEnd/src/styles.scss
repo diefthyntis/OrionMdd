@@ -4,7 +4,7 @@
   $greyPearlColor:#f1ecec;
   
   $titleHeight:10vh;
-  $borderSize:1vh;
+  $borderSize:0vh;
 
   $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
   $headerHeight:25vh ;
@@ -16,7 +16,7 @@
   div {
     //width: 100px;
     //padding: 10px;
-    border: $borderSize solid black;
+    border: $borderSize solid rgb(36, 23, 221);
 
   }
   
@@ -27,7 +27,7 @@
     font-weight: bold;
     overflow: hidden;
     font-size: 11px;
-
+    background-color: white;
   }
 
   button {
@@ -50,40 +50,6 @@
   input {
     font-family: 'Georgia', serif;
     font-weight: bold;
-  }
-
-
-  @media (min-width: 600px) {
-    body {
-      //font-size: 18px;
-      background-color:$lavandeColor;
-    }
-
-
-  }
-  
-  @media (min-width: 900px) {
-    body {
-      //font-size: 20px;
-      background-color:$lavandeColor;
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    body {
-      //font-size: 22px;
-      background-color:$lavandeColor;
-    }
-  }
-
-  h1 {
-    font-size: 4vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
-  }
-  h2 {
-    font-size: 3vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
-  }
-  h3 {
-    font-size: 2vh; /* Taille de la police de h1 sera 2 fois celle du parent (donc 32px ici) */
   }
 
 
@@ -139,35 +105,34 @@ app-article-list {
 
   
 app-comment-title {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: $headerHeight  ; /* Juste sous le header */
+  position: relative; /* Position fixe pour garder le header en haut de la page */
+  //top: $headerHeight  ; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
-  background-color: cyan; /* Fond blanc pour éviter de voir le contenu derrière le header */
-  z-index:1;
+  z-index:2;
 }
   
   app-comment-list {
-    position: fixed; /* Position fixe pour garder le header en haut de la page */
-    top: $headerHeight + 2*$lineHeight + 8 * $borderSize; /* Commence après le header (10vh) et le titre (10vh) */
+    position: relative; /* Position fixe pour garder le header en haut de la page */
+    //top: $headerHeight + 2*$lineHeight + 8 * $borderSize; /* Commence après le header (10vh) et le titre (10vh) */
     left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
     width: 100%; /* Le header occupe toute la largeur de la page */
     // background-color: red; /* Fond blanc pour éviter de voir le contenu derrière le header */
-    z-index:0;
+    z-index:1;
     height: calc(100vh - $headerHeight - 2*$lineHeight - 8 * $borderSize); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
     overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
     } 
 
     
 app-shape-list {
-  position: fixed; /* Position fixe pour garder le header en haut de la page */
-  top: $headerHeight; /* Juste sous le header */
+  position: relative; /* Position fixe pour garder le header en haut de la page */
+  //top: $headerHeight; /* Juste sous le header */
   left: 0; /* Fixe le header à gauche, couvrant toute la largeur */
   width: 100%; /* Le header occupe toute la largeur de la page */
   //background-color: yellow; /* Fond blanc pour éviter de voir le contenu derrière le header */
   z-index:1;
-  height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
-  overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
+  //height: calc(100vh - $headerHeight); /* Hauteur ajustée à la hauteur totale de la fenêtre moins la hauteur du header et du titre */
+  //overflow-y: auto; /* Active le défilement vertical dans ce conteneur */
 }
 
 app-topic-list {
@@ -190,6 +155,8 @@ app-topic-list {
   width: 50vh;
 }
 
+
+/*
 //=======================================================================
 // Header 
 //=======================================================================
@@ -200,6 +167,7 @@ app-topic-list {
   background-color:$greyPearlColor;    
   width: $screenWidth;
 }
+*/
 
 
 
@@ -208,20 +176,6 @@ app-topic-list {
 
 
 
-.header-link {
-
-  border: $borderSize solid rgb(219, 120, 141);
-
-  display: flex;
-  align-items: center;
-}
-
-.header-row {
-  border: none; /* Retire les bordures par défaut */
-  border-top: 2px solid black; /* Crée un trait noir de 2px d'épaisseur */
-  width: 100%; /* Occupe 100% de la largeur de la fenêtre */
-  margin: 0; /* Retire les marges par défaut */
-}
 
 //=======================================================================
 // Form 
@@ -233,7 +187,7 @@ $containerHeight:50vh;
 //$containerWidth:100vw; // parfait pour iPad
 
 
-.container {
+.form-container {
   border: $borderSize solid #31c2e6;
 
 
@@ -243,6 +197,7 @@ $containerHeight:50vh;
   flex-direction: column;
   //justify-content: center;
 }
+
 
 .form-line{
   
@@ -287,14 +242,22 @@ $containerHeight:50vh;
 }
 
 .form-data {
-  border: $borderSize solid rgb(150, 140, 142);
+  //border: $borderSize solid rgb(150, 140, 142);
   width:calc(40% - 2 * $borderSize);
 }
 
 
-.form-label {
-  width: calc(60% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+.form-short-label {
+  //width: calc(60% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
   border: $borderSize solid red;
+  display:flex;
+  align-items: center; 
+  }
+  .form-long-label {
+    //width: calc(60% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+    border: $borderSize solid red;
+    display:flex;
+    align-items: center; 
   }
 
 .form-input {
@@ -304,97 +267,8 @@ $containerHeight:50vh;
 }
 
 
-//=======================================================================
-// displayed data coming from api
-//=======================================================================
-.frame {
-  display: flex;
-  flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
-
-  border: $borderSize solid rgb(14, 136, 44);
-  word-break: break-all; 
-  //height:80vh;
-  //width:calc(100% - 2 * $borderSize);
-  overflow: auto; /* Active le défilement vertical dans ce conteneur */
-}
 
 
-
-.item {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: rgb(255, 0, 170);
-  gap: 100px; /* Ajoute un espace entre les éléments */
-  border: $borderSize solid rgb(0, 255, 34);
-  //min-width: calc($buttonWidth + 2 * $borderSize);
-  border-radius: 20px;
-
-}
-
-
-
-.item-box {
-  //display: flex; // nécessaire poutr activer justify-content: center;
-  border: $borderSize solid rgb(212, 161, 20);
-
-}
-.item-row {
-  //display: flex; // nécessaire poutr activer justify-content: center;
-  border: $borderSize solid pink;
-
-  //width: calc(100% - 2 * $borderSize);
-
-  background-color: #f1ecec;   
-  color: cadetblue; 
-
-  //justify-content: center;
-  // align-items: center;
-}
-
-
-.item-data {
-  //height: calc(100% - 2 * $borderSize);
-  //width:calc(100% - 2 * $borderSize);
-  border: $borderSize solid rgb(14, 52, 223);
-  display: flex;
-  justify-content: left;
-  
-  align-items: center;
-}
-
-
-
-.item-button {
-  border: $borderSize solid rgb(194, 19, 48);
-  background-color:$greyPearlColor;   
-  color: cadetblue; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //height: calc(100% - 2 * $borderSize);
-  //width:calc(100% - 2 * $borderSize);
-}
-
-.item-information {
-
-  background-color: $lavandeColor;  
-  border: $borderSize solid rgb(21, 22, 21);
-  color: white; 
-  //height: $buttonHeight;
-  //width: (0.5 * $buttonWidth);
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
-}
-
-
-
-.bigbutton {
-  width: 250px ;
-  height:30px;
-}
 
 //=========================================================
 // ======================= PORTRAIT =======================
@@ -409,20 +283,7 @@ $containerHeight:50vh;
 
   .container {
     border: $borderSize solid #719199;
-
   }
-
-
-  button {
-    height: auto;
-    width: auto;
-  }
-
-
-
-
-
-
 
 
 }
@@ -430,9 +291,7 @@ $containerHeight:50vh;
 
 @media screen and (orientation: portrait) and (min-height: 666px) {
   // contexte : iPhone SE
-  .item {
-    height: 50vh; 
-  }
+
 
   .container {
     display: flex;
@@ -443,14 +302,15 @@ $containerHeight:50vh;
     display: flex;
     flex-direction: column;
     width: calc(100% - 2vh);
+    //justify-content: left;
   }
 
 
   .form-label {
-    width: 94%;          /* Ajuste automatiquement la largeur */
+    width: calc(100% - 2vh);          /* Ajuste automatiquement la largeur */
   }
   .form-data {
-    width:94%;
+    width:calc(100% - 2vh);
   }
   .form-button {
     width:calc(100% - 2vh);
@@ -460,6 +320,14 @@ $containerHeight:50vh;
   body {
     font-size: 11px;
   }
+
+
+
+
+
+
+
+
 }
 
 @media screen and (orientation: portrait) and (min-height: 1079px) {
@@ -470,10 +338,6 @@ $containerHeight:50vh;
 
   button {
     font-size: 14px;
-  }
-
-  .item {
-    height: 50vh; 
   }
 
   .container {
@@ -487,13 +351,17 @@ $containerHeight:50vh;
   .form-line{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: calc(100% - 2vh); 
   }
-  .form-label {
-    width: 94%;          /* Ajuste automatiquement la largeur */
+  .form-short-label {
+    width: 20%;          /* Ajuste automatiquement la largeur */
+  }
+  .form-long-label {
+    width: 40%;          /* Ajuste automatiquement la largeur */
   }
   .form-data {
-    width: 94%;
+    width: 40%;
   }
   .form-button {
     width: calc(100% - 2vh); 
@@ -543,22 +411,30 @@ $containerHeight:50vh;
   body {
     font-size: 11px;
   }
-  .item {
-    width: 100%; 
-  }
-  
 
-  .form-button {
-    width: $formWidth;
+  .container {
+    //display: flex;
+    //flex-direction: row;
+    justify-content: center;
   }
   .form-title {
-    width: $formWidth;
+    width: calc(100% - 2 * $borderSize);
   }
-  .form-label {
+  .form-line {
+    width: calc(100% - 2 * $borderSize);
+    justify-content: center;
+  }
+  .form-short-label {
+    width: calc(30% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+  }
+  .form-long-label {
     width: calc(30% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
   }
   .form-data {
     width:calc(45% - 2 * $borderSize);
+  }  
+  .form-button {
+    width: $formWidth;
   }
 
 
@@ -570,9 +446,7 @@ $containerHeight:50vh;
   body {
     font-size: 20px;
   }
-  .item {
-    width: 75%; 
-  }
+
   button {
     height: 40%;
     width: 20%;
@@ -583,18 +457,29 @@ $containerHeight:50vh;
     font-size: 20px;
   }
 
-  .form-button {
-    width: $formWidth;
-  }
+
   .form-title {
-    width: $formWidth;
+    width: calc(100% - 2 * $borderSize);
   }
-  .form-label {
+  .form-line {
+    width: calc(100% - 2 * $borderSize);
+    justify-content: center;
+  }
+  .form-short-label {
+    width: 40%;          /* Ajuste automatiquement la largeur */
+  }
+  .form-long-label {
     width: 40%;          /* Ajuste automatiquement la largeur */
   }
   .form-data {
     width:45%;
   }
+  .form-button {
+    width: calc(100% - 2 * $borderSize);
+    height: 20%;
+  }
+
+
 
 }
 

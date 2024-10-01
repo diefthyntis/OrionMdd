@@ -29,7 +29,7 @@ export class RegisterComponent  {
 
 
   public buildedForm = this.fb.group({
-    varEmailAddress: ['', [Validators.required, Validators.email]],
+    varEmailAddress: ['lamarquisederabutinchantal@aristo.gouv.fr', [Validators.required, Validators.email]],
     varPseudonym: ['', [Validators.required, Validators.minLength(1)]],
     varPassword: ['', [Validators.required, Validators.minLength(1)]]
   });

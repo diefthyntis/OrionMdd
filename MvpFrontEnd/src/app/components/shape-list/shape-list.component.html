@@ -1,13 +1,18 @@
 <div class="frame">
-<div class="item" *ngFor="let oneShapeResponse of shapeResponseList">
-    <div class="block">
-        <div class="data">Thème&nbsp;{{oneShapeResponse.topicTitle}}</div>
-        <div class="data">{{oneShapeResponse.topicSentence}}</div>
-        <button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
-    </div>
-  </div>
+<div class="many" *ngFor="let oneShapeResponse of shapeResponseList">
+    <div class="shape">
+        <div class="shape-line">Thème&nbsp;{{oneShapeResponse.topicTitle}}
 
-   </div>
+        </div>
+        <div class="shape-description">{{oneShapeResponse.topicDescription}}
+
+        </div>
+        <div class="shape-button"><button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
+        </div>
+    </div>
+
+</div>
+
   <!--
   <div *ngIf="bigErrorMessage" class="display">
     {{ bigErrorMessage }}

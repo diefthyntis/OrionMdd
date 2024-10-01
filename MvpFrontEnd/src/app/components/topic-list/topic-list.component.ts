@@ -57,7 +57,7 @@ public informationMessage!:string;
     requestPostSubskription$.subscribe(genericResponseReturnedByApi=> {
       let genericResponse:GenericResponse = genericResponseReturnedByApi;
       console.log("TopicListComponent.subscribeToThisTopic genericResponseReturnedByApi.message="+genericResponseReturnedByApi.message); 
-      this.informationMessage="Déjà abonné !!";
+      this.informationMessage="Vous êtes abonné !!";
       this.loadTopic();
      
     })
@@ -98,7 +98,7 @@ public informationMessage!:string;
           const oneTopic: Topic = new Topic(instance.id, instance.title, instance.description);
           if (this.subskriptionList.includes(instance.id)) {
             oneTopic.subskriptionActivated = true;
-            oneTopic.informationMessage = "Déjà abonné!";
+            oneTopic.informationMessage = "Vous êtes abonné!";
           }
           this.topicList.push(oneTopic);
         }

@@ -1,2 +1,36 @@
+@media (orientation: landscape ) {
+    .landing-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    button {
+        height:20%;
+        width:30%;
+    }
+
+}
+
+@media (orientation: portrait ) {
+    .landing-button {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        height:20%;
+        width:50%;
+    }
+
+}
+
+
+.landing-picture {
+    display: flex;
+    justify-content: center;
+}
 
 

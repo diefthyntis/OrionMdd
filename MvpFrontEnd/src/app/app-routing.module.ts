@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
   { path: 'changeCredentials',component:ChangeCredentialsComponent},
   { path: 'welcome',component:LandingComponent},
+  { path: 'whitePage',component:WhitePageComponent}
   
 ];
 

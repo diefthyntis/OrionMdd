@@ -1,0 +1,92 @@
+@media (orientation:portrait) {
+
+
+    .header-navigation {
+
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 10px;
+    }
+
+}
+
+
+@media screen and (orientation: portrait) and (min-height: 666px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+    .header-navigation {
+        height:10%;
+        width:96%;
+        font-size: 10px;
+    }
+}
+
+@media screen and (orientation: portrait) and (min-height: 1079px) {
+      // contexte : iPad
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;  
+    }
+      .header-navigation {
+        height:10%;
+        width:96%;
+        font-size: 14px;
+        align-items: center;  
+    }
+}
+
+
+@media screen and (orientation: landscape) and (min-width: 666px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+    .header-navigation {
+        height:10%;
+        width:96%;
+        font-size: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (orientation: landscape) and (min-width: 1079px) {
+      // contexte : iPad
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;  
+    }
+      .header-navigation {
+        height:10%;
+        width:96%;
+        font-size: 14px;
+        align-items: center;  
+    }
+}
+
+
+.header-row {
+    border: none; /* Retire les bordures par défaut */
+    border-top: 2px solid black; /* Crée un trait noir de 2px d'épaisseur */
+    width: 100%; /* Occupe 100% de la largeur de la fenêtre */
+    margin: 0; /* Retire les marges par défaut */
+  }
+  
+  $borderSize: 0vh;
+
+  .header-link {
+  
+    border: $borderSize solid rgb(219, 120, 141);
+  
+    display: flex;
+    align-items: center;
+  }
+  

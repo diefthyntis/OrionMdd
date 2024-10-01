@@ -1,9 +1,13 @@
 
 
-<div class="line">
-  <h3>Commentaires&nbsp;pour&nbsp;l'article&nbsp;"{{currentArticle.title}}"</h3>
+
+<div class="comment-frame">
+  <div class="comment-row">
+    <button class="comment-bigbutton" type="submit" (click)="createComment()">Ajouter un commentaire</button>
+  </div>
+<div class="comment-title">
+  Commentaires&nbsp;pour&nbsp;l'article&nbsp;"{{currentArticle.title}}"
+</div>
 </div>
 
-<div class="line">
-  <button class="bigbutton" type="submit" (click)="createComment()">Ajouter un commentaire</button>
-</div>
+

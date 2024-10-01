@@ -1,0 +1,55 @@
+$greyPearlColor:#f1ecec;
+$borderSize: 0vh;
+
+
+.frame {
+    border: $borderSize solid #31c2e6;
+
+
+    //background-color:$greyPearlColor; 
+
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+}
+
+.many {
+    display:flex;
+    //flex-direction: column;
+    border: $borderSize solid #e631bf;
+
+}
+
+
+
+
+
+
+.shape {
+    background-color: $greyPearlColor;
+    margin: 1vh;
+    width: 25%;
+    height:30%; 
+}
+
+.shape-line {
+    border: $borderSize solid #31c2e6;
+    width:96%;
+    padding: 2vh;
+}
+
+.shape-button {
+    border: $borderSize solid #31c2e6;
+    display: flex;
+    justify-content: center;
+    width:96%;
+
+}
+
+
+.shape-description {
+    border: $borderSize solid #31c2e6;
+    width:96%;
+    font-weight: normal;
+    padding: 2vh;
+}

@@ -3,31 +3,37 @@
   Une erreur est survenue lors de l'inscription. Veuillez réessayer.
 </div>
 
-<div class="container">
+<div class="form-container">
     
   
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
-      <div class="input-title"><h1>Inscription</h1></div>
-      <div class="input-line" >
-        <label class="input-label" for="pseudonym">Nom d'utilisateur :</label>
-        <div class="input-box">
-          <input class="input" type="text" id="pseudonym" formControlName="varPseudonym">
+        <br>
+      <div class="form-title">INSCRIPTION</div>
+      <br>
+      <br>
+      <div class="form-line" >
+        <label class="form-short-label" for="pseudonym">Nom d'utilisateur :</label>
+        <div class="form-data">
+          <input class="form-input" type="text" id="pseudonym" formControlName="varPseudonym">
         </div>
       </div>
-      <div class="input-line">
-        <label class="input-label" for="emailaddress">Adresse e-mail :</label>
-        <div class="input-box"><input class="input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
-        </div>
-        </div>
-      <div class="input-line">
-        <label class="input-label" for="password">Mot de passe :</label>
-        <div class="input-box"><input class="input" type="password" id="password" formControlName="varPassword">
+      <br>
+      <div class="form-line">
+        <label class="form-short-label" for="emailaddress">Adresse e-mail :</label>
+        <div class="form-data"><input class="form-input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
         </div>
       </div>
-      <div class="input-button">
+      <br>
+      <div class="form-line">
+        <label class="form-short-label" for="password">Mot de passe :</label>
+        <div class="form-data"><input class="form-input" type="password" id="password" formControlName="varPassword">
+        </div>
+      </div>
+      <br>
+      <div class="form-button">
         <button type="submit" >S'inscrire</button>
       </div>
-   
+      <br>
   </form>
   
 </div>

@@ -1,0 +1,137 @@
+$borderSize:0vh;
+$greyPearlColor:#f1ecec;
+$screenWidth:99%;
+
+
+.many {
+    //display: flex;
+    flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
+  
+    border: $borderSize solid rgb(14, 136, 44);
+    //
+
+    //width:calc(100% - 2 * $borderSize);
+    
+  }
+
+.row {
+  word-break: break-all;
+}
+  
+.article {
+  background-color: $greyPearlColor;
+  margin: 1vh; 
+  padding: 2vh; 
+}
+//=========================================================
+// ======================= PORTRAIT =======================
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+ 
+@media screen and (orientation: portrait) and (min-height: 666px) {
+    // contexte : iPhone SE
+    .many {
+        height: 400px;
+        overflow: auto; /* Active le défilement vertical dans ce conteneur */
+        display: flex;
+        //flex-direction:column;
+    }
+
+    .article {
+        width:calc(46% - 2 * $borderSize);
+        border: $borderSize solide rgb(205, 50, 166);
+        display:flex;
+        flex-direction: column;
+        height:calc(30% - 2 * $borderSize);
+        background-color: $greyPearlColor;
+        margin: 1vh;
+      }
+ 
+  .data {
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid rgb(226, 14, 14);
+  }
+  
+  
+  
+  }
+  
+  @media screen and (orientation: portrait) and (min-height: 1079px) {
+    // contexte : iPad
+
+   
+    .many {
+      display:flex;
+      height:700px;
+      overflow: auto; /* Active le défilement vertical dans ce conteneur */
+    }
+  
+    .article {
+      width:calc(50% - 2 * $borderSize);
+      border: $borderSize solide rgb(205, 50, 166);
+      display:flex;
+      flex-direction: column;
+      height:50px;
+      background-color: $greyPearlColor;
+      margin: 1vh;
+    }
+  
+    .block-button {
+      display: flex;
+      justify-content: center;
+      width:calc(100% - 2 * $borderSize);
+      border-color: rgb(192, 221, 255);
+    }
+  
+    .row {
+      //width:calc(100% - 2 * $borderSize);
+      border-color: rgb(192, 242, 255);
+      width:calc(100% - 2 * $borderSize);
+    }
+  
+  
+  }
+  
+  
+  
+  //=========================================================
+  // ======================= PAYSAGE =======================
+  // Code CTRL+F: QA
+  /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+  
+  @media (orientation: landscape) {
+    //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+
+
+  }
+  
+  
+  
+  
+  @media screen and (orientation: landscape) and (min-width: 759px) {
+    // Contexte : Galaxy S10 en paysage
+    $formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+
+  
+
+  }
+  
+  @media screen and (orientation: landscape) and (min-width: 1079px) {
+    // Contexte : iPad en portrait
+    $formWidth: calc($screenWidth * 1);
+
+
+  
+    .box {
+      width:calc(100% - 2 * $borderSize);
+    }
+  
+    .row {
+      width:calc(33% - 2 * $borderSize);
+    }
+  
+  
+  }
+  
+  
+  
+  

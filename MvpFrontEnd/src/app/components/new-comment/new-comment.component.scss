@@ -1,0 +1,36 @@
+
+$greyPearlColor:#f1ecec;
+$borderSize:0vh;
+
+  .input-title {
+    display: flex;
+    justify-content: center;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+    margin: 2vh;
+    color: cadetblue;
+   }
+
+   .input-label {
+    display: flex;
+    justify-content: center;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+   }
+   .input-box {
+    display: flex;
+    justify-content: center;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+    
+   }
+.input-line {
+    display: flex;
+    justify-content: center;
+    background-color:$greyPearlColor;
+    border: $borderSize solid #31c2e6; 
+}
+
+.input {
+    height: 200px; 
+}

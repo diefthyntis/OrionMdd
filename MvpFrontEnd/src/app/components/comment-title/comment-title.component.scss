@@ -1,5 +1,54 @@
+$greyPearlColor:#f1ecec;
+$borderSize: 1vh;
 
-.bigbutton {
-    width: 400px ;
+.comment-frame {
+    background-color: $greyPearlColor;
+    border: $borderSize solide rgb(205, 50, 166);
+}
+
+.comment-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: $borderSize solide rgb(205, 50, 166);
+
+}
+
+.comment-title {
+    background-color: $greyPearlColor;
+    margin: 2vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+@media (orientation:portrait) and (min-height: 666px) {
+.comment-bigbutton {
+    width: 300px ;
     height:30px;
 }
+.comment-row {
+    font-size: 11px;
+}
+}
+
+@media (orientation:portrait) and (min-height: 1079px) {
+    .comment-bigbutton {
+        width: 300px ;
+        height:30px;
+    }
+    .comment-row {
+        font-size: 13px;
+    }
+}
+    
+
+
+
+@media (orientation:landscape) {
+    .comment-bigbutton {
+        width: 400px ;
+        height:30px;
+    }
+    }
+    

@@ -1,0 +1,52 @@
+$borderSize: 1vh;
+
+.title-line {
+    color:cadetblue;
+    margin: 2vh; 
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    border: $borderSize solid #31c2e6;
+
+}
+
+$greyPearlColor:#f1ecec;
+
+
+  .input-title {
+    display: flex;
+    justify-content: center;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+    margin: 2vh;
+    color: cadetblue;
+   }
+
+   .input-label {
+    display: flex;
+    justify-content: left;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+    width:10%;
+   }
+   .input-box {
+    display: flex;
+    justify-content: left;
+    background-color:$greyPearlColor; 
+    border: $borderSize solid #31c2e6;
+    width:40%;
+    
+   }
+.input-line {
+    display: flex;
+    justify-content: left;
+    background-color:$greyPearlColor;
+    border: $borderSize solid #31c2e6; 
+}
+
+
+.input-blablabla {
+    height: 200px; 
+}
