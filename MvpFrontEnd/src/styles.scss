@@ -10,20 +10,53 @@
   $headerHeight:25vh ;
   $buttonHeight:5vh;
   $buttonWidth:25vw;
-  $lineWidth:100%;
 
+  $screenWidth:99%;
+
+  div {
+    //width: 100px;
+    //padding: 10px;
+    border: $borderSize solid black;
+
+  }
+  
   body {
 
     color: #333; /* Couleur de texte par défaut */
     font-family: 'Georgia', serif;
     font-weight: bold;
     overflow: hidden;
+    font-size: 11px;
 
   }
 
+  button {
+    display: flex;
+    justify-content: center;  /* Centre le texte horizontalement */
+    align-items: center;      /* Centre le texte verticalement */
+    border: $borderSize solid white;
+    border-radius: 20px;
+    color: white;
+    background-color:$lavandeColor;
+    padding: 1vh 2vw; /* Ajoute du padding autour du texte, vertical horizontal */
+    //white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
+    width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
+    height: auto;
+    margin: 1vh;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+  }
+
+  input {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+  }
+
+
   @media (min-width: 600px) {
     body {
-      font-size: 18px;
+      //font-size: 18px;
+      background-color:$lavandeColor;
     }
 
 
@@ -31,13 +64,15 @@
   
   @media (min-width: 900px) {
     body {
-      font-size: 20px;
+      //font-size: 20px;
+      background-color:$lavandeColor;
     }
   }
   
   @media (min-width: 1200px) {
     body {
-      font-size: 22px;
+      //font-size: 22px;
+      background-color:$lavandeColor;
     }
   }
 
@@ -52,28 +87,6 @@
   }
 
 
-button {
-    display: flex;
-    justify-content: center;  /* Centre le texte horizontalement */
-    align-items: center;      /* Centre le texte verticalement */
-    border: $borderSize solid white;
-    border-radius: 20px;
-    color: white;
-    background-color:$lavandeColor;    
-    //flex-wrap: nowrap;
-
-    padding: 1vh 2vw; /* Ajoute du padding autour du texte, vertical horizontal */
-    //white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
-    width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
-    height: auto;
-    //max-width: 42vh;
-    //max-height: 7vh;
-    margin: 1vh;
-
-    // obliger le remettre car celui du body n'est pas appliqué
-    font-family: 'Georgia', serif;
-    font-weight: bold;
-  }
 
 
 a {
@@ -183,9 +196,9 @@ app-topic-list {
 .header {
 
   border: $borderSize solid #130a91;
-  box-sizing: border-box;
+
   background-color:$greyPearlColor;    
-  width: 100%;
+  width: $screenWidth;
 }
 
 
@@ -193,29 +206,12 @@ app-topic-list {
 
 
 
-/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
-@media (orientation: portrait) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 
-/* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
-@media (orientation: landscape) {
-  .header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-}
 
 .header-link {
 
   border: $borderSize solid rgb(219, 120, 141);
-  box-sizing: border-box;
+
   display: flex;
   align-items: center;
 }
@@ -229,41 +225,46 @@ app-topic-list {
 
 //=======================================================================
 // Form 
+// code CTRL+F  FV
 //=======================================================================
 
 
 $containerHeight:50vh;
-$containerWidth:85vw; // parfait pour iPad
+//$containerWidth:100vw; // parfait pour iPad
 
 
 .container {
   border: $borderSize solid #31c2e6;
-  box-sizing: border-box;
+
 
   background-color:$greyPearlColor; 
-}
-.input-line{
+  width:$screenWidth;
   display: flex;
+  flex-direction: column;
+  //justify-content: center;
+}
+
+.form-line{
+  
 
   border: $borderSize solid pink;
   overflow-wrap: break-word;
-  //width: $lineWidth;
-  box-sizing: border-box;
+  
+
   background-color: #f1ecec;   
   color: cadetblue; 
 
-  justify-content: center;
-  //height: $lineHeight;
+
 }
 
 
-.input-button {
+.form-button {
   display: flex;
 
   border: $borderSize solid pink;
   overflow-wrap: break-word;
   //width: $lineWidth;
-  box-sizing: border-box;
+
   background-color:$greyPearlColor;   
   color: cadetblue; 
 
@@ -272,30 +273,31 @@ $containerWidth:85vw; // parfait pour iPad
   height: $lineHeight;
 }
 
-.input-title {
+.form-title {
   display: flex;
   border: $borderSize solid pink;
   background-color:$greyPearlColor;   
   color: cadetblue; 
   justify-content: center;
+  margin-top: 1vh;
 }
 
-.input-block {
+.form-block {
   border: $borderSize solid rgb(227, 192, 255);
 }
 
-.input-box {
+.form-data {
   border: $borderSize solid rgb(150, 140, 142);
-  width:calc(50% - 2 * $borderSize);
+  width:calc(40% - 2 * $borderSize);
 }
 
 
-.input-label {
-  width: calc(50% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+.form-label {
+  width: calc(60% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
   border: $borderSize solid red;
   }
 
-.input {
+.form-input {
   width: calc(100% - 2 * $borderSize);
   border: $borderSize solid rgb(0, 255, 234);
 
@@ -308,7 +310,7 @@ $containerWidth:85vw; // parfait pour iPad
 .frame {
   display: flex;
   flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
-  box-sizing: border-box;
+
   border: $borderSize solid rgb(14, 136, 44);
   word-break: break-all; 
   //height:80vh;
@@ -330,55 +332,7 @@ $containerWidth:85vw; // parfait pour iPad
 
 }
 
-@media (min-width: 500px) {
-  .item {
-    width: 100%; 
-  }
-}
 
-@media (min-width: 600px) {
-  .item {
-    width: 75%; 
-  }
-}
-
-@media (min-width: 800px) {
-  .item {
-    width: 50%; 
-  }
-}
-
-@media (min-width: 1000px) {
-  .item {
-    width: 25%; 
-  }
-}
-
-//---------------------------------- 
-@media (min-height: 500px) {
-  .item {
-    height: 50vh; 
-  }
-}
-
-@media (min-height: 600px) {
-  .item {
-    height:50vh;  
-  }
-}
-
-@media (min-height: 800px) {
-  .item {
-    height: 50vh; 
-    //background-color:rgb(255, 0, 242);
-  }
-}
-
-@media (min-height: 1000px) {
-  .item {
-    height: 50vh; 
-  }
-}
 
 .item-box {
   //display: flex; // nécessaire poutr activer justify-content: center;
@@ -390,7 +344,7 @@ $containerWidth:85vw; // parfait pour iPad
   border: $borderSize solid pink;
 
   //width: calc(100% - 2 * $borderSize);
-  box-sizing: border-box;
+
   background-color: #f1ecec;   
   color: cadetblue; 
 
@@ -441,3 +395,208 @@ $containerWidth:85vw; // parfait pour iPad
   width: 250px ;
   height:30px;
 }
+
+//=========================================================
+// ======================= PORTRAIT =======================
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+@media (orientation: portrait) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: $borderSize solid #719199;
+  }
+
+  .container {
+    border: $borderSize solid #719199;
+
+  }
+
+
+  button {
+    height: auto;
+    width: auto;
+  }
+
+
+
+
+
+
+
+
+}
+
+
+@media screen and (orientation: portrait) and (min-height: 666px) {
+  // contexte : iPhone SE
+  .item {
+    height: 50vh; 
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .form-line{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 2vh);
+  }
+
+
+  .form-label {
+    width: 94%;          /* Ajuste automatiquement la largeur */
+  }
+  .form-data {
+    width:94%;
+  }
+  .form-button {
+    width:calc(100% - 2vh);
+    height: 20%;
+  }
+
+  body {
+    font-size: 11px;
+  }
+}
+
+@media screen and (orientation: portrait) and (min-height: 1079px) {
+  // contexte : iPad
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .item {
+    height: 50vh; 
+  }
+
+  .container {
+    //display: flex;
+    //flex-direction: row;
+    justify-content: center;
+  }
+  .form-title {
+    width: calc(100% - 2vh);   
+  }
+  .form-line{
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 2vh); 
+  }
+  .form-label {
+    width: 94%;          /* Ajuste automatiquement la largeur */
+  }
+  .form-data {
+    width: 94%;
+  }
+  .form-button {
+    width: calc(100% - 2vh); 
+    height: 20%;
+  }
+  
+
+
+}
+
+
+
+//=========================================================
+// ======================= PAYSAGE =======================
+// Code CTRL+F: QA
+/* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+
+@media (orientation: landscape) {
+  //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    border: $borderSize solid #119e0c;
+  }
+
+  .container {
+    background-color: $greyPearlColor;
+    border: $borderSize solid #119e0c;    
+  }
+
+  .form-line {
+    //width: calc($screenWidth - 8vw);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+  }
+}
+
+
+
+
+@media screen and (orientation: landscape) and (min-width: 759px) {
+  // Contexte : Galaxy S10 en paysage
+  $formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+  body {
+    font-size: 11px;
+  }
+  .item {
+    width: 100%; 
+  }
+  
+
+  .form-button {
+    width: $formWidth;
+  }
+  .form-title {
+    width: $formWidth;
+  }
+  .form-label {
+    width: calc(30% - 2 * $borderSize);          /* Ajuste automatiquement la largeur */
+  }
+  .form-data {
+    width:calc(45% - 2 * $borderSize);
+  }
+
+
+}
+
+@media screen and (orientation: landscape) and (min-width: 1079px) {
+  // Contexte : iPad en portrait
+  $formWidth: calc($screenWidth * 1);
+  body {
+    font-size: 20px;
+  }
+  .item {
+    width: 75%; 
+  }
+  button {
+    height: 40%;
+    width: 20%;
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 20px;
+  }
+
+  .form-button {
+    width: $formWidth;
+  }
+  .form-title {
+    width: $formWidth;
+  }
+  .form-label {
+    width: 40%;          /* Ajuste automatiquement la largeur */
+  }
+  .form-data {
+    width:45%;
+  }
+
+}
+
+
+
