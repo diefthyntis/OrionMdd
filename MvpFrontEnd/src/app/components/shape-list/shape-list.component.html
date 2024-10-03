@@ -1,6 +1,6 @@
-<div class="frame">
-<div class="many" *ngFor="let oneShapeResponse of shapeResponseList">
-    <div class="shape">
+<div class="grid-container">
+<div class="grid-item" *ngFor="let oneShapeResponse of shapeResponseList">
+
         <div class="shape-line">Thème&nbsp;{{oneShapeResponse.topicTitle}}
 
         </div>
@@ -9,7 +9,7 @@
         </div>
         <div class="shape-button"><button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
         </div>
-    </div>
+
 
 </div>
 

@@ -1,55 +1,43 @@
 $greyPearlColor:#f1ecec;
-$borderSize: 0vh;
-
-
-.frame {
-    border: $borderSize solid #31c2e6;
-
-
-    //background-color:$greyPearlColor; 
-
-    display: flex;
-    flex-direction: column;
-    //justify-content: center;
-}
-
-.many {
-    display:flex;
-    //flex-direction: column;
-    border: $borderSize solid #e631bf;
-
-}
-
-
-
-
-
-
-.shape {
-    background-color: $greyPearlColor;
-    margin: 1vh;
-    width: 25%;
-    height:30%; 
-}
+$borderSize: 1vh;
 
 .shape-line {
     border: $borderSize solid #31c2e6;
-    width:96%;
-    padding: 2vh;
+    width: calc(100% - 2 * $borderSize);
+    //padding: 2vh;
 }
 
 .shape-button {
     border: $borderSize solid #31c2e6;
     display: flex;
     justify-content: center;
-    width:96%;
+    width: calc(100% - 2 * $borderSize);
 
 }
 
 
 .shape-description {
     border: $borderSize solid #31c2e6;
-    width:96%;
+    width: calc(100% - 2 * $borderSize);
     font-weight: normal;
-    padding: 2vh;
+    //padding: 2vh;
 }
+
+
+.grid-container {
+    border: $borderSize solid #31c2e6;
+    background-color:white; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+  }
+  .grid-item {
+    background-color:$greyPearlColor;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+    border: $borderSize solid #e631bf;
+    margin: 1vh;
+
+  }
+
+

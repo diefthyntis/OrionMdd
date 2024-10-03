@@ -1,5 +1,7 @@
 package com.diefthyntis.MinimumViableProduct.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.SpeakerRequest;
@@ -33,6 +35,7 @@ public class SpeakerService {
 	
 	public Speaker save(Speaker speaker) {
 		speaker.setLogin(speaker.getEmailaddress());
+		speaker.setModificationdate(LocalDateTime.now());
 		return speakerRepository.save(speaker);
 	}
 

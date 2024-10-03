@@ -39,7 +39,7 @@
     color: white;
     background-color:$lavandeColor;
     padding: 1vh 2vw; /* Ajoute du padding autour du texte, vertical horizontal */
-    //white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
+    white-space: nowrap; /* Empêche le texte de se casser en plusieurs lignes */
     width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
     height: auto;
     margin: 1vh;
@@ -449,7 +449,7 @@ $containerHeight:50vh;
 
   button {
     height: 40%;
-    width: 20%;
+    //width: 20%;
     font-size: 20px;
   }
 

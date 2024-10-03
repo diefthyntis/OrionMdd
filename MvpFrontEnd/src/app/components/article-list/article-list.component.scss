@@ -1,80 +1,125 @@
 $borderSize:0vh;
 $greyPearlColor:#f1ecec;
 $screenWidth:99%;
+$padding:1vh;
 
 
-.many {
-    //display: flex;
-    flex-wrap: wrap;//met les aliments à la ligne en dessous ci besoin
-  
-    border: $borderSize solid rgb(14, 136, 44);
-    //
-
-    //width:calc(100% - 2 * $borderSize);
-    
+  .grid-container {
+    border: $borderSize solid #31c2e6;
+    background-color:white; 
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: 1500px;
+    overflow-y: auto;
+  }
+  .grid-item {
+    background-color:$greyPearlColor;
+    //text-align: center;
+    border: $borderSize solid #e631bf;
+    margin: 1vh;
+    //padding: $padding; 
+    overflow-wrap: break-word;
+    width:calc(22vw - 2 * $borderSize);
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    //justify-content: left;
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid #31e63a;
   }
 
-.row {
-  word-break: break-all;
-}
+  .data {
+    width:calc(96% - 2 * $borderSize);
+    border: $borderSize solid rgb(226, 14, 14);
+    //margin:1vh;
+    padding: 2vh;
+
+      word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
+      white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
+
+    
+    }
+
+
   
-.article {
-  background-color: $greyPearlColor;
-  margin: 1vh; 
-  padding: 2vh; 
-}
+
 //=========================================================
 // ======================= PORTRAIT =======================
 /* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
  
-@media screen and (orientation: portrait) and (min-height: 666px) {
+@media screen and (orientation: portrait) and (max-height: 926px) {
     // contexte : iPhone SE
-    .many {
-        height: 400px;
-        overflow: auto; /* Active le défilement vertical dans ce conteneur */
-        display: flex;
-        //flex-direction:column;
+  .grid-container {
+
+      height: 60vh;
+      overflow-y: auto;
+      grid-template-columns: 1fr; /* Toujours 2 colonnes */
+  }
+
+  .grid-item {
+      
+      width:calc(88vw - 2 * $borderSize);
+      //height: 50%;
+      display:flex;
+      flex-direction: column;
+
+
+    }
+  
+  .row {
+    display: flex;
+    flex-direction: column;
+    //justify-content: left;
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid #31e63a;
+  }
+
+  .data {
+    //width:calc(96% - 2 * $borderSize);
+    border: $borderSize solid rgb(226, 14, 14);
+    //margin:1vh;
+    padding: 1vh;
+    
+
     }
 
-    .article {
-        width:calc(46% - 2 * $borderSize);
-        border: $borderSize solide rgb(205, 50, 166);
-        display:flex;
-        flex-direction: column;
-        height:calc(30% - 2 * $borderSize);
-        background-color: $greyPearlColor;
-        margin: 1vh;
-      }
- 
-  .data {
-    width:calc(100% - 2 * $borderSize);
-    border: $borderSize solid rgb(226, 14, 14);
-  }
-  
-  
   
   }
   
-  @media screen and (orientation: portrait) and (min-height: 1079px) {
+  @media screen and (orientation: portrait) and (min-height: 1000px) {
     // contexte : iPad
 
    
-    .many {
-      display:flex;
-      height:700px;
-      overflow: auto; /* Active le défilement vertical dans ce conteneur */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      height:800px;
+
+      overflow-y: auto;
+      border: $borderSize solid #051306;
+
+      
     }
   
-    .article {
-      width:calc(50% - 2 * $borderSize);
-      border: $borderSize solide rgb(205, 50, 166);
+    .grid-item {
+      width:calc(45vw - 2 * $borderSize);
       display:flex;
       flex-direction: column;
-      height:50px;
-      background-color: $greyPearlColor;
-      margin: 1vh;
+      //height:50%;
+      //height: 30vh;
+      //margin: 1vh;
+      border: $borderSize solid #0b07e4;
     }
   
+    .row {
+      width:calc(100% - 2 * $borderSize);
+    }
+
+
+    .data {
+      width:calc(88% - 2 * $borderSize);
+    }
     .block-button {
       display: flex;
       justify-content: center;
@@ -82,12 +127,7 @@ $screenWidth:99%;
       border-color: rgb(192, 221, 255);
     }
   
-    .row {
-      //width:calc(100% - 2 * $borderSize);
-      border-color: rgb(192, 242, 255);
-      width:calc(100% - 2 * $borderSize);
-    }
-  
+
   
   }
   
@@ -107,10 +147,22 @@ $screenWidth:99%;
   
   
   
-  @media screen and (orientation: landscape) and (min-width: 759px) {
+  @media screen and (orientation: landscape) and (max-width: 927px) {
     // Contexte : Galaxy S10 en paysage
-    $formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
+      width:98vw; 
+      overflow-y: auto;
+      height: 200px;
+    }
 
+    .grid-item {
+      width:calc(32vw - 2 * $borderSize);
+    }
+
+    .data {
+      width:calc(92% - 2 * $borderSize);
+    }
   
 
   }
@@ -120,15 +172,21 @@ $screenWidth:99%;
     $formWidth: calc($screenWidth * 1);
 
 
-  
-    .box {
-      width:calc(100% - 2 * $borderSize);
+
+    .grid-container {
+      height: 400px;
+      overflow-y: auto;
+      grid-template-columns: repeat(3, 1fr);
+
     }
-  
-    .row {
-      width:calc(33% - 2 * $borderSize);
+
+    .grid-item {
+      width: calc(31vw - 2 * $borderSize);
     }
-  
+    .data {
+      width: calc(90% - 2 * $borderSize);
+    }
+
   
   }
   

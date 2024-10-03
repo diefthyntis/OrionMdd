@@ -1,19 +1,22 @@
 
-<div class="many">
+<div class="grid-container">
 
-<div class="article" *ngFor="let oneArticle of articleList">
+<div class="grid-item" *ngFor="let oneArticle of articleList">
 
     <div class="row">
+      <div class="data">
       Titre:&nbsp;{{ oneArticle.title }}
     </div>
+    </div>
     <div class="row">
-      <div class="data">{{ oneArticle.creationDate | date: 'dd/MM/yyyy' }}</div>
+      <div class="data">Date:&nbsp;{{ oneArticle.creationDate | date: 'dd/MM/yyyy' }}</div>
       <div class="data">Auteur:&nbsp;{{ oneArticle.speakerId}}</div>
     </div>
     <div class="row">
-      {{ oneArticle.sentence }}
+      <div class="data">
+      {{ oneArticle.sentence }}</div>
     </div> 
-    <div class="block-button">
+    <div class="row">
      <button (click)="navigateToCommentList(oneArticle.speakerId,oneArticle.id)">Commentaires</button>
     </div>
   </div>
