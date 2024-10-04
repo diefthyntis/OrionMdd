@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.diefthyntis.MinimumViableProduct.exception.ArticleNotFoundException;
 import com.diefthyntis.MinimumViableProduct.model.Article;
+import com.diefthyntis.MinimumViableProduct.model.Blurb;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Topic;
 import com.diefthyntis.MinimumViableProduct.repository.ArticleRepository;
@@ -42,4 +43,7 @@ private final ArticleRepository articleRepository;
 		return articleRepository.findAll();
 	}
 
+	public Blurb getOneBlurb(Integer articleId) {
+		return articleRepository.getOneBlurb(articleId);
+	}
 }

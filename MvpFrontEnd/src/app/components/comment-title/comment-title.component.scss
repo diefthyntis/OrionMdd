@@ -1,16 +1,24 @@
 $greyPearlColor:#f1ecec;
-$borderSize: 1vh;
+$borderSize:1vh;
+
+.comment-line {
+    border: 1vh solide cadetblue;
+}
 
 .comment-frame {
     background-color: $greyPearlColor;
     border: $borderSize solide rgb(205, 50, 166);
 }
 
+.comment-data {
+    border: $borderSize solide rgb(8, 126, 18);    
+}
+
 .comment-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: $borderSize solide rgb(205, 50, 166);
+    border: $borderSize solide rgb(19, 17, 18);
 
 }
 
@@ -19,7 +27,7 @@ $borderSize: 1vh;
     margin: 2vh;
     display: flex;
     justify-content: center;
-
+    border: $borderSize solide rgb(205, 50, 166);
 }
 
 @media (orientation:portrait) and (min-height: 666px) {

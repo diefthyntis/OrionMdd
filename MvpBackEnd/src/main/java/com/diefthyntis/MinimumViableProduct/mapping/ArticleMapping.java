@@ -4,7 +4,11 @@ import org.springframework.stereotype.Component;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.ArticleRequest;
 import com.diefthyntis.MinimumViableProduct.dto.response.ArticleResponse;
+import com.diefthyntis.MinimumViableProduct.dto.response.BlurbResponse;
+import com.diefthyntis.MinimumViableProduct.dto.response.ShapeResponse;
 import com.diefthyntis.MinimumViableProduct.model.Article;
+import com.diefthyntis.MinimumViableProduct.model.Blurb;
+import com.diefthyntis.MinimumViableProduct.model.Shape;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.model.Topic;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
@@ -59,5 +63,21 @@ public class ArticleMapping {
 		
 		
 	}
-
+	
+	public BlurbResponse mapBlurbToBlurbResponse(Blurb blurb) {
+		final BlurbResponse blurbResponse = new BlurbResponse();
+		blurbResponse.setArticleId(NumberUtils.convertToString(blurb.getArticleId()));
+		blurbResponse.setSentence(blurb.getSentence());
+		blurbResponse.setSpeakerId(NumberUtils.convertToString(blurb.getSpeakerId()));
+		blurbResponse.setTopicId(NumberUtils.convertToString(blurb.getTopicId()));		
+		blurbResponse.setTopicTitle(blurb.getTopicTitle());
+		blurbResponse.setArticleTitle(blurb.getArticleTitle());
+		blurbResponse.setCreationDate(DateUtils.convertLocalDateToString(blurb.getCreationDate()));
+		blurbResponse.setAuthorPseudonym(blurb.getAuthorPseudonym());
+		blurbResponse.setTopicTitle(blurb.getTopicTitle());
+		return blurbResponse;
+		
+	}
 }
+
+

@@ -1,13 +1,23 @@
-
-
-
-<div class="comment-frame">
-  <div class="comment-row">
-    <button class="comment-bigbutton" type="submit" (click)="createComment()">Ajouter un commentaire</button>
+<div class="comment-row">
+  <div class="comment-title">
+    {{currentBlurb.articleTitle}}
   </div>
-<div class="comment-title">
-  Commentaires&nbsp;pour&nbsp;l'article&nbsp;"{{currentArticle.title}}"
 </div>
+<div class="comment-row">
+  <div class="comment-data">
+  {{currentBlurb.creationDate}}</div>
 </div>
+<div class="comment-row">
+  <div class="comment-data">{{currentBlurb.authorPseudonym}}</div>
+</div>
+<div class="comment-row">
+  <div class="comment-data">{{currentBlurb.topicTitle}}</div>
+</div>
+<div class="comment-line">test</div>
+<!--
+<div class="comment-row">
+  <button class="comment-bigbutton" type="submit" (click)="createComment()">Ajouter un commentaire</button>
+</div>
+-->
 
 

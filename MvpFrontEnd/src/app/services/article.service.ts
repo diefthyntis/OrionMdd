@@ -5,6 +5,9 @@ import { ArticleResponse } from '../dto/response/articleResponse.interface';
 import { Article } from '../dto/models/article.class';
 import { DateTool } from '../tools/date.tool';
 import { ArticleRequest } from '../dto/request/articleRequest.interface';
+import { Speaker } from '../dto/models/speaker.interface';
+import { SpeakerResponse } from '../dto/response/speakerResponse.interface';
+import { BlurbResponse } from '../dto/response/blurbResponse.interface';
 
 
 
@@ -38,28 +41,18 @@ export class ArticleService {
     return this.httpClient.put<ArticleResponse>(`${this.rootUrl}/${id}`, form);
   }
 
-  public getListBySpeakerId(speakerId:string): Article[] {
+  public getListBySpeakerId(speakerId:string): Observable<ArticleResponse[]> {
         let apiUrl = `${this.rootUrl}/${speakerId}`;
         console.log("article.service.ts.getListBySpeakerId apiUrl="+apiUrl)
         
-        let requeteGet$=this.httpClient.get<ArticleResponse[]>(apiUrl);
-        let articleList:Article[]=[];
-        requeteGet$.subscribe(tableau=> {
-            tableau.forEach((instance:ArticleResponse)=> {
-              console.log(tableau);
-              const oneArticle:Article= new Article(
-                instance.id,
-                instance.title,
-                instance.sentence,
-                instance.speakerid,
-                instance.topicid,
-                instance.creationdate,
-                instance.modificationdate)
-                //new Date(),
-                //new Date());
-                articleList.push(oneArticle);
-              console.log("Article.service.ts.getListBySpeakerId oneArticle"+oneArticle);
-            })});
-        return articleList;
+        let asyncGetArticleList$=this.httpClient.get<ArticleResponse[]>(apiUrl);
+        return asyncGetArticleList$;
     } 
+
+    public getBlurb(articleId: string): Observable<BlurbResponse> {
+      let apiTargetUrl="api/blurb/"+articleId;
+      console.log("ArticleService.getBlurb apiTargetUrl="+apiTargetUrl);
+      let async$=this.httpClient.get<BlurbResponse>(apiTargetUrl);
+      return async$;
+    }
 }

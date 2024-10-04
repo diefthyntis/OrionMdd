@@ -21,12 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.ArticleRequest;
 import com.diefthyntis.MinimumViableProduct.dto.response.ArticleResponse;
+import com.diefthyntis.MinimumViableProduct.dto.response.BlurbResponse;
 import com.diefthyntis.MinimumViableProduct.dto.response.ServerResponse;
+import com.diefthyntis.MinimumViableProduct.dto.response.ShapeResponse;
 import com.diefthyntis.MinimumViableProduct.mapping.ArticleMapping;
 import com.diefthyntis.MinimumViableProduct.model.Article;
+import com.diefthyntis.MinimumViableProduct.model.Blurb;
+import com.diefthyntis.MinimumViableProduct.model.Shape;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.service.ArticleService;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
+import com.diefthyntis.MinimumViableProduct.util.NumberUtils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -115,5 +120,19 @@ public class ArticleController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+	
+	@ResponseStatus(HttpStatus.OK)
+	@GetMapping("/blurb/{articleId}")
+	public ResponseEntity<BlurbResponse> getBlurbById(@PathVariable String articleId) {
+		Integer tmpId = Integer.parseInt(articleId);
+        final Blurb blurb = articleService.getOneBlurb(tmpId);
+        final BlurbResponse blurbResponse = articleMapping.mapBlurbToBlurbResponse(blurb);
+        if (blurbResponse != null) {
+            return new ResponseEntity<>(blurbResponse, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+	
 	
 }

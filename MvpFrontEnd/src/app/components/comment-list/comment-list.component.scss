@@ -1,8 +1,12 @@
-$borderSize:0vh;
+$borderSize:1vh;
 $greyPearlColor:#f1ecec;
 $screenWidth:99%;
 $padding:1vh;
 
+.title {
+  font-size: x-large;
+  border: $borderSize solid #e66a31;
+}
 
   .grid-container {
     border: $borderSize solid #31c2e6;
@@ -95,6 +99,11 @@ $padding:1vh;
 
     }
 
+    .title {
+      font-size: x-large;
+      border: $borderSize solid #e66a31;
+    }
+
   
   }
   
@@ -138,7 +147,10 @@ $padding:1vh;
       border-color: rgb(192, 221, 255);
     }
   
-
+    .title {
+      font-size: xx-large;
+      border: $borderSize solid #e66a31;
+    }
   
   }
   
@@ -175,6 +187,10 @@ $padding:1vh;
       width:calc(92% - 2 * $borderSize);
     }
   
+    .title {
+      font-size: x-large;
+      border: $borderSize solid #e66a31;
+    }
 
   }
   
@@ -198,7 +214,10 @@ $padding:1vh;
       width: calc(90% - 2 * $borderSize);
     }
 
-  
+    .title {
+      font-size: x-large;
+      border: $borderSize solid #e66a31;
+    }
   }
   
   

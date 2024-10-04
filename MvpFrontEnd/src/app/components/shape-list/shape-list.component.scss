@@ -1,4 +1,4 @@
-$borderSize:0vh;
+$borderSize:1vh;
 $greyPearlColor:#f1ecec;
 $screenWidth:99%;
 $padding:1vh;
@@ -27,7 +27,17 @@ $padding:1vh;
     //justify-content: left;
     width:calc(100% - 2 * $borderSize);
     border: $borderSize solid #31e63a;
+    font-weight:normal ;
   }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    //justify-content: left;
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid #31e63a;
+  }
+
 
   .data {
     width:calc(96% - 2 * $borderSize);
@@ -42,7 +52,7 @@ $padding:1vh;
     }
 
 .unsuscribe {
-    width: 30vw; 
+    width: 10vw; 
 }
   
 .button {
