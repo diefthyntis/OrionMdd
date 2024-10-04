@@ -1,20 +1,23 @@
 
-<div class="many">
-  <div class="topic" *ngFor="let oneTopic of topicList">
+<div class="grid-container">
+  <div class="grid-item" *ngFor="let oneTopic of topicList">
     <div class="row">
-         <h2>Thème&nbsp;{{ oneTopic.title }}</h2>
+    <div class="bold">{{ oneTopic.title }}</div>
     </div>
-    <div class="row">{{ oneTopic.description }}
+    <div class="row">
+      <div class="data">{{ oneTopic.description }}</div>
 
     </div>
-    <div class="context">
+    <div class="row">
+      
       <div *ngIf="oneTopic.subskriptionActivated" class="information">
-        <label class="label">{{ oneTopic.informationMessage }}</label>
+        {{ oneTopic.informationMessage }}
       </div>
-      <div *ngIf="!oneTopic.subskriptionActivated" class="suscribe">
-        <button class="suscribe" type="submit" (click)="subscribeToThisTopic(oneTopic.id)">S'abonner</button>
+      <div *ngIf="!oneTopic.subskriptionActivated" class="action">
+        <button type="submit" (click)="subscribeToThisTopic(oneTopic.id)">S'abonner</button>
       </div>
     </div>
   </div>
 </div>
+
 
