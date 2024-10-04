@@ -6,7 +6,7 @@ import { SpeakerService } from 'src/app/services/speaker.service';
 
 
 @Component({
-  selector: 'app-witness-page',
+  selector: 'app-change-credentials',
   templateUrl: './change-credentials.component.html',
   styleUrls: ['./change-credentials.component.scss']
 })

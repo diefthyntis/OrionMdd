@@ -17,6 +17,7 @@ import { TopicComponent } from './components/topic/topic.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
 import { ArticleContainerComponent } from './components/article-container/article-container.component';
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
   { path: 'changeCredentials',component:ChangeCredentialsComponent},
   { path: 'welcome',component:LandingComponent},
-  { path: 'whitePage',component:WhitePageComponent}
+  { path: 'whitePage',component:WhitePageComponent},
+  { path: 'profile',component:ProfileComponent}
   
 ];
 

@@ -1,13 +1,13 @@
 <div class="grid-container">
 <div class="grid-item" *ngFor="let oneShapeResponse of shapeResponseList">
 
-        <div class="shape-line">Thème&nbsp;{{oneShapeResponse.topicTitle}}
+        <div class="row">Thème&nbsp;{{oneShapeResponse.topicTitle}}
 
         </div>
-        <div class="shape-description">{{oneShapeResponse.topicDescription}}
+        <div class="row">{{oneShapeResponse.topicDescription}}
 
         </div>
-        <div class="shape-button"><button type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
+        <div class="button"><button class="unsuscribe" type="submit" (click)="unsubscribeToThisTopic(oneShapeResponse.subscriptionId)">Se désabonner</button>
         </div>
 
 
