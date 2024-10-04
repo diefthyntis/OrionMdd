@@ -64,7 +64,9 @@ public class Watchdog extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		try {
-			String jwt = parseJwt(request);
+			//String jwt = parseJwt(request);
+			String jwt = parseJwtCookie(request);
+			
 
 			/*
 			 * 2 - Validation du JWT : Si un JWT est présent et valide (vérifié par
@@ -122,4 +124,9 @@ public class Watchdog extends OncePerRequestFilter {
 
 		return null;
 	}
+	
+	private String parseJwtCookie(HttpServletRequest request) {
+	    String jwt = jwtUtils.getJwtFromCookies(request);
+	    return jwt;
+	  }
 }

@@ -3,7 +3,8 @@ package com.diefthyntis.MinimumViableProduct.controller;
 
 import java.security.Principal;
 
-
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +24,7 @@ import com.diefthyntis.MinimumViableProduct.exception.PseudonymAlreadyExistsExce
 
 import com.diefthyntis.MinimumViableProduct.mapping.SpeakerMapping;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
+import com.diefthyntis.MinimumViableProduct.security.Internaut;
 import com.diefthyntis.MinimumViableProduct.security.JsonWebToken;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
 import com.diefthyntis.MinimumViableProduct.util.JwtUtils;
@@ -62,11 +64,12 @@ public class AuthentificationController {
 		
 		final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(registerRequest.getEmailaddress(), registerRequest.getPassword()));
-        final String jwt = jwtUtils.generateJsonWebToken(authentication);
-		
-		
-		JsonWebToken JsonWebToken= new JsonWebToken(jwt);
-		return ResponseEntity.ok(JsonWebToken);
+        //final String jwt = jwtUtils.generateJsonWebToken(authentication);
+		//JsonWebToken JsonWebToken= new JsonWebToken(jwt);
+		//return ResponseEntity.ok(JsonWebToken);
+		Internaut internaut = (Internaut) authentication.getPrincipal();
+	    ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(internaut);
+		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString()).build();
 		
 		
 		/* dans cette application, il y a un parti pris de créer le compte utilisateur
@@ -85,11 +88,13 @@ public class AuthentificationController {
 		
 		final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signinRequest.getLogin(), signinRequest.getPassword()));
-        final String jwt = jwtUtils.generateJsonWebToken(authentication);
-		
-		
-		JsonWebToken JsonWebToken= new JsonWebToken(jwt);
-		return ResponseEntity.ok(JsonWebToken);
+        //final String jwt = jwtUtils.generateJsonWebToken(authentication);
+		//String jwt = parseJwt(request);
+		//JsonWebToken JsonWebToken= new JsonWebToken(jwt);
+		//return ResponseEntity.ok(JsonWebToken);
+		Internaut internaut = (Internaut) authentication.getPrincipal();
+	    ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(internaut);
+		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString()).build();
 		
 	
 		
