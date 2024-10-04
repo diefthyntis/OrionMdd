@@ -1,4 +1,4 @@
-$borderSize: 1vh;
+$borderSize: 0vh;
 
 .title-line {
     color:cadetblue;
@@ -8,7 +8,7 @@ $borderSize: 1vh;
 .container {
     display:flex;
     flex-direction: column;
-    border: $borderSize solid #31c2e6;
+    border: $borderSize solid #e6314f;
 
 }
 
@@ -19,34 +19,48 @@ $greyPearlColor:#f1ecec;
     display: flex;
     justify-content: center;
     background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
+    border: $borderSize solid #5be631;
     margin: 2vh;
     color: cadetblue;
-   }
+    font-size: xx-large;
+    width:calc(100% - 2 * $borderSize);
+}
+   
 
    .input-label {
     display: flex;
     justify-content: left;
     background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
-    width:10%;
+    border: $borderSize solid #4c31e6;
+    width:10vh;
+    color: cadetblue;
    }
    .input-box {
     display: flex;
     justify-content: left;
     background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
-    width:40%;
+    border: $borderSize solid #c5e631;
+    width:60vw;
     
    }
 .input-line {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     background-color:$greyPearlColor;
     border: $borderSize solid #31c2e6; 
+    margin: 1vh;
 }
 
 
 .input-blablabla {
     height: 200px; 
+    width: calc(100% - 2 * $borderSize);
+}
+
+.input-select {
+    width:calc(100% - 2 * $borderSize);
+}
+
+.input-text {
+    width:calc(100% - 2 * $borderSize);
 }
