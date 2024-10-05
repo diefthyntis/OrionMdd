@@ -59,7 +59,7 @@ public class CommentController {
 	
 	
 	@PostMapping("/comments")
-    public ResponseEntity<ServerResponse> create(final @RequestBody CommentRequest commentRequest) throws IOException, java.io.IOException {
+    public ResponseEntity<CommentResponse> create(final @RequestBody CommentRequest commentRequest) throws IOException, java.io.IOException {
 		log.info("debut de la creation de comment");
 			
 		/*
@@ -67,10 +67,12 @@ public class CommentController {
 		 */
 		
 		final Comment comment = commentMapping.mapCommentRequestToComment(commentRequest);
-		commentService.save(comment);
-			
+		final Comment returnedCommentByDatabase = commentService.save(comment);
+		final CommentResponse commentResponse=commentMapping.mapCommentToCommentResponse(returnedCommentByDatabase);
 		
-		return ResponseEntity.ok(new ServerResponse("Comment send with success"));
+		//return ResponseEntity.ok(new ServerResponse("Comment send with success"));
+		return new ResponseEntity<>(commentResponse, HttpStatus.OK);
+
       
     }
 	

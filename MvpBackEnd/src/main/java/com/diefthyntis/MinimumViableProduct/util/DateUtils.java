@@ -8,7 +8,7 @@ public class DateUtils {
 	public static String convertLocalDateToString(LocalDateTime localDateTime) {
         
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
         return localDateTime.format(formatter);
     }
 }

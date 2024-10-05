@@ -1,9 +1,22 @@
 <app-connected-header></app-connected-header>
 <hr class="header-row">
+<div class="row">
+<div class="data">
 <app-comment-title [articleIdToReceive]="articleIdFromUrl" [speakerIdToReceive]="speakerIdFromUrl"></app-comment-title>
+</div>
+<div class="data">
+<app-new-comment (childEventEmitter)="onNewCreatedKomment($event)" ></app-new-comment>
+</div>
+</div>
 <hr class="header-row">
-<app-new-comment></app-new-comment>
-<hr class="header-row">
-<app-comment-list [articleIdToReceive]="articleIdFromUrl" [speakerIdToReceive]="speakerIdFromUrl"></app-comment-list>
+<app-comment-list [articleIdToReceive]="articleIdFromUrl" 
+    [speakerIdToReceive]="speakerIdFromUrl" [childCommentList]="fatherCommentList"
+    ></app-comment-list>
+
+
+    <!-- Template du composant parent Container -->
+<div>
+
+  
 
 

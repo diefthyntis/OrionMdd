@@ -1,0 +1,44 @@
+$borderSize: 1vh;
+$greyPearlColor:#f1ecec;
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 2 * $borderSize);
+    border: $borderSize solid rgb(126, 8, 28); 
+}
+
+.data {
+    width: calc(50% - 2 * $borderSize);
+    border: $borderSize solid rgb(39, 120, 167); 
+
+}
+
+
+
+@media (orientation: landscape) {
+    .row {
+        display: flex;
+        flex-direction: row;
+        width: calc(100% - 2 * $borderSize);
+    }
+
+    .data {
+        width: calc(50% - 2 * $borderSize);
+    }
+
+}
+
+@media (orientation: portrait) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 2 * $borderSize);
+    }
+
+    .data {
+        width: calc(100% - 2 * $borderSize);
+    }
+
+}
+

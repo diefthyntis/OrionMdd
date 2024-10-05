@@ -1,33 +1,43 @@
-$greyPearlColor:#f1ecec;
-$borderSize:1vh;
+@import '../../../styles.scss';
 
-.comment-line {
-    border: 1vh solide cadetblue;
+.comment-block {
+    border: 1vh solid rgb(160, 159, 95);
+    display:flex;
+    flex-direction: column;
 }
 
-.comment-frame {
-    background-color: $greyPearlColor;
-    border: $borderSize solide rgb(205, 50, 166);
-}
-
-.comment-data {
-    border: $borderSize solide rgb(8, 126, 18);    
-}
 
 .comment-row {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    border: $borderSize solide rgb(19, 17, 18);
+    border: $borderSize solid rgb(19, 17, 18);
+    width: calc(100% - 2 * $borderSize);
 
 }
 
+.comment-data {
+    border: $borderSize solid rgb(8, 126, 18);    
+    align-items: center;
+    justify-content: center;
+    width: calc(33.3% - 2 * $borderSize);
+    //padding: 2vh;
+    background-color: $greyPearlColor;
+    overflow-wrap: break-word;
+}
+
+
 .comment-title {
     background-color: $greyPearlColor;
-    margin: 2vh;
+    //margin: 2vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    border: $borderSize solide rgb(205, 50, 166);
+    border: $borderSize solid rgb(8, 126, 18);
+    color: cadetblue;
+    font-size: xx-large;
+    width: calc(100% - 2 * $borderSize);
+    height: calc(100% - 2 * $borderSize);
 }
 
 @media (orientation:portrait) and (min-height: 666px) {

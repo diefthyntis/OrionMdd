@@ -1,14 +1,18 @@
+<div class="block">
 <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
-   <div class="input-title">Ajout d'un commentaire pour l'article "{{ currentArticle.title }}"</div>
-    <div class="input-line">
-        
-        <div class="input-box">
-        <input class="input" type="text" id="sentence" formControlName="varSentence"></div>
-      </div>
-    <div class="input-line">
-        <button type="submit" >Créer</button>
-    </div>
-    </form>
+<div class="row">
+  <div class="title">Ajout d'un commentaire</div>
+</div>
+<div class="row">
+  <input class="input-text" type="text" id="sentence" formControlName="varSentence">
+</div>
+<div class="row">
+  
+    
+  <button class="action" type="submit" >Créer</button>
+</div>
+</form>
+</div>
 
 
     <!--

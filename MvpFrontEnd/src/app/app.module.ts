@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { RegisterComponent } from './components/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthHeaderComponent } from './components/auth-header/auth-header.component';
 
 import { TopicComponent } from './components/topic/topic.component';
@@ -87,7 +87,7 @@ Injection
 
   ],
   imports: [
-    BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule,FormsModule
     /*
     ,
     ,

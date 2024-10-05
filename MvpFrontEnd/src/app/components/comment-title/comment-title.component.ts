@@ -26,7 +26,7 @@ export class CommentTitleComponent implements OnInit {
     const async$=this.articleService.getBlurb(this.articleIdToReceive ?? '');
     async$.subscribe(returnedBlurbByApi=> {
       this.currentBlurb=returnedBlurbByApi;
-      console.log("CommentTitleComponent.ngOnInit returnedArticleByApi",returnedBlurbByApi)
+      console.log("CommentTitleComponent.ngOnInit returnedBlurbByApi",returnedBlurbByApi)
     })
   }
 

@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { concatMap } from 'rxjs';
+import { BehaviorSubject, concatMap, Observable } from 'rxjs';
 
 
 import { Article } from 'src/app/dto/models/article.class';
 import { Komment } from 'src/app/dto/models/komment.class';
 import { ArticleResponse } from 'src/app/dto/response/articleResponse.interface';
-import { KommentResponse } from 'src/app/dto/response/kommentResponse.interface';
+import { CommentResponse } from 'src/app/dto/response/CommentResponse.interface';
 
 import { SpeakerResponse } from 'src/app/dto/response/speakerResponse.interface';
 import { ArticleService } from 'src/app/services/article.service';
@@ -25,15 +25,21 @@ export class CommentListComponent implements OnInit {
   @Input() speakerIdToReceive:string | undefined;
   @Input() articleIdToReceive:string | undefined;
 
+  @Input() childCommentList: Komment[]=[];
+
+
+
   public connectedSpeaker!:SpeakerResponse;
-  public kommentList:Komment[]=[];
+  //public kommentList:Komment[]=[];
   public bigErrorMessage?:string="";
   public currentArticle!:ArticleResponse;
   public connectedSpeakerId!:string;
   public currentArticleId!:string;
   public articleTitle!:string;
   
-
+  //private updateCommentListSubject = new BehaviorSubject<Komment[]>([]);
+  //private asyncGetCommentList$: Observable<Komment[]> = this.updateCommentListSubject.asObservable();
+  private kommentResponseList:CommentResponse[]=[];
 
   constructor(private commentService: CommentService,
     private authService: AuthService, 
@@ -41,6 +47,7 @@ export class CommentListComponent implements OnInit {
     private parentRoute: ActivatedRoute,
     private articleService:ArticleService,
     private dateTool:DateTool
+
   ) { }
 
     ngOnInit(): void {
@@ -51,25 +58,7 @@ export class CommentListComponent implements OnInit {
       this.parentRoute.paramMap.pipe(
         concatMap(params => {
           console.log("CommentListComponent.ngOnInit",params);
-          /*
-          const speakerId = params.get('speakerId');
-          
-          const articleId = params.get('articleId');
-    
-          if (!speakerId) {
-            throw new Error("La variable speakerId est indéfinie");
-          }
-    
-          if (!articleId) {
-            throw new Error("La variable articleId est indéfinie");
-          }
-    
-          // Attribuer les paramètres
-          this.connectedSpeakerId = speakerId ?? "";
-          this.currentArticleId = articleId ?? "";
-    
-          
-          */
+ 
           // Retourner l'observable de l'appel à authService.me() pour continuer avec concatMap
           return this.authService.me();
         }),
@@ -99,24 +88,24 @@ export class CommentListComponent implements OnInit {
     
           // Retourner l'observable de la liste des commentaires de l'article
           return this.commentService.getListByArticleId(this.articleIdToReceive ?? '');
-        })
-      ).subscribe(returnedCommentListByApi => {
+        })).subscribe(returnedCommentListByApi => {
         // Parcourir les commentaires et les ajouter à la liste
-        returnedCommentListByApi.forEach((commentResponse: KommentResponse) => {
-          console.log("comment-list.component.ts.ngOnInit returnedCommentListByApi=" + returnedCommentListByApi);
+        returnedCommentListByApi.forEach((commentResponse: CommentResponse) => {
+          console.log("comment-list.component.ts.ngOnInit returnedCommentListByApi=",returnedCommentListByApi);
     
           const oneKomment = new Komment(
-            commentResponse.id,
+            commentResponse.commentId,
             commentResponse.sentence,
-            this.dateTool.convertYyyyMmDdToDdMmYyyy(commentResponse.creationdate),
-            commentResponse.modificationdate,
-            commentResponse.speakerid,
+            commentResponse.creationDate,
+            commentResponse.modificationDate,
+            commentResponse.speakerId,
             //null,
             this.connectedSpeaker.pseudonym
           );
     
           // Ajouter chaque commentaire à la liste des commentaires
-          this.kommentList.push(oneKomment);
+          this.childCommentList.push(oneKomment);
+          //this.updateCommentListSubject.next(this.kommentList);
         });
       }, error => {
         console.error("Une erreur est survenue lors de la récupération des données : ", error);

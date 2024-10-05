@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { Topic } from 'src/app/dto/models/topic.class';
@@ -15,7 +15,8 @@ import { CommentService } from 'src/app/services/comment.service';
 import { concatMap } from 'rxjs';
 import { SpeakerResponse } from 'src/app/dto/response/speakerResponse.interface';
 import { ArticleResponse } from 'src/app/dto/response/articleResponse.interface';
-import { KommentResponse } from 'src/app/dto/response/kommentResponse.interface';
+import { CommentResponse } from 'src/app/dto/response/CommentResponse.interface';
+import { Komment } from 'src/app/dto/models/komment.class';
 
 @Component({
   selector: 'app-new-comment',
@@ -30,9 +31,14 @@ export class NewCommentComponent implements OnInit {
   public currentArticle!:ArticleResponse;
   public bigErrorMessage?:string="";
   public selectedOption: string = "";
-  public createdComment!:KommentResponse;
+  public createdComment!:CommentResponse;
   public articleId!:string;
   public connectedSpeakerId!:string;
+
+  //newKomment: any = {};
+
+  @Output() childEventEmitter = new EventEmitter<any>();
+
 
 /*
 console.log("Z new-article.component.ts.ngOnInit début");
@@ -98,7 +104,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
 
   public buildedForm = this.formBuilder.group({
     articleTitle: ['Plus tard est impossible',[Validators.required]],
-    varSentence:['Le prochain JB à sortir en 2025',[Validators.required]]}
+    varSentence:['Taper votre commentaire ici...',[Validators.required]]}
   )
 
 
@@ -107,7 +113,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
 
 
   submit() {
-    console.log("new-comment.component.ts.submit début");
+    console.log("NewCommentComponent.submit début");
   
     if (this.buildedForm.invalid) {
       this.invalidFormMessage = true; // Affiche le message d'erreur
@@ -120,19 +126,31 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
         sentence:formValue.varSentence as string,
         speakerid: this.connectedSpeaker.id.toString(),
         articleid:this.articleId as string,
-        creationdate:this.dateTool.getCurrentDate() as string
+        creationdate:this.dateTool.getCurrentDate() as string,
       };
-      console.log('new-comment.component.ts.submit commentRequest.articleid='+commentRequest.articleid);
+      console.log('NewCommentComponent.submit this.connectedSpeaker.id=',this.connectedSpeaker.id);
+      console.log('NewCommentComponent.submit this.articleId=',this.articleId);
       let commentToBeCreated$ = this.commentService.create(commentRequest);
       commentToBeCreated$.subscribe(
         (returnedCommentResponseByApi)  => { 
           this.createdComment = returnedCommentResponseByApi;
-          console.log('new-comment.component.ts.submit createdComment='+this.createdComment);
-          this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
+          console.log('new-comment.component.ts.submit returnedCommentResponseByApi=',returnedCommentResponseByApi);
+          const oneKomment = new Komment(
+            returnedCommentResponseByApi.commentId,
+            returnedCommentResponseByApi.sentence,
+            returnedCommentResponseByApi.creationDate,
+            returnedCommentResponseByApi.modificationDate,
+            returnedCommentResponseByApi.speakerId,
+            this.connectedSpeaker.pseudonym
+          );
+          console.log('NewCommentComponent.submit oneKomment=',oneKomment);
+          this.childEventEmitter.emit(oneKomment);
+          //this.createdComment = { }; // Réinitialiser le formulaire
+          //this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
         },
         (error) => {
           // Gestion des erreurs retournées par l'API
-          console.error('new-comment.component.ts.submit ##ERR##', error);
+          console.error('NewCommentComponent.submit ##ERR##', error);
           this.bigErrorMessage = error.error; // Affiche le message d'erreur
         }
       )

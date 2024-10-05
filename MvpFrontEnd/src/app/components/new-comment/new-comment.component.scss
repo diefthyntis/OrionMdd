@@ -1,36 +1,95 @@
+@import '../../../styles.scss';
 
-$greyPearlColor:#f1ecec;
-$borderSize:0vh;
-
-  .input-title {
-    display: flex;
-    justify-content: center;
-    background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
-    margin: 2vh;
-    color: cadetblue;
-   }
-
-   .input-label {
-    display: flex;
-    justify-content: center;
-    background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
-   }
-   .input-box {
-    display: flex;
-    justify-content: center;
-    background-color:$greyPearlColor; 
-    border: $borderSize solid #31c2e6;
-    
-   }
-.input-line {
-    display: flex;
-    justify-content: center;
-    background-color:$greyPearlColor;
-    border: $borderSize solid #31c2e6; 
+.row {
+  width:calc(100% - 2 * $borderSize);
+  border: $borderSize solid #7631e6;
+  display: flex;
+  justify-content: center;
+  background-color:$greyPearlColor;
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  //width:calc(100% - 2 * $borderSize);
+  border: $borderSize solid #e6315e;
 }
 
-.input {
-    height: 200px; 
+.title {
+display: flex;
+justify-content: center;
+background-color:$greyPearlColor; 
+border: $borderSize solid #31c2e6;
+font-size: xx-large;
+color: $titleColor;
 }
+
+.input-text {
+  height: 20vh;
+  width: calc(100% - 2 * $borderSize);
+}
+
+//=========================================================
+// ======================= PORTRAIT =======================
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+ 
+@media screen and (orientation: portrait) and (max-height: 926px) {
+  // contexte : iPhone SE
+
+  .title {
+
+    font-size: x-large;
+   }
+
+   .input-text {
+    height:10vh;
+  }
+  
+
+}
+
+@media screen and (orientation: portrait) and (min-height: 1000px) {
+  // contexte : iPad
+  .title {
+
+    font-size: xx-large;
+   }
+
+   .input-text {
+    height:15vh;
+  }
+
+}
+
+
+
+//=========================================================
+// ======================= PAYSAGE =======================
+/* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+
+
+
+
+
+@media screen and (orientation: landscape) and (max-width: 927px) {
+  // Contexte : Galaxy S10 en paysage
+  .title {
+
+    font-size: x-large;
+   }
+
+
+}
+
+@media screen and (orientation: landscape) and (min-width: 1079px) {
+  // Contexte : iPad en portrait
+
+  .title {
+
+    font-size: xx-large;
+   }
+
+
+}
+
+
+

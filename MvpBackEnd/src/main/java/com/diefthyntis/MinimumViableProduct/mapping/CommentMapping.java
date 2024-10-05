@@ -49,11 +49,11 @@ public class CommentMapping {
 	 */
 	public CommentResponse mapCommentToCommentResponse(Comment comment) {
 		final CommentResponse commentResponse = new CommentResponse();
-		commentResponse.setArticleid(NumberUtils.convertToString(comment.getArticle().getId()));
-		commentResponse.setSpeakerid(NumberUtils.convertToString(comment.getSpeaker().getId()));
-		commentResponse.setId(NumberUtils.convertToString(comment.getId()));
-		commentResponse.setCreationdate(DateUtils.convertLocalDateToString(comment.getCreationdate()));
-		commentResponse.setModificationdate(DateUtils.convertLocalDateToString(comment.getModificationdate()));
+		commentResponse.setArticleId(NumberUtils.convertToString(comment.getArticle().getId()));
+		commentResponse.setSpeakerId(NumberUtils.convertToString(comment.getSpeaker().getId()));
+		commentResponse.setCommentId(NumberUtils.convertToString(comment.getId()));
+		commentResponse.setCreationDate(DateUtils.convertLocalDateToString(comment.getCreationdate()));
+		commentResponse.setModificationDate(DateUtils.convertLocalDateToString(comment.getModificationdate()));
 		commentResponse.setSentence(comment.getSentence());
 		return commentResponse;
 	}

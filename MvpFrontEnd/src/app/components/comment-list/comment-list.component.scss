@@ -1,11 +1,18 @@
-$borderSize:1vh;
-$greyPearlColor:#f1ecec;
+@import '../../../styles.scss';
+
 $screenWidth:99%;
 $padding:1vh;
 
 .title {
-  font-size: x-large;
+  font-size: xx-large;
   border: $borderSize solid #e66a31;
+  color:$titleColor;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  //justify-content: left;
+  width:calc(100% - 2 * $borderSize);
+
 }
 
   .grid-container {
@@ -13,7 +20,7 @@ $padding:1vh;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 2500px;
+    //height: 25vh;
     overflow-y: auto;
   }
   .grid-item {
@@ -26,14 +33,7 @@ $padding:1vh;
     width:calc(22vw - 2 * $borderSize);
     //max-height: 50vh;
   }
-  .title {
-    display: flex;
-    flex-direction: column;
-    //justify-content: left;
-    width:calc(100% - 2 * $borderSize);
-    border: $borderSize solid #31e63a;
-    height: 3vh;
-  }
+
   .blablabla {
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ $padding:1vh;
 
     .title {
       font-size: x-large;
-      border: $borderSize solid #e66a31;
+      border: $borderSize solid #314ce6;
     }
 
   
@@ -149,7 +149,7 @@ $padding:1vh;
   
     .title {
       font-size: xx-large;
-      border: $borderSize solid #e66a31;
+      border: $borderSize solid #37e631;
     }
   
   }
@@ -189,7 +189,7 @@ $padding:1vh;
   
     .title {
       font-size: x-large;
-      border: $borderSize solid #e66a31;
+      border: $borderSize solid #e631e6;
     }
 
   }
@@ -215,8 +215,8 @@ $padding:1vh;
     }
 
     .title {
-      font-size: x-large;
-      border: $borderSize solid #e66a31;
+      font-size: xx-large;
+      border: $borderSize solid #31c2e6;
     }
   }
   

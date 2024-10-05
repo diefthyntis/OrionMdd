@@ -8,11 +8,11 @@ import lombok.Data;
  */
 @Data
 public class CommentResponse {
-	private String id;
+	private String commentId;
 	private String sentence;
-    private String speakerid;
-    private String articleid;
-    private String creationdate;
-	private String modificationdate;
+    private String speakerId;
+    private String articleId;
+    private String creationDate;
+	private String modificationDate;
     
 }

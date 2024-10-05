@@ -1,10 +1,10 @@
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 
 import { Komment } from "../dto/models/komment.class";
 import { CommentRequest } from "../dto/request/commentRequest.interface";
 import { Injectable } from "@angular/core";
-import { KommentResponse } from "../dto/response/kommentResponse.interface";
+import { CommentResponse } from "../dto/response/CommentResponse.interface";
 
 @Injectable({
      providedIn: 'root'
@@ -12,19 +12,21 @@ import { KommentResponse } from "../dto/response/kommentResponse.interface";
 export class CommentService {
     private apiRootUrl="api/";
 
+
+    
     constructor(private httpClient:HttpClient) {}
 
-   public getListByArticleId(articleId:string): Observable<KommentResponse[]> {
+   public getListByArticleId(articleId:string): Observable<CommentResponse[]> {
         let apiTargetUrl=this.apiRootUrl+"comments/"+articleId+"";
         console.log("comment.service.ts apiTargetUrl="+apiTargetUrl);
-        let requeteGet$=this.httpClient.get<KommentResponse[]>(apiTargetUrl);
+        let requeteGet$=this.httpClient.get<CommentResponse[]>(apiTargetUrl);
         return requeteGet$;
    } 
 
-   public create(commentRequest:CommentRequest): Observable<KommentResponse> {
+   public create(commentRequest:CommentRequest): Observable<CommentResponse> {
      let apiTargetUrl=this.apiRootUrl+"comments";
      console.log("comment.service.ts.create apiTargetUrl="+apiTargetUrl);
-     let commentToBeCreated$=this.httpClient.post<KommentResponse>(apiTargetUrl,commentRequest);
+     let commentToBeCreated$=this.httpClient.post<CommentResponse>(apiTargetUrl,commentRequest);
      return commentToBeCreated$;
 
    }
