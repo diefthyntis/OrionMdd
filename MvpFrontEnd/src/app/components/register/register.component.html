@@ -8,25 +8,25 @@
   
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
         <br>
-      <div class="form-title">INSCRIPTION</div>
+      <div class="form-title"><h1>Inscription</h1></div>
       <br>
       <br>
       <div class="form-line" >
-        <label class="form-short-label" for="pseudonym">Nom d'utilisateur :</label>
-        <div class="form-data">
-          <input class="form-input" type="text" id="pseudonym" formControlName="varPseudonym">
+        <label class="box-label" for="pseudonym">Nom d'utilisateur :</label>
+        <div class="box-input">
+          <input class="input" type="text" id="pseudonym" formControlName="varPseudonym">
         </div>
       </div>
       <br>
       <div class="form-line">
-        <label class="form-short-label" for="emailaddress">Adresse e-mail :</label>
-        <div class="form-data"><input class="form-input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
+        <label class="box-label" for="emailaddress">Adresse e-mail :</label>
+        <div class="box-input"><input class="input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
         </div>
       </div>
       <br>
       <div class="form-line">
-        <label class="form-short-label" for="password">Mot de passe :</label>
-        <div class="form-data"><input class="form-input" type="password" id="password" formControlName="varPassword">
+        <label class="box-label" for="password">Mot de passe :</label>
+        <div class="box-input"><input class="input" type="password" id="password" formControlName="varPassword">
         </div>
       </div>
       <br>

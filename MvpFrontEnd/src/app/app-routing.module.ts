@@ -34,8 +34,8 @@ const routes: Routes = [
   { path: 'changeCredentials',component:ChangeCredentialsComponent},
   { path: 'welcome',component:LandingComponent},
   { path: 'whitePage',component:WhitePageComponent},
-  { path: 'profile',component:ProfileComponent}
-  
+  { path: 'profile',component:ProfileComponent},
+  { path: 'landing',component:LandingComponent},
 ];
 
 @NgModule({

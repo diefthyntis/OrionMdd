@@ -276,7 +276,7 @@ $containerHeight:50vh;
 }
 
 
-@media screen and (orientation: portrait) and (max-height: 850px) {
+@media screen and (orientation: portrait) and (max-height: 926px) {
   // contexte : iPhone SE
 
 
@@ -288,7 +288,7 @@ $containerHeight:50vh;
   }
 
   .screen {
-    font-size: $mediumFontSize;
+    font-size: $smallFontSize;
   }
 
 
@@ -311,7 +311,7 @@ $containerHeight:50vh;
 
 }
 
-@media screen and (orientation: portrait) and (min-height: 851px) {
+@media screen and (orientation: portrait) and (min-height: 927px) {
   // contexte : iPad
   .screen {
     font-size: $mediumFontSize;
@@ -424,7 +424,7 @@ $containerHeight:50vh;
   $formWidth: calc($screenWidth * 1);
 
   .screen {
-    font-size: $mediumFontSize;
+    font-size: $bigFontSize;
   }
 
 

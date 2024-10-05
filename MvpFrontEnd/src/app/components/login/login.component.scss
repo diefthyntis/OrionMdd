@@ -1,0 +1,23 @@
+@import '../../../styles.scss';
+@media screen and (orientation:portrait) {
+    .box-label {
+        width:calc(50% - 2 * $borderSize);
+        border:$borderSize solid green;
+    }
+    .box-input {
+        width:calc(50% - 2 * $borderSize);
+        border:$borderSize solid yellow;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .box-label {
+        width:calc(25% - 2 * $borderSize);
+        border:$borderSize solid pink;
+    }
+    .box-input {
+        width:calc(25% - 2 * $borderSize);
+        border:$borderSize solid rgb(255, 136, 0);
+
+    }
+}

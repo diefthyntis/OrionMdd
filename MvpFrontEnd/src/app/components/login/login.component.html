@@ -5,22 +5,22 @@
 <br>
 <div class="form-container">
 <form [formGroup]="buildedForm" class="register-form"  (ngSubmit)="submit()">
-  <div class="form-title" >Connexion
+  <div class="form-title" ><h1>Connexion</h1>
   </div>
 <br>
 <div class="form-line">
-  <label class="form-long-label" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
-  <div class="form-data">
-    <input class="form-input" formControlName="varEmailAddress" type="text" id="login">
+  <label class="box-label" for="pseudonym">Adresse e-mail ou nom d'utilisateur :</label>
+  <div class="box-input">
+    <input class="input" formControlName="varEmailAddress" type="text" id="login">
   </div>
 </div>
 <br>
 
 
 <div class="form-line">
-  <label class="form-long-label" for="password">Mot de passe :</label>
-  <div class="form-data">
-  <input  class="form-input" formControlName="varPassword" type="password" id="password"></div>
+  <label class="box-label" for="password">Mot de passe :</label>
+  <div class="box-input">
+  <input  class="input" formControlName="varPassword" type="password" id="password"></div>
 </div>
 <br>
 <div class="form-button">

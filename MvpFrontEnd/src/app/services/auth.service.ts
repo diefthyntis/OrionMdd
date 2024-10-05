@@ -15,6 +15,7 @@ import { AuthSuccess } from '../dto/response/authSuccess.interface';
   providedIn: 'root'
 })
 export class AuthService {
+
   //private token = 'aLaneSTnélE27aOut19SoiXAnteTrEiZE';
   private pathService = 'api/auth';
   //private tokenKey: string = 'aLaneSTnélE27aOut19SoiXAnteTrEiZE';
@@ -58,5 +59,10 @@ export class AuthService {
   // Supprime le token (lors de la déconnexion par exemple)
   removeToken(): void {
     sessionStorage.removeItem(this.tokenKey);
+  }
+
+  logout() {
+    this.removeToken();
+    
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SpeakerResponse } from 'src/app/dto/response/speakerResponse.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { SpeakerService } from 'src/app/services/speaker.service';
@@ -16,6 +17,8 @@ export class ChangeCredentialsComponent implements OnInit {
 
 
 
+
+
   public bigErrorMessage:string="";
   public connectedSpeaker!:SpeakerResponse;
 
@@ -28,7 +31,8 @@ export class ChangeCredentialsComponent implements OnInit {
 
 
   constructor(private formBuilder:FormBuilder,
-    private authService:AuthService,private speakerService:SpeakerService)
+    private authService:AuthService,private speakerService:SpeakerService,
+    private router: Router)
  { } 
 
 
@@ -101,6 +105,13 @@ export class ChangeCredentialsComponent implements OnInit {
     
   }
 
+  public logout():void {
+    console.error("ChangeCredentialsComponent.logout");
+    this.authService.logout();
+    this.router.navigate(['/landing']);
+  
+  }
+  
     
     
 }
