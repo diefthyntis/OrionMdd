@@ -3,8 +3,21 @@
 $screenWidth:99%;
 $padding:1vh;
 
-.title {
-  font-size: xx-large;
+
+.frame-title {
+  ////font-size: $bigFontSize;
+  border: $borderSize solid #e66a31;
+  color:$titleColor;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  //justify-content: left;
+  width:calc(100% - 2 * $borderSize);
+
+}
+
+.grid-title {
+  ////font-size: $mediumFontSize;
   border: $borderSize solid #e66a31;
   color:$titleColor;
   display: flex;
@@ -34,24 +47,15 @@ $padding:1vh;
     //max-height: 50vh;
   }
 
-  .blablabla {
-    display: flex;
-    flex-direction: column;
-    //justify-content: left;
-    width:calc(100% - 2 * $borderSize);
-    border: $borderSize solid #31e63a;
-    max-height: 13vh;
-  }
-
-
-  .data {
+  .grid-data {
     width:calc(96% - 2 * $borderSize);
     border: $borderSize solid rgb(226, 14, 14);
     //margin:1vh;
     padding: 2vh;
+    ////font-size: $mediumFontSize;
 
-      word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
-      white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
+    word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
+    white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
 
     
     }
@@ -63,8 +67,12 @@ $padding:1vh;
 // ======================= PORTRAIT =======================
 /* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
  
-@media screen and (orientation: portrait) and (max-height: 926px) {
+@media screen and (orientation: portrait) and (max-height: 400px) {
     // contexte : iPhone SE
+  .frame-title {
+    ////font-size: $mediumFontSize;
+  }
+
   .grid-container {
 
       height: 80vh;
@@ -82,35 +90,31 @@ $padding:1vh;
 
     }
   
-  .row {
-    display: flex;
-    flex-direction: column;
-    //justify-content: left;
-    width:calc(100% - 2 * $borderSize);
-    border: $borderSize solid #31e63a;
-  }
 
-  .data {
+
+  .grid-data {
     //width:calc(96% - 2 * $borderSize);
     border: $borderSize solid rgb(226, 14, 14);
     //margin:1vh;
     padding: 1vh;
-    
+    ////font-size:$smallFontSize;
 
     }
 
-    .title {
-      font-size: x-large;
+    .grid-title {
+      ////font-size:$smallFontSize;
       border: $borderSize solid #314ce6;
     }
 
   
   }
   
-  @media screen and (orientation: portrait) and (min-height: 1000px) {
+  @media screen and (orientation: portrait) and (min-height: 401px) {
     // contexte : iPad
 
-   
+   .frame-title {
+    ////font-size: $bigFontSize;
+  }
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -132,24 +136,17 @@ $padding:1vh;
       border: $borderSize solid #0b07e4;
     }
   
-    .row {
-      width:calc(100% - 2 * $borderSize);
-    }
 
 
-    .data {
+    .grid-data {
       width:calc(88% - 2 * $borderSize);
+      ////font-size: $mediumFontSize;
     }
-    .block-button {
-      display: flex;
-      justify-content: center;
-      width:calc(100% - 2 * $borderSize);
-      border-color: rgb(192, 221, 255);
-    }
+
   
-    .title {
-      font-size: xx-large;
-      border: $borderSize solid #37e631;
+    .grid-title {
+      ////font-size: $smallFontSize;
+      border: $mediumFontSize solid #37e631;
     }
   
   }
@@ -158,19 +155,13 @@ $padding:1vh;
   
   //=========================================================
   // ======================= PAYSAGE =======================
-  // Code CTRL+F: QA
-  /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+   /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
   
-  @media (orientation: landscape) {
-    //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
 
-
-  }
   
   
   
-  
-  @media screen and (orientation: landscape) and (max-width: 927px) {
+  @media screen and (orientation: landscape) and (max-width: 850px) {
     // Contexte : Galaxy S10 en paysage
     .grid-container {
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
@@ -183,20 +174,28 @@ $padding:1vh;
       width:calc(32vw - 2 * $borderSize);
     }
 
-    .data {
+    .grid-data {
       width:calc(92% - 2 * $borderSize);
+      border: $borderSize solid #3152e6;
+      ////font-size: x-small;
+    }
+
+    .grid-title {
+      width:calc(92% - 2 * $borderSize);
+      border: $borderSize solid #3152e6;
+      ////font-size: x-large;
     }
   
-    .title {
-      font-size: x-large;
-      border: $borderSize solid #e631e6;
+    .frame-title {
+      ////font-size: x-large;
+      border: $borderSize solid #31e6d7;
     }
+
 
   }
   
-  @media screen and (orientation: landscape) and (min-width: 1079px) {
+  @media screen and (orientation: landscape) and (min-width: 851px) {
     // Contexte : iPad en portrait
-    $formWidth: calc($screenWidth * 1);
 
 
 
@@ -210,12 +209,12 @@ $padding:1vh;
     .grid-item {
       width: calc(31vw - 2 * $borderSize);
     }
-    .data {
+    .grid-data {
       width: calc(90% - 2 * $borderSize);
     }
 
-    .title {
-      font-size: xx-large;
+    .grid-title {
+      ////font-size: xx-large;
       border: $borderSize solid #31c2e6;
     }
   }

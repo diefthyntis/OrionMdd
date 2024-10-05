@@ -1,5 +1,5 @@
-$borderSize:0vh;
-$greyPearlColor:#f1ecec;
+@import '../../../styles.scss';
+
 $screenWidth:99%;
 $padding:1vh;
 
@@ -9,7 +9,8 @@ $padding:1vh;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 2500px;
+    //height: calc (76vh - 2 * $borderSize);
+    max-height: 55vh;
     overflow-y: auto;
   }
   .grid-item {
@@ -30,7 +31,7 @@ $padding:1vh;
   }
 
   .data {
-    width:calc(96% - 2 * $borderSize);
+    width:calc(96% - 2 * $borderSize - 4vh);
     border: $borderSize solid rgb(226, 14, 14);
     //margin:1vh;
     padding: 2vh;
@@ -48,11 +49,11 @@ $padding:1vh;
 // ======================= PORTRAIT =======================
 /* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
  
-@media screen and (orientation: portrait) and (max-height: 926px) {
+@media screen and (orientation: portrait) and (max-height: 850px) {
     // contexte : iPhone SE
   .grid-container {
 
-      height: 60vh;
+      //height: 60vh;
       overflow-y: auto;
       grid-template-columns: 1fr; /* Toujours 2 colonnes */
   }
@@ -87,14 +88,14 @@ $padding:1vh;
   
   }
   
-  @media screen and (orientation: portrait) and (min-height: 1000px) {
+  @media screen and (orientation: portrait) and (min-height: 851px) {
     // contexte : iPad
 
    
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      height:800px;
+      //height:800px;
 
       overflow-y: auto;
       border: $borderSize solid #051306;
@@ -147,13 +148,13 @@ $padding:1vh;
   
   
   
-  @media screen and (orientation: landscape) and (max-width: 927px) {
+  @media screen and (orientation: landscape) and (max-width: 850px) {
     // Contexte : Galaxy S10 en paysage
     .grid-container {
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
       width:98vw; 
       overflow-y: auto;
-      height: 200px;
+      //height: 200px;
     }
 
     .grid-item {
@@ -167,14 +168,14 @@ $padding:1vh;
 
   }
   
-  @media screen and (orientation: landscape) and (min-width: 1079px) {
+  @media screen and (orientation: landscape) and (min-width: 851px) {
     // Contexte : iPad en portrait
     $formWidth: calc($screenWidth * 1);
 
 
 
     .grid-container {
-      height: 400px;
+      //height: 400px;
       overflow-y: auto;
       grid-template-columns: repeat(3, 1fr);
 

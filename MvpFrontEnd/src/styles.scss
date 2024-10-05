@@ -5,7 +5,7 @@
   $titleColor:cadetblue;
   
   $titleHeight:10vh;
-  $borderSize:0vh;
+  $borderSize:1vh;
 
   $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
   $headerHeight:25vh ;
@@ -13,21 +13,25 @@
   $buttonWidth:25vw;
 
   $screenWidth:99%;
+  $smallFontSize:10px;
+  $mediumFontSize:12px;
+  $bigFontSize:14px;
+  
 
   div {
     //width: 100px;
     //padding: 10px;
     border: $borderSize solid rgb(36, 23, 221);
-    //font-size: 11px;
+    //////font-size: 11px;
   }
   
   body {
 
     color: #333; /* Couleur de texte par défaut */
     font-family: 'Georgia', serif;
-    font-weight: bold;
+    //font-weight: bold;
     overflow: hidden;
-    font-size: 11px;
+    //font-size:$mediumFontSize;
     background-color: white;
   }
 
@@ -157,19 +161,6 @@ app-topic-list {
 }
 
 
-/*
-//=======================================================================
-// Header 
-//=======================================================================
-.header {
-
-  border: $borderSize solid #130a91;
-
-  background-color:$greyPearlColor;    
-  width: $screenWidth;
-}
-*/
-
 
 
 
@@ -275,12 +266,7 @@ $containerHeight:50vh;
 // ======================= PORTRAIT =======================
 /* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
 @media (orientation: portrait) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: $borderSize solid #719199;
-  }
+
 
   .container {
     border: $borderSize solid #719199;
@@ -290,20 +276,19 @@ $containerHeight:50vh;
 }
 
 
-@media screen and (orientation: portrait) and (min-height: 666px) {
+@media screen and (orientation: portrait) and (max-height: 850px) {
   // contexte : iPhone SE
 
 
-  .container {
-    display: flex;
-    flex-direction: column;
-
-  }
   .form-line{
     display: flex;
     flex-direction: column;
     width: calc(100% - 2vh);
     //justify-content: left;
+  }
+
+  .screen {
+    font-size: $mediumFontSize;
   }
 
 
@@ -318,11 +303,6 @@ $containerHeight:50vh;
     height: 20%;
   }
 
-  body {
-    font-size: 11px;
-  }
-
-
 
 
 
@@ -331,19 +311,15 @@ $containerHeight:50vh;
 
 }
 
-@media screen and (orientation: portrait) and (min-height: 1079px) {
+@media screen and (orientation: portrait) and (min-height: 851px) {
   // contexte : iPad
-  body {
-    font-size: 14px;
+  .screen {
+    font-size: $mediumFontSize;
   }
 
-  button {
-    font-size: 14px;
-  }
 
   .container {
-    //display: flex;
-    //flex-direction: row;
+
     justify-content: center;
   }
   .form-title {
@@ -406,12 +382,14 @@ $containerHeight:50vh;
 
 
 
-@media screen and (orientation: landscape) and (min-width: 759px) {
+@media screen and (orientation: landscape) and (max-width: 850px) {
   // Contexte : Galaxy S10 en paysage
   $formWidth: calc($screenWidth * 1 - 2 * $borderSize);
-  body {
-    font-size: 11px;
+
+  .screen {
+    font-size: $smallFontSize;
   }
+
 
   .container {
     //display: flex;
@@ -441,22 +419,25 @@ $containerHeight:50vh;
 
 }
 
-@media screen and (orientation: landscape) and (min-width: 1079px) {
+@media screen and (orientation: landscape) and (min-width: 851px) {
   // Contexte : iPad en portrait
   $formWidth: calc($screenWidth * 1);
-  body {
-    font-size: 20px;
+
+  .screen {
+    font-size: $mediumFontSize;
   }
+
 
   button {
     height: 40%;
     //width: 20%;
-    font-size: 20px;
+    ////font-size: 20px;
   }
 
-  input {
-    font-size: 20px;
+  html {
+    font-size: $mediumFontSize; /* Taille de texte par défaut */
   }
+  
 
 
   .form-title {
@@ -486,3 +467,22 @@ $containerHeight:50vh;
 
 
 
+
+
+
+
+p {
+  font-size: 1em; /* La taille sera de 16px car elle hérite du parent (html) */
+}
+
+
+
+h1 {
+  font-size: 1,5em;
+}
+h2 {
+  font-size: 1.25em;
+}
+h3 {
+  font-size: 1.125em;
+}

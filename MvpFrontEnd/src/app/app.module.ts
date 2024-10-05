@@ -39,7 +39,7 @@ import { ShapeContainerComponent } from './components/shape-container/shape-cont
 import { ConnectedHeaderComponent } from './components/connected-header/connected-header.component';
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 import { CommentTitleComponent } from './components/comment-title/comment-title.component';
-import { ArticleTitleComponent } from './components/article-title/title.component';
+import { ArticleTitleComponent } from './components/article-title/article-title.component';
 import { BlackLineComponent } from './components/black-line/black-line.component';
 import { ProfileComponent } from './components/profile/profile.component';
 

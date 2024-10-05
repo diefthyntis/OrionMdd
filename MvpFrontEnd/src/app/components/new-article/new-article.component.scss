@@ -1,4 +1,4 @@
-$borderSize: 0vh;
+@import '../../../styles.scss';
 
 .title-line {
     color:cadetblue;
@@ -9,7 +9,7 @@ $borderSize: 0vh;
     display:flex;
     flex-direction: column;
     border: $borderSize solid #e6314f;
-
+    //height: 90vh;
 }
 
 $greyPearlColor:#f1ecec;
@@ -18,11 +18,12 @@ $greyPearlColor:#f1ecec;
   .input-title {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color:$greyPearlColor; 
     border: $borderSize solid #5be631;
     margin: 2vh;
     color: cadetblue;
-    font-size: xx-large;
+    ////font-size: xx-large;
     width:calc(100% - 2 * $borderSize);
 }
    
@@ -32,7 +33,7 @@ $greyPearlColor:#f1ecec;
     justify-content: left;
     background-color:$greyPearlColor; 
     border: $borderSize solid #4c31e6;
-    width:10vh;
+    width:15vh;
     color: cadetblue;
    }
    .input-box {
@@ -55,6 +56,7 @@ $greyPearlColor:#f1ecec;
 .input-blablabla {
     height: 200px; 
     width: calc(100% - 2 * $borderSize);
+    font-weight: normal;
 }
 
 .input-select {
@@ -63,4 +65,5 @@ $greyPearlColor:#f1ecec;
 
 .input-text {
     width:calc(100% - 2 * $borderSize);
+    font-weight: normal;
 }

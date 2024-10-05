@@ -1,4 +1,19 @@
+@import '../../../styles.scss';
+
 .line {
     color: cadetblue; 
-    margin: 3vh; 
+    margin: 0vh; 
+    display: flex;
+    justify-content: center;
+    height: 12vh;
+    border:$borderSize solid cadetblue;
 }
+
+.container {
+    height:22vh;
+}
+
+.data {
+    width:50%;
+}
+

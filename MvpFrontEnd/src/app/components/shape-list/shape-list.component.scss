@@ -1,5 +1,4 @@
-$borderSize:1vh;
-$greyPearlColor:#f1ecec;
+@import '../../../styles.scss';
 $screenWidth:99%;
 $padding:1vh;
 
@@ -9,8 +8,9 @@ $padding:1vh;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 1000px;
+    height: 9vh;
     overflow-y: auto;
+    width:calc(100% - 2 * $borderSize);
   }
   .grid-item {
     background-color:$greyPearlColor;
@@ -51,9 +51,7 @@ $padding:1vh;
     
     }
 
-.unsuscribe {
-    width: 10vw; 
-}
+
   
 .button {
     border: $borderSize solid rgb(226, 14, 14);
@@ -168,7 +166,7 @@ $padding:1vh;
     // Contexte : Galaxy S10 en paysage
     .grid-container {
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
-      width:98vw; 
+      //width:98vw; 
       overflow-y: auto;
       height: 200px;
     }

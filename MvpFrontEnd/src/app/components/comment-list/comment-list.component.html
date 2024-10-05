@@ -1,12 +1,12 @@
 
 
-<div class="title">Commentaires</div>
+<div class="frame-title">Commentaires</div>
 <div class="grid-container">
 <div class="grid-item" *ngFor="let oneKomment of childCommentList">
 
-      <div class="title">Par&nbsp;{{oneKomment.pseudonymSpeaker}}&nbsp;le&nbsp;
+      <div class="grid-title">Par&nbsp;{{oneKomment.pseudonymSpeaker}}&nbsp;le&nbsp;
             {{oneKomment.creationDate | date:'dd/MM/yyyy hh:mm:ss'}}</div>
-      <div class="blablabla">{{oneKomment.sentence}}</div>
+      <div class="grid-data">{{oneKomment.sentence}}</div>
 
 </div>
 
