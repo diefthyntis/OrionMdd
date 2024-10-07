@@ -4,17 +4,26 @@
   <div class="title"><h2>Ajout d'un commentaire</h2></div>
 </div>
 <div class="row">
-
-<textarea rows="4" cols="50" class="input-text" type="text" id="sentence" formControlName="varSentence"></textarea>
-
+  <div class="textarea">
+  <textarea rows="3" cols="30" 
+  class="input-text" 
+  [(ngModel)]="textValue" 
+  type="text" 
+  id="sentence" 
+  formControlName="varSentence"
+  maxlength="255"
+  (input)="updateCharCount()"
+  ></textarea></div>
+  <div class="count">{{ charCount }} caractères restants</div>
 </div>
-
-
 <div class="row">
-  <button class="action" type="submit" >Créer</button></div>
+  <button class="action" type="submit" >Créer</button>
+</div>
 <div class="row">
-  {{information}}</div>
-
+   <div *ngIf="showSuccessMessage" class="information">
+    Votre commentaire a été enregistré.
+  </div>
+</div>
 </form>
 </div>
 

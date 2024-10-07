@@ -33,7 +33,7 @@ $padding:1vh;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    //height: 25vh;
+    height: 40vh;
     overflow-y: auto;
   }
   .grid-item {
@@ -69,13 +69,11 @@ $padding:1vh;
  
 @media screen and (orientation: portrait) and (max-height: 400px) {
     // contexte : iPhone SE
-  .frame-title {
-    ////font-size: $mediumFontSize;
-  }
+
 
   .grid-container {
 
-      height: 80vh;
+      //height: 80vh;
       overflow-y: auto;
       grid-template-columns: 1fr; /* Toujours 2 colonnes */
   }
@@ -112,13 +110,11 @@ $padding:1vh;
   @media screen and (orientation: portrait) and (min-height: 401px) {
     // contexte : iPad
 
-   .frame-title {
-    ////font-size: $bigFontSize;
-  }
+
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      height:800px;
+      //height:800px;
 
       overflow-y: auto;
       border: $borderSize solid #051306;
@@ -167,7 +163,7 @@ $padding:1vh;
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
       width:98vw; 
       overflow-y: auto;
-      height: 60vh;
+      //height: 60vh;
     }
 
     .grid-item {
@@ -200,7 +196,7 @@ $padding:1vh;
 
 
     .grid-container {
-      height:70vh;
+      //height:70vh;
       overflow-y: auto;
       grid-template-columns: repeat(3, 1fr);
 

@@ -35,6 +35,7 @@ export class NewCommentComponent implements OnInit {
   public articleId!:string;
   public connectedSpeakerId!:string;
   public information!: string;
+  public showSuccessMessage: boolean = false;
   //newKomment: any = {};
 
   @Output() childEventEmitter = new EventEmitter<any>();
@@ -146,8 +147,11 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
           );
           console.log('NewCommentComponent.submit oneKomment=',oneKomment);
           this.childEventEmitter.emit(oneKomment);
-          this.information = "Votre commentaire a été enregistré";
+          this.showSuccessMessage = true;
           this.buildedForm.reset();
+           setTimeout(() => {
+            this.showSuccessMessage = false;
+          }, 3000); // 15 000 ms = 15 secondes
           //this.createdComment = { }; // Réinitialiser le formulaire
           //this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
         },
@@ -159,4 +163,16 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
       )
     }
   }
+
+
+  public textValue: string = '';
+  public charCount: number = 255;
+
+  updateCharCount() {
+    const sentenceControl = this.buildedForm.get('varSentence');
+    if (sentenceControl) {
+      this.charCount = 255 - (sentenceControl.value?.length || 0);
+    }
+  }
+
 }

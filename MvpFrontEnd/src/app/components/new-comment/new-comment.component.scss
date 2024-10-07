@@ -24,8 +24,29 @@ color: $titleColor;
 }
 
 .input-text {
-  height: 20vh;
+  //height: 20vh;
   width: calc(100% - 2 * $borderSize);
+}
+
+.textarea {
+  width: calc(85% - 2* $borderSize );
+  border: $borderSize solid #31c2e6;
+}
+
+
+.count {
+  width: calc(15% - 2* $borderSize - 1vh);
+  border: $borderSize solid #31c2e6;
+  padding:1vh;
+  color:cadetblue;
+  margin:1vh;
+}
+
+.information {
+  width: calc(100% - 2* $borderSize - 1vh);
+  border: $borderSize solid #31c2e6;
+  padding:1vh;
+  color:cadetblue;
 }
 
 //=========================================================
