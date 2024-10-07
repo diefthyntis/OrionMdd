@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.diefthyntis.MinimumViableProduct.dto.request.RegisterRequest;
 import com.diefthyntis.MinimumViableProduct.dto.request.SignInRequest;
+import com.diefthyntis.MinimumViableProduct.exception.BadCredentialException;
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressAlreadyExistsException;
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressNotFilledException;
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressNotValidException;
@@ -114,7 +115,11 @@ public class AuthentificationController {
 	@PostMapping("/login")
     public ResponseEntity<?> connexionUser(final @RequestBody SignInRequest signinRequest) {
 		
-	
+		// ? signifie la généricité, donc je peux passer n'importe quel type d'objet dans la méthode responseEntity.ok
+		if (!speakerService.existsByEmailaddress(signinRequest.getLogin()) &&
+				!speakerService.existsByPseudonym(signinRequest.getLogin())	) {
+			throw new BadCredentialException("Bad credential");
+        }
 		
 		final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signinRequest.getLogin(), signinRequest.getPassword()));

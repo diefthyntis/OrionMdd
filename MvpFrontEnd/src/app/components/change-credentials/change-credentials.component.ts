@@ -21,12 +21,15 @@ export class ChangeCredentialsComponent implements OnInit {
 
   public bigErrorMessage:string="";
   public connectedSpeaker!:SpeakerResponse;
+  public showInformationMessage:boolean=false;
+  public informationMessage:string="";
 
   public buildedForm = this.formBuilder.group({
     varEmailaddress: ['', [Validators.required, Validators.email]],
       varPseudonym: ['', [Validators.required, Validators.minLength(1)]],
       varPassword: ['', [Validators.required, Validators.minLength(1)]]
   });
+
 
 
 
@@ -47,17 +50,11 @@ export class ChangeCredentialsComponent implements OnInit {
     } )
     
   }
-
-
-  sayHello() {
-    this.bigErrorMessage="Hello";
-    }
-
     
   updateCredentials() {
     if (this.buildedForm.invalid) {
       console.log("ChangeCredentialsComponent.updateCredentials","Le formulaire est invalide");
-      this.bigErrorMessage = 'Veuillez corriger les erreurs dans le formulaire.';
+      this.bigErrorMessage = 'Please fill the form with good values';
       return;
     }
     const formData = new FormData();
@@ -97,7 +94,8 @@ export class ChangeCredentialsComponent implements OnInit {
     this.speakerService.updateSpeaker(formData).subscribe(
         GenericResponse => {
         console.log("ChangeCredentialsComponent.updateCredentials OK",GenericResponse);
-        this.bigErrorMessage="Vos modifications ont été enregistrées"
+        this.showInformationMessage=true;
+        this.informationMessage=GenericResponse.message;
         },
       error => {
         console.error("ChangeCredentialsComponent.updateCredentials KO",error);
@@ -111,6 +109,12 @@ export class ChangeCredentialsComponent implements OnInit {
     this.router.navigate(['/landing']);
   
   }
+
+  onInputClick() {
+    this.informationMessage="";
+    this.showInformationMessage=false;
+    }
+    
   
     
     

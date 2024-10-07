@@ -11,13 +11,14 @@
     justify-content: center;
   }
 
+
 input {
     //font-family: 'Georgia', serif;
     //font-weight: bold;
     width: calc(100% - 2 * $borderSize);
   }
 
-  .box-label {
+.box-label {
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -42,6 +43,15 @@ input {
     display: flex;
     flex-direction: row;
 }
+
+.form-title {
+    display: flex;
+    border: $borderSize solid pink;
+    background-color:$greyPearlColor;   
+    color: cadetblue; 
+    justify-content: center;
+    margin-top: 1vh;
+  }
 
 @media screen and (orientation:portrait) and (max-height:950px) {
     .box-label {

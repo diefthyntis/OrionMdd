@@ -26,6 +26,7 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class RegisterComponent  {
 
+
   public onError = false;
 
 
@@ -40,11 +41,21 @@ export class RegisterComponent  {
 - lettre majuscule,
 - caractère spécial.
 */
+
+/*
   public buildedForm = this.fb.group({
     varEmailAddress: ['', [Validators.required, Validators.email]],
     varPseudonym: ['', [Validators.required, Validators.minLength(1)]],
     varPassword: ['', [Validators.required, Validators.minLength(8),passwordValidator]]
   });
+  */
+  public buildedForm = this.fb.group({
+    varEmailAddress: [''],
+    varPseudonym: [''],
+    varPassword: ['']
+  });
+
+
   
     public informationMessage!: string;
 
@@ -74,34 +85,45 @@ export class RegisterComponent  {
 
   
   public submit(): void {
-    console.log("RegisterComponent submit début");
+    console.log("RegisterComponent.submit début");
     if (this.buildedForm.invalid) {
+      console.log("RegisterComponent.submit formulaire invalid",);
+      this.informationMessage ="Votre formulaire comporte des erreurs";
       this.invalidFormMessage = true; // Affiche le message d'erreur
       return;
     }
+
     //const registerRequest = this.buildedForm.value as RegisterRequest;
     const formValue = this.buildedForm.value;
     const registerRequest =  {emailaddress:formValue.varEmailAddress as string,password: formValue.varPassword as string,pseudonym:formValue.varPseudonym as string};
     
+    console.log("RegisterComponent.submit registerRequest",registerRequest);
 
     
     this.authService.register(registerRequest).subscribe(
       (response: AuthSuccess) => {
-          console.log("RegisterComponent token retourné par API=",response.content);
+          console.log("RegisterComponent.submit response",response);
           this.authService.saveToken(response.content);
         //localStorage.setItem('token', response.token);
-        this.informationMessage = "OK"
-        //this.router.navigate(['/topics']);
+        console.log("RegisterComponent.submit OK");
+        this.informationMessage="Vous êtes enregistré"
+          this.router.navigate(['/login']);
       },
       error => {
-          console.error("RegisterComponent Erreur lors de l'inscription");
-          console.error("RegisterComponent Erreur lors du processus :", error);
+          console.error("RegisterComponent.submit Erreur lors de l'inscription", error);
+
           //alan@lyon.com=error.error;
+          this.informationMessage = error.error;
           this.onError = true; // Gestion d'erreur pour l'interface utilisateur
         }
       );
     
   
   }
+
+  onInputClick() {
+    this.onError = false; // Gestion d'erreur pour l'interface utilisateur
+    //throw new Error('Method not implemented.');
+    }
 
 }

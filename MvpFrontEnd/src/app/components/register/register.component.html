@@ -1,3 +1,4 @@
+
 <app-auth-header></app-auth-header>
 
 <div class="container">
@@ -9,19 +10,19 @@
       <div class="form-line" >
         <label class="box-label" for="pseudonym">Nom d'utilisateur :</label>
         <div class="box-input">
-          <input class="input" type="text" id="pseudonym" formControlName="varPseudonym">
+          <input (click)="onInputClick()" class="input" type="text" id="pseudonym" formControlName="varPseudonym">
         </div>
       </div>
 
       <div class="form-line">
         <div class="box-label" for="emailaddress">Adresse e-mail :</div>
-        <div class="box-input"><input class="input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
+        <div class="box-input"><input (click)="onInputClick()" class="input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
         </div>
       </div>
 
       <div class="form-line">
         <div class="box-label" for="password">Mot de passe :</div>
-        <div class="box-input"><input class="input" type="password" id="password" formControlName="varPassword">
+        <div class="box-input"><input (click)="onInputClick()" class="input" type="password" id="password" formControlName="varPassword">
         </div>
       </div>
 
@@ -29,14 +30,16 @@
         <button type="submit" >S'inscrire</button>
       </div>
 
+      <div *ngIf="onError" class="form-line">
+        <label>{{informationMessage}}</label>
+      </div>
+
   </form>
   
 </div>
 
 
-<div *ngIf="onError" class="error-message">
-  Une erreur est survenue lors de l'inscription. Veuillez réessayer.
-</div>
+
 
 <div *ngIf="buildedForm.get('varPassword')?.touched && buildedForm.get('varPassword')?.invalid">
   <span *ngIf="buildedForm.get('varPassword')?.hasError('required')">Password is required.</span>

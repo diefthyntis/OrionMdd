@@ -61,8 +61,8 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
 
   public buildedForm = this.formBuilder.group({
     varTopic: [7,[Validators.required]],
-    varTitle: ['Plus tard est impossible',[Validators.required]],
-    varSentence:['Le prochain JB à sortir en 2025',[Validators.required]]}
+    varTitle: ['',[Validators.required]],
+    varSentence:['',[Validators.required]]}
   )
 
 

@@ -10,6 +10,7 @@
     flex-direction: column;
     border: $borderSize solid #e6314f;
     //height: 90vh;
+    font-size: $mediumFontSize;
 }
 
 $greyPearlColor:#f1ecec;
@@ -32,9 +33,10 @@ $greyPearlColor:#f1ecec;
     display: flex;
     justify-content: left;
     background-color:$greyPearlColor; 
-    border: $borderSize solid #4c31e6;
-    width:15vh;
+    border: $borderSize solid #d82828;
+    width:18vh;
     color: cadetblue;
+    font-size: $mediumFontSize;
    }
    .input-box {
     display: flex;
@@ -55,7 +57,7 @@ $greyPearlColor:#f1ecec;
 
 
 .input-blablabla {
-    height: 200px; 
+    //height: 200px; 
     width: calc(100% - 2 * $borderSize);
     font-weight: normal;
     padding: 1vh;

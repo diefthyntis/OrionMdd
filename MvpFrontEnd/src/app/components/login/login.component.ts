@@ -16,17 +16,19 @@ import { AuthSuccess } from 'src/app/dto/response/authSuccess.interface';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  {
+
   public hide = true;
-  public onError = false;
-  public bigErrorMessage="";
+  public onError:boolean = true;
+  public informationMessage:string ="OK";
 
   /*
   on déclare ce que l'on veut mettre dans le formulaire
   */
   public buildedForm = this.fb.group({
     varEmailAddress: ['', [Validators.required, Validators.email]],
-    varPassword: ['', [Validators.required, Validators.min(3)]]
+    varPassword: ['', [Validators.required]]
   });
+
 
   constructor(private authService: AuthService, 
     private fb: FormBuilder, 
@@ -36,7 +38,14 @@ export class LoginComponent  {
 
 
 public submit(): void {
-  console.log("bonjour alan");
+  console.log("LoginComponent.submit");
+
+  if (this.buildedForm.invalid) {
+    console.log("RegisterComponent.submit formulaire invalid",);
+    this.informationMessage ="Please fill email address and password";
+    this.onError = true; // Affiche le message d'erreur
+    return;
+  }
 
   const formValue = this.buildedForm.value;
   console.log(formValue);
@@ -50,11 +59,18 @@ public submit(): void {
       console.log("login.component.ts.submit redirection vers witness termninée");
     },
     (error) => {
-      console.error("login.component.ts.submit Erreur lors de la connexion", error.error);
-      this.bigErrorMessage=error.error;
+      console.error("login.component.ts.submit Erreur lors de la connexion", error);
+      this.informationMessage=error.error;
+      this.onError = true;
       ;
     }
   );
 }
+
+onInputClick() {
+  this.onError = false; // Gestion d'erreur pour l'interface utilisateur
+  //throw new Error('Method not implemented.');
+  this.informationMessage="";
+  }
 
 }

@@ -113,8 +113,7 @@ console.log("B new-comment.component.ts.ngOnInit params="+params);
 public invalidFormMessage = false;  // Variable pour afficher le message "formulaire non valide"
 
   public buildedForm = this.formBuilder.group({
-    articleTitle: ['Plus tard est impossible',[Validators.required]],
-    varSentence:['Taper votre commentaire ici...',[Validators.required]]}
+    varSentence:['',[Validators.required]]}
   )
 
 
@@ -126,8 +125,9 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
     console.log("NewCommentComponent.submit début");
     this.showInformationMessage = false;
     if (this.buildedForm.invalid) {
-      this.invalidFormMessage = true; // Affiche le message d'erreur
-      this.bigErrorMessage="Veuillez sélectionner une option et remplir tous les champs";
+      this.showInformationMessage = true; // Affiche le message d'erreur
+      this.informationMessage="Please fill the field";
+      console.log("NewCommentComponent.submit Formulaire non valide");
       return;
     }
     else {

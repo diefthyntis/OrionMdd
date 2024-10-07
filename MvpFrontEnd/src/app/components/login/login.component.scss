@@ -1,24 +1,104 @@
 @import '../../../styles.scss';
 
+  
 input {
     //font-family: 'Georgia', serif;
     //font-weight: bold;
     width: calc(100% - 2 * $borderSize);
   }
 
-  .form-line{
+  
+.form-container {
+    border: $borderSize solid #31c2e6;
+    background-color:$greyPearlColor; 
+    width:calc($screenWidth - 2 * $borderSize);
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+  }
+
+.form-title {
+display: flex;
+border: $borderSize solid pink;
+background-color:$greyPearlColor;   
+color: cadetblue; 
+justify-content: center;
+margin-top: 1vh;
+}
   
 
+  .form-line{
     border: $borderSize solid pink;
     overflow-wrap: break-word;
-    
-  
     background-color: #f1ecec;   
-    color: cadetblue; 
+    color: cadetblue;
+}
   
+   
+.form-button {
+display: flex;
+
+border: $borderSize solid pink;
+overflow-wrap: break-word;
+//width: $lineWidth;
+
+background-color:$greyPearlColor;   
+color: cadetblue; 
+
+justify-content: center;
+
+height: $lineHeight;
+}
   
-  }
+ 
+.box-label {
+    width:calc(50% - 2 * $borderSize);
+    border:$borderSize solid green;
+    font-size: $bigFontSize;
+}
+.box-input {
+    width:calc(50% - 2 * $borderSize);
+    border:$borderSize solid yellow;
+}
+ 
+  //=========================================================
+  // ======================= PORTRAIT =======================
+
+@media screen and (orientation: portrait) and (max-width:430px) {
+.body {
+
+    font-size: $smallFontSize;
+    border: $borderSize solid #31c2e6;
+}
+}
+
+@media screen and (orientation: portrait) and (min-width:431px) {
+.body {
+
+    font-size: $mediumFontSize;
+    border: $borderSize solid #e63140;
+}
+}
   
+@media screen and (orientation: portrait) and (min-height: 927px) {
+// contexte : iPad
+.screen {
+    font-size: $mediumFontSize;
+}
+    .form-title {
+    width: calc(100% - 2vh);   
+}
+.form-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: calc(100% - 2vh); 
+}
+    .form-button {
+    width: calc(100% - 2vh); 
+    height: 20%;
+}
+}
 
 @media screen and (orientation:portrait) {
     .box-label {
@@ -30,20 +110,6 @@ input {
         border:$borderSize solid yellow;
     }
 }
-
-@media screen and (orientation:landscape) {
-    .box-label {
-        width:calc(25% - 2 * $borderSize);
-        border:$borderSize solid pink;
-    }
-    .box-input {
-        width:calc(25% - 2 * $borderSize);
-        border:$borderSize solid rgb(255, 136, 0);
-
-    }
-}
-
-
 
 @media screen and (orientation:portrait) and (max-height:950px) {
     .box-label {
@@ -78,3 +144,97 @@ input {
         flex-direction: column;
     }
 }
+
+  
+  /*========================================================================
+  LANDSCAPE
+ ========================================================================*/
+  // Code CTRL+F: QA
+  /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+@media (orientation: landscape) {
+    //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+     .form-line {
+      //width: calc($screenWidth - 8vw);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+  
+    }
+}
+  
+@media screen and (orientation: landscape) and (max-width: 850px) {
+    // Contexte : Galaxy S10 en paysage
+  
+    .screen {
+      font-size: $smallFontSize;
+    }
+  
+    .form-title {
+      width: calc(100% - 2 * $borderSize);
+    }
+    .form-line {
+      width: calc(100% - 2 * $borderSize);
+      justify-content: center;
+    }
+  
+}
+  
+@media screen and (orientation: landscape) and (min-width: 851px) {
+    // Contexte : iPad en portrait
+     .screen {
+      font-size: $bigFontSize;
+    }
+      button {
+      height: 40%;
+      //width: 20%;
+      ////font-size: 20px;
+    }
+ 
+    html {
+      font-size: $mediumFontSize; /* Taille de texte par défaut */
+    }
+     .form-title {
+      width: calc(100% - 2 * $borderSize);
+    }
+    .form-line {
+      width: calc(100% - 2 * $borderSize);
+      justify-content: center;
+    }
+      .form-button {
+      width: calc(100% - 2 * $borderSize);
+      height: 20%;
+    }
+}
+
+@media screen and (orientation:landscape) {
+.box-label {
+    width:calc(25% - 2 * $borderSize);
+    border:$borderSize solid rgb(91, 202, 17);
+    font-size: $bigFontSize;
+}
+.box-input {
+    width:calc(25% - 2 * $borderSize);
+    border:$borderSize solid rgb(255, 136, 0);
+
+}
+}
+
+
+  /*========================================================================
+  Calcul des H
+ ========================================================================*/
+  p {
+    font-size: 1em; /* La taille sera de 16px car elle hérite du parent (html) */
+  }
+    
+  
+  h1 {
+    font-size: 1,5em;
+  }
+  h2 {
+    font-size: 1.25em;
+  }
+  h3 {
+    font-size: 1.125em;
+  }
+  

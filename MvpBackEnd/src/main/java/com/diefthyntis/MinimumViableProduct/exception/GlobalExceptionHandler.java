@@ -60,6 +60,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 	
+ 
+    // Gestion de l'exception BadCredentialException
+    @ExceptionHandler(BadCredentialException.class)
+    public ResponseEntity<String> handleBadCredentialException(BadCredentialException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+	
 }
 
 
