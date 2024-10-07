@@ -1,11 +1,11 @@
 @import '../../../styles.scss';
 
-.comment-block {
-    border: $borderSize solid rgb(160, 159, 95);
+.container {
+    border: $borderSize solid #e6315e;
     display:flex;
     flex-direction: column;
-    height: calc(100% - 2 * $borderSize - 1vh);
-    margin: 1vh;
+    height: calc(100% - 2 * $borderSize);
+    //margin: 1vh;
 }
 
 
@@ -39,8 +39,9 @@
     border: $borderSize solid rgb(8, 126, 18);
     color: cadetblue;
     ////font-size: xx-large;
-    width: calc(100% - 2 * $borderSize);
+    width: calc(100% - 2 * $borderSize - 1vh);
     height: calc(100% - 2 * $borderSize);
+    padding: 1vh;
 }
 
 @media (orientation:portrait) and (max-height: 400px) {

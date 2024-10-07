@@ -5,7 +5,7 @@
   $titleColor:cadetblue;
   
   $titleHeight:10vh;
-  $borderSize:0vh;
+  $borderSize:1h;
 
   $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
   $headerHeight:25vh ;
@@ -462,6 +462,22 @@ $containerHeight:50vh;
 
 }
 
+@media (orientation: portrait) and (max-width:430px) {
+  .body {
+
+      font-size: $smallFontSize;
+      border: $borderSize solid #31c2e6;
+  }
+}
+
+@media (orientation: portrait) and (min-width:431px) {
+  .body {
+
+      font-size: $mediumFontSize;
+      border: $borderSize solid #e63140;
+  }
+}
+
 
 
 
@@ -483,3 +499,6 @@ h2 {
 h3 {
   font-size: 1.125em;
 }
+
+
+

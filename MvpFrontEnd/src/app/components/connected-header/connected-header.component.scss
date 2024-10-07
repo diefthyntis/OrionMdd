@@ -69,5 +69,22 @@
 }
 
 
+@media (orientation: portrait) and (max-width:430px) {
+    .header-link {
+  
+        font-size: $smallFontSize;
+        border: $borderSize solid #31c2e6;
+    }
+  }
+  
+  @media (orientation: portrait) and (min-width:431px) {
+    .header-link {
+  
+        font-size: $mediumFontSize;
+        border: $borderSize solid #e63140;
+    }
+  }
+  
+
 
 

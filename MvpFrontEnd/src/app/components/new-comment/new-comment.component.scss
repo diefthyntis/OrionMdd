@@ -7,11 +7,12 @@
   justify-content: center;
   background-color:$greyPearlColor;
 }
-.block {
+.container {
   display: flex;
   flex-direction: column;
   //width:calc(100% - 2 * $borderSize);
   border: $borderSize solid #e6315e;
+  height:calc(100% - 2 * $borderSize);
 }
 
 .title {
@@ -56,28 +57,15 @@ color: $titleColor;
 @media screen and (orientation: portrait) and (max-height: 926px) {
   // contexte : iPhone SE
 
-  .title {
 
-    ////font-size: x-large;
-   }
 
-   .input-text {
-    height:10vh;
-  }
-  
 
 }
 
 @media screen and (orientation: portrait) and (min-height: 1000px) {
   // contexte : iPad
-  .title {
 
-    ////font-size: xx-large;
-   }
 
-   .input-text {
-    height:15vh;
-  }
 
 }
 
@@ -93,10 +81,6 @@ color: $titleColor;
 
 @media screen and (orientation: landscape) and (max-width: 927px) {
   // Contexte : Galaxy S10 en paysage
-  .title {
-
-    ////font-size: x-large;
-   }
 
 
 }
@@ -104,10 +88,7 @@ color: $titleColor;
 @media screen and (orientation: landscape) and (min-width: 1079px) {
   // Contexte : iPad en portrait
 
-  .title {
 
-    ////font-size: xx-large;
-   }
 
 
 }

@@ -4,7 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { concatMap } from 'rxjs';
+import { Speaker } from 'src/app/dto/models/speaker.interface';
 import { AuthSuccess } from 'src/app/dto/response/authSuccess.interface';
+import { SpeakerResponse } from 'src/app/dto/response/speakerResponse.interface';
 
 
 
@@ -38,10 +41,12 @@ export class RegisterComponent  {
 - caractère spécial.
 */
   public buildedForm = this.fb.group({
-    varEmailAddress: ['lamarquisederabutinchantal@aristo.gouv.fr', [Validators.required, Validators.email]],
+    varEmailAddress: ['', [Validators.required, Validators.email]],
     varPseudonym: ['', [Validators.required, Validators.minLength(1)]],
     varPassword: ['', [Validators.required, Validators.minLength(8),passwordValidator]]
   });
+  
+    public informationMessage!: string;
 
   
 
@@ -69,7 +74,7 @@ export class RegisterComponent  {
 
   
   public submit(): void {
-    console.log("submit début");
+    console.log("RegisterComponent submit début");
     if (this.buildedForm.invalid) {
       this.invalidFormMessage = true; // Affiche le message d'erreur
       return;
@@ -82,21 +87,19 @@ export class RegisterComponent  {
     
     this.authService.register(registerRequest).subscribe(
       (response: AuthSuccess) => {
-        console.log("Register submit: token retourné par API="+response.content);
-        this.authService.saveToken(response.content);
+          console.log("RegisterComponent token retourné par API=",response.content);
+          this.authService.saveToken(response.content);
         //localStorage.setItem('token', response.token);
-        /*
-        this.authService.me().subscribe((speaker: Speaker) => {
-          this.sessionService.logIn(speaker);
-          this.router.navigate(['/topics'])
-        });
-        */
+        this.informationMessage = "OK"
+        //this.router.navigate(['/topics']);
       },
       error => {
-        return this.onError = true;
-      }
-        
-    );
+          console.error("RegisterComponent Erreur lors de l'inscription");
+          console.error("RegisterComponent Erreur lors du processus :", error);
+          //alan@lyon.com=error.error;
+          this.onError = true; // Gestion d'erreur pour l'interface utilisateur
+        }
+      );
     
   
   }

@@ -1,30 +1,27 @@
-<div class="block">
-<form [formGroup]="buildedForm" (ngSubmit)="submit()" >
-<div class="row">
-  <div class="title"><h2>Ajout d'un commentaire</h2></div>
-</div>
-<div class="row">
-  <div class="textarea">
-  <textarea rows="3" cols="30" 
-  class="input-text" 
-  [(ngModel)]="textValue" 
-  type="text" 
-  id="sentence" 
-  formControlName="varSentence"
-  maxlength="255"
-  (input)="updateCharCount()"
-  ></textarea></div>
-  <div class="count">{{ charCount }} caractères restants</div>
-</div>
-<div class="row">
-  <button class="action" type="submit" >Créer</button>
-</div>
-<div class="row">
-   <div *ngIf="showSuccessMessage" class="information">
-    Votre commentaire a été enregistré.
+<div class="container">
+  <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
+  <div class="row">
+    <div class="title"><h2>Ajout d'un commentaire</h2></div>
   </div>
-</div>
-</form>
+  <div class="row">
+    <div class="textarea">
+      <textarea rows="3" cols="30" class="input-text" [(ngModel)]="laius" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
+      </textarea>
+  </div>
+  </div>
+  <div class="row">
+    <button class="action" type="submit" >Créer</button>
+  </div>
+  <div class="row">
+    <div *ngIf="showInformationMessage" class="information">
+      <label>{{informationMessage}}</label>
+      
+    </div>
+    <div class="count">
+      <div *ngIf="showCharCount">{{ charCount }} caractères restants</div>
+    </div>
+  </div>
+  </form>
 </div>
 
 

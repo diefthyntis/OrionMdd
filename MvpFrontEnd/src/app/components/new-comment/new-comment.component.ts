@@ -35,10 +35,18 @@ export class NewCommentComponent implements OnInit {
   public articleId!:string;
   public connectedSpeakerId!:string;
   public information!: string;
-  public showSuccessMessage: boolean = false;
-  //newKomment: any = {};
+  
+  
 
   @Output() childEventEmitter = new EventEmitter<any>();
+
+  public showSuccessMessage: boolean = false;
+  public laius!: string;
+  public showCharCount: boolean=false;
+  public charCount: number = 255;
+  public showInformationMessage: boolean = false;
+  public informationMessage!:string;
+  
 
 
 
@@ -116,7 +124,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
 
   submit() {
     console.log("NewCommentComponent.submit début");
-  
+    this.showInformationMessage = false;
     if (this.buildedForm.invalid) {
       this.invalidFormMessage = true; // Affiche le message d'erreur
       this.bigErrorMessage="Veuillez sélectionner une option et remplir tous les champs";
@@ -146,14 +154,30 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
             this.connectedSpeaker.pseudonym
           );
           console.log('NewCommentComponent.submit oneKomment=',oneKomment);
+          
+          
+          //this.buildedForm.reset();
+          //this.buildedForm.enable();
+
+          
           this.childEventEmitter.emit(oneKomment);
-          this.showSuccessMessage = true;
-          this.buildedForm.reset();
+          //this.buildedForm.get('articleTitle')?.setValue(''); // Clear articleTitle
+          //this.buildedForm.get('varSentence')?.setValue('');  // Clear varSentence
+          this.laius= "";
+          this.charCount=0;
+          this.showCharCount = false;
+          this.informationMessage ="Votre commentaire a été enregistré !"
+
+          this.showInformationMessage = true;
+
            setTimeout(() => {
-            this.showSuccessMessage = false;
+            this.showInformationMessage = false;
+            //this.buildedForm.reset();
           }, 3000); // 15 000 ms = 15 secondes
+
+          
           //this.createdComment = { }; // Réinitialiser le formulaire
-          //this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
+          //
         },
         (error) => {
           // Gestion des erreurs retournées par l'API
@@ -165,13 +189,15 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
   }
 
 
-  public textValue: string = '';
-  public charCount: number = 255;
+  
+
 
   updateCharCount() {
+    this.showInformationMessage = true;
     const sentenceControl = this.buildedForm.get('varSentence');
     if (sentenceControl) {
       this.charCount = 255 - (sentenceControl.value?.length || 0);
+      this.informationMessage = this.charCount + " caractères restants";
     }
   }
 

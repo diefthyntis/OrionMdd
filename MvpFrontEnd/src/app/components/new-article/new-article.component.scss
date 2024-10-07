@@ -43,6 +43,7 @@ $greyPearlColor:#f1ecec;
     border: $borderSize solid #c5e631;
     width:60vw;
     
+    
    }
 .input-line {
     display: flex;
@@ -57,6 +58,9 @@ $greyPearlColor:#f1ecec;
     height: 200px; 
     width: calc(100% - 2 * $borderSize);
     font-weight: normal;
+    padding: 1vh;
+    font-family: 'Georgia', serif;
+    
 }
 
 .input-select {
@@ -66,4 +70,24 @@ $greyPearlColor:#f1ecec;
 .input-text {
     width:calc(100% - 2 * $borderSize);
     font-weight: normal;
+    padding: 1vh;
+    font-family: 'Georgia', serif;
 }
+
+
+
+@media (orientation: portrait) and (max-width:430px) {
+    .input-title,.input-label {
+  
+        font-size: $smallFontSize;
+        border: $borderSize solid #31c2e6;
+    }
+  }
+  
+  @media (orientation: portrait) and (min-width:431px) {
+    .input-title,.input-label {
+  
+        font-size: $mediumFontSize;
+        border: $borderSize solid #e63140;
+    }
+  }
