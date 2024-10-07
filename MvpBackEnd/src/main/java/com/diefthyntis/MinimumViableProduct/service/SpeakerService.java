@@ -52,6 +52,7 @@ public class SpeakerService {
 		final Speaker oneSpeaker = speakerRepository.findByEmailaddress(emailaddress).orElseThrow(() -> new EmailaddressNotFoundException("Email address Not Found"));
 		return oneSpeaker;
 	}
+	
 
 	
 }

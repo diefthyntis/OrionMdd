@@ -9,6 +9,7 @@ import { AuthSuccess } from 'src/app/dto/response/authSuccess.interface';
 
 
 import { AuthService } from 'src/app/services/auth.service';
+import { passwordValidator } from 'src/app/services/password.service';
 
 
 import { SessionService } from 'src/app/services/session.service';
@@ -27,11 +28,19 @@ export class RegisterComponent  {
 
   public invalidFormMessage = false;  // Variable pour afficher le message "formulaire non valide"
 
-
+/*
+  Un mot de passe est valide si :
+- son nombre de caractère est supérieur ou égal à 8 caractères ;
+- il contient au moins un de chacun de ces types de caractères :
+- chiffre,
+- lettre minuscule,
+- lettre majuscule,
+- caractère spécial.
+*/
   public buildedForm = this.fb.group({
     varEmailAddress: ['lamarquisederabutinchantal@aristo.gouv.fr', [Validators.required, Validators.email]],
     varPseudonym: ['', [Validators.required, Validators.minLength(1)]],
-    varPassword: ['', [Validators.required, Validators.minLength(1)]]
+    varPassword: ['', [Validators.required, Validators.minLength(8),passwordValidator]]
   });
 
   

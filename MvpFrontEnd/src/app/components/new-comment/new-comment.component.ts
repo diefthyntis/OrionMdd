@@ -34,10 +34,11 @@ export class NewCommentComponent implements OnInit {
   public createdComment!:CommentResponse;
   public articleId!:string;
   public connectedSpeakerId!:string;
-
+  public information!: string;
   //newKomment: any = {};
 
   @Output() childEventEmitter = new EventEmitter<any>();
+
 
 
 /*
@@ -145,6 +146,8 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
           );
           console.log('NewCommentComponent.submit oneKomment=',oneKomment);
           this.childEventEmitter.emit(oneKomment);
+          this.information = "Votre commentaire a été enregistré";
+          this.buildedForm.reset();
           //this.createdComment = { }; // Réinitialiser le formulaire
           //this.router.navigate(['/commentContainer',this.connectedSpeaker.id,this.articleId]);
         },

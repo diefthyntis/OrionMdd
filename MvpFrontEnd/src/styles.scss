@@ -12,7 +12,7 @@
   $buttonHeight:5vh;
   $buttonWidth:25vw;
 
-  $screenWidth:99%;
+  $screenWidth:100%;
   $smallFontSize:10px;
   $mediumFontSize:12px;
   $bigFontSize:14px;
@@ -48,11 +48,6 @@
     width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
     height: auto;
     margin: 1vh;
-    font-family: 'Georgia', serif;
-    font-weight: bold;
-  }
-
-  input {
     font-family: 'Georgia', serif;
     font-weight: bold;
   }
@@ -190,7 +185,7 @@ $containerHeight:50vh;
   //justify-content: center;
 }
 
-
+/*
 .form-line{
   
 
@@ -203,6 +198,7 @@ $containerHeight:50vh;
 
 
 }
+  */
 
 
 .form-button {
@@ -275,7 +271,7 @@ $containerHeight:50vh;
 
 }
 
-
+/*
 @media screen and (orientation: portrait) and (max-height: 926px) {
   // contexte : iPhone SE
 
@@ -293,7 +289,7 @@ $containerHeight:50vh;
 
 
   .form-label {
-    width: calc(100% - 2vh);          /* Ajuste automatiquement la largeur */
+    width: calc(100% - 2vh);         
   }
   .form-data {
     width:calc(100% - 2vh);
@@ -302,6 +298,7 @@ $containerHeight:50vh;
     width:calc(100% - 2vh);
     height: 20%;
   }
+  */
 
 
 
@@ -309,7 +306,7 @@ $containerHeight:50vh;
 
 
 
-}
+
 
 @media screen and (orientation: portrait) and (min-height: 927px) {
   // contexte : iPad

@@ -1,4 +1,25 @@
 @import '../../../styles.scss';
+
+input {
+    //font-family: 'Georgia', serif;
+    //font-weight: bold;
+    width: calc(100% - 2 * $borderSize);
+  }
+
+  .form-line{
+  
+
+    border: $borderSize solid pink;
+    overflow-wrap: break-word;
+    
+  
+    background-color: #f1ecec;   
+    color: cadetblue; 
+  
+  
+  }
+  
+
 @media screen and (orientation:portrait) {
     .box-label {
         width:calc(50% - 2 * $borderSize);
@@ -19,5 +40,41 @@
         width:calc(25% - 2 * $borderSize);
         border:$borderSize solid rgb(255, 136, 0);
 
+    }
+}
+
+
+
+@media screen and (orientation:portrait) and (max-height:950px) {
+    .box-label {
+        width:calc(100% - 2 * $borderSize);
+        border:$borderSize solid green;
+        
+    }
+    .box-input {
+        width:calc(100% - 2 * $borderSize);
+        border:$borderSize solid yellow;
+    }
+
+    .form-line {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (orientation:portrait) and (min-height:1000px) {
+    .box-label {
+        width:calc(100% - 2 * $borderSize);
+        border:$borderSize solid rgb(13, 0, 128);
+        font-size: $bigFontSize;
+    }
+    .box-input {
+        width:calc(100% - 2 * $borderSize);
+        border:$borderSize solid yellow;
+    }
+
+    .form-line {
+        display: flex;
+        flex-direction: column;
     }
 }

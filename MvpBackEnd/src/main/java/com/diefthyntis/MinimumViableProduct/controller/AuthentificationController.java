@@ -3,12 +3,12 @@ package com.diefthyntis.MinimumViableProduct.controller;
 
 import java.security.Principal;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,17 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.diefthyntis.MinimumViableProduct.dto.request.RegisterRequest;
 import com.diefthyntis.MinimumViableProduct.dto.request.SignInRequest;
 import com.diefthyntis.MinimumViableProduct.exception.EmailaddressAlreadyExistsException;
-
+import com.diefthyntis.MinimumViableProduct.exception.EmailaddressNotFilledException;
+import com.diefthyntis.MinimumViableProduct.exception.EmailaddressNotValidException;
+import com.diefthyntis.MinimumViableProduct.exception.PasswordNotValidException;
 import com.diefthyntis.MinimumViableProduct.exception.PseudonymAlreadyExistsException;
-
 import com.diefthyntis.MinimumViableProduct.mapping.SpeakerMapping;
 import com.diefthyntis.MinimumViableProduct.model.Speaker;
 import com.diefthyntis.MinimumViableProduct.security.JsonWebToken;
 import com.diefthyntis.MinimumViableProduct.service.SpeakerService;
+import com.diefthyntis.MinimumViableProduct.util.CredentialUtils;
 import com.diefthyntis.MinimumViableProduct.util.JwtUtils;
 
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.validation.BindingResult;
+
 
 // AuthController communique directement avec le FrontEnd, que ce soit Angular ou Postman
 
@@ -44,10 +50,30 @@ public class AuthentificationController {
 	private final SpeakerMapping speakerMapping;
 	
 	@PostMapping("/register")
-    public ResponseEntity<?> registerUser(final @RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<?> registerUser(final @Valid @RequestBody RegisterRequest registerRequest,BindingResult bindingResult) {
+		
+		   if (bindingResult.hasErrors()) {
+		        String errorMessage = bindingResult.getFieldError().getDefaultMessage();
+		        return ResponseEntity.badRequest().body(errorMessage);
+		    }
+
+		   if (!CredentialUtils.isEmailaddressFilled(registerRequest.getEmailaddress())) {
+				throw new EmailaddressNotFilledException("The email address is not provided when it should be.");
+	         
+	        }	 
+		   
+		   
+		   if (!CredentialUtils.isEmailaddressValid(registerRequest.getEmailaddress())) {
+				throw new EmailaddressNotValidException("The value doesn't look like an email address");
+	         
+	        }	 
+		   
+		   
+	
+		
 		// ? signifie la généricité, donc je peux passer n'importe quel type d'objet dans la méthode responseEntity.ok
 		if (speakerService.existsByEmailaddress(registerRequest.getEmailaddress())) {
-			throw new EmailaddressAlreadyExistsException("Login already exists");
+			throw new EmailaddressAlreadyExistsException("Email address already exists");
          
         }
 		
@@ -55,6 +81,13 @@ public class AuthentificationController {
 			throw new PseudonymAlreadyExistsException("Pseudonym already exists");
          
         }
+		
+	    // Validation du mot de passe
+	    if (!CredentialUtils.isPasswordValid(registerRequest.getPassword())) {
+	        throw new PasswordNotValidException("Password does not meet the security criteria.");
+	    }
+		
+
 		
 		final Speaker speaker=speakerMapping.mapRegisterRequestToSpeaker(registerRequest);
 		speaker.setPassword(passwordEncoder.encode(speaker.getPassword()));

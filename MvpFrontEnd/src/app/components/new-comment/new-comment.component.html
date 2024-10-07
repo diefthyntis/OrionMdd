@@ -1,16 +1,20 @@
 <div class="block">
 <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
 <div class="row">
-  <div class="title"><h2>Ajout d'un commentaire</h2>s</div>
+  <div class="title"><h2>Ajout d'un commentaire</h2></div>
 </div>
 <div class="row">
-  <input class="input-text" type="text" id="sentence" formControlName="varSentence">
+
+<textarea rows="4" cols="50" class="input-text" type="text" id="sentence" formControlName="varSentence"></textarea>
+
 </div>
+
+
 <div class="row">
-  
-    
-  <button class="action" type="submit" >Créer</button>
-</div>
+  <button class="action" type="submit" >Créer</button></div>
+<div class="row">
+  {{information}}</div>
+
 </form>
 </div>
 

@@ -1,40 +1,47 @@
 <app-auth-header></app-auth-header>
-<div *ngIf="onError" class="error-message">
-  Une erreur est survenue lors de l'inscription. Veuillez réessayer.
-</div>
 
-<div class="form-container">
+<div class="container">
     
   
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
         <br>
       <div class="form-title"><h1>Inscription</h1></div>
-      <br>
-      <br>
       <div class="form-line" >
         <label class="box-label" for="pseudonym">Nom d'utilisateur :</label>
         <div class="box-input">
           <input class="input" type="text" id="pseudonym" formControlName="varPseudonym">
         </div>
       </div>
-      <br>
+
       <div class="form-line">
         <label class="box-label" for="emailaddress">Adresse e-mail :</label>
         <div class="box-input"><input class="input" type="emailaddress" id="emailaddress" formControlName="varEmailAddress">
         </div>
       </div>
-      <br>
+
       <div class="form-line">
         <label class="box-label" for="password">Mot de passe :</label>
         <div class="box-input"><input class="input" type="password" id="password" formControlName="varPassword">
         </div>
       </div>
-      <br>
+
       <div class="form-button">
         <button type="submit" >S'inscrire</button>
       </div>
-      <br>
+
   </form>
   
 </div>
+
+
+<div *ngIf="onError" class="error-message">
+  Une erreur est survenue lors de l'inscription. Veuillez réessayer.
+</div>
+
+<div *ngIf="buildedForm.get('varPassword')?.touched && buildedForm.get('varPassword')?.invalid">
+  <span *ngIf="buildedForm.get('varPassword')?.hasError('required')">Password is required.</span>
+  <span *ngIf="buildedForm.get('varPassword')?.hasError('minlength')">Password must be at least 8 characters long.</span>
+  <span *ngIf="buildedForm.get('varPassword')?.hasError('passwordStrength')">Password must contain at least one number, one uppercase letter, one lowercase letter, and one special character.</span>
+</div>
+
 
