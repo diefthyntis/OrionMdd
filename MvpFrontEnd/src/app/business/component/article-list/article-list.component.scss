@@ -1,0 +1,197 @@
+@import '../../../../styles.scss';
+
+
+$screenWidth:99%;
+$padding:1vh;
+
+
+  .grid-container {
+    border: $borderSize solid #31c2e6;
+    background-color:white; 
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    //height: calc (76vh - 2 * $borderSize);
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+  .grid-item {
+    background-color:$greyPearlColor;
+    //text-align: center;
+    border: $borderSize solid #e631bf;
+    margin: 1vh;
+    //padding: $padding; 
+    overflow-wrap: break-word;
+    width:calc(22vw - 2 * $borderSize);
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    //justify-content: left;
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid #31e63a;
+  }
+
+  .data {
+    width:calc(96% - 2 * $borderSize - 4vh);
+    border: $borderSize solid rgb(226, 14, 14);
+    //margin:1vh;
+    padding: 2vh;
+
+      word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
+      white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
+
+    
+    }
+
+
+  
+
+//=========================================================
+// ======================= PORTRAIT =======================
+/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
+ 
+@media screen and (orientation: portrait) and (max-height: 850px) {
+    // contexte : iPhone SE
+  .grid-container {
+
+      //height: 60vh;
+      overflow-y: auto;
+      grid-template-columns: 1fr; /* Toujours 2 colonnes */
+  }
+
+  .grid-item {
+      
+      width:calc(88vw - 2 * $borderSize);
+      //height: 50%;
+      display:flex;
+      flex-direction: column;
+
+
+    }
+  
+  .row {
+    display: flex;
+    flex-direction: column;
+    //justify-content: left;
+    width:calc(100% - 2 * $borderSize);
+    border: $borderSize solid #31e63a;
+  }
+
+  .data {
+    //width:calc(96% - 2 * $borderSize);
+    border: $borderSize solid rgb(226, 14, 14);
+    //margin:1vh;
+    padding: 1vh;
+    
+
+    }
+
+  
+  }
+  
+  @media screen and (orientation: portrait) and (min-height: 851px) {
+    // contexte : iPad
+
+   
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      //height:800px;
+
+      overflow-y: auto;
+      border: $borderSize solid #051306;
+
+      
+    }
+  
+    .grid-item {
+      width:calc(45vw - 2 * $borderSize);
+      display:flex;
+      flex-direction: column;
+      //height:50%;
+      //height: 30vh;
+      //margin: 1vh;
+      border: $borderSize solid #0b07e4;
+    }
+  
+    .row {
+      width:calc(100% - 2 * $borderSize);
+    }
+
+
+    .data {
+      width:calc(88% - 2 * $borderSize);
+    }
+    .block-button {
+      display: flex;
+      justify-content: center;
+      width:calc(100% - 2 * $borderSize);
+      border-color: rgb(192, 221, 255);
+    }
+  
+
+  
+  }
+  
+  
+  
+  //=========================================================
+  // ======================= PAYSAGE =======================
+  // Code CTRL+F: QA
+  /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
+  
+  @media (orientation: landscape) {
+    //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
+
+
+  }
+  
+  
+  
+  
+  @media screen and (orientation: landscape) and (max-width: 850px) {
+    // Contexte : Galaxy S10 en paysage
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
+      width:98vw; 
+      overflow-y: auto;
+      //height: 200px;
+    }
+
+    .grid-item {
+      width:calc(32vw - 2 * $borderSize);
+    }
+
+    .data {
+      width:calc(92% - 2 * $borderSize);
+    }
+  
+
+  }
+  
+  @media screen and (orientation: landscape) and (min-width: 851px) {
+    // Contexte : iPad en portrait
+    $formWidth: calc($screenWidth * 1);
+
+
+
+    .grid-container {
+      //height: 400px;
+      overflow-y: auto;
+      grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .grid-item {
+      width: calc(31vw - 2 * $borderSize);
+    }
+    .data {
+      width: calc(90% - 2 * $borderSize);
+    }
+
+  
+  }
+  
+  
+  
+  

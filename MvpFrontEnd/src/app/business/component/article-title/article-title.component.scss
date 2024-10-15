@@ -1,0 +1,33 @@
+@import '../../../../styles.scss';
+
+.line {
+    color: cadetblue; 
+    margin: 0vh; 
+    display: flex;
+    justify-content: center;
+    //height: 12vh;
+    border:$borderSize solid rgb(179, 119, 92);
+}
+
+
+
+.data {
+    width:50%;
+}
+
+
+.action {
+    width: 50%;
+}
+
+@media screen and (orientation:portrait) {
+    .action {
+        width: 50%;
+    } 
+}
+
+@media screen and (orientation:landscape) {
+    .action {
+        width: 30%;
+    } 
+}

@@ -9,39 +9,48 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './security/component/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthHeaderComponent } from './components/auth-header/auth-header.component';
+import { AuthHeaderComponent } from './security/component/auth-header/auth-header.component';
 
-import { TopicComponent } from './components/topic/topic.component';
-import { LoginComponent } from './components/login/login.component';
-import { TopicListComponent } from './components/topic-list/topic-list.component';
-import { httpInterceptorProviders } from './interceptors';
-import { ArticleListComponent } from './components/article-list/article-list.component';
-import { NewArticleComponent } from './components/new-article/new-article.component';
+import { TopicComponent } from './business/component/topic/topic.component';
+import { LoginComponent } from './security/component/login/login.component';
+import { TopicListComponent } from './business/component/topic-list/topic-list.component';
+
+import { ArticleListComponent } from './business/component/article-list/article-list.component';
+
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
 import { CommonModule } from '@angular/common';
-import { NewCommentComponent } from './components/new-comment/new-comment.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
 
-import { WhitePageComponent } from './components/white-page/white-page.component';
+import { CommentListComponent } from './business/component/comment-list/comment-list.component';
 
-import { ShapeListComponent } from './components/shape-list/shape-list.component';
-import { ChangeCredentialsComponent } from './components/change-credentials/change-credentials.component';
+import { WhitePageComponent } from './noway/component/white-page/white-page.component';
+
+import { ShapeListComponent } from './business/component/shape-list/shape-list.component';
+import { ChangeCredentialsComponent } from './business/component/change-credentials/change-credentials.component';
 
 
-import { ArticleContainerComponent } from './components/article-container/article-container.component';
-import { TopicContainerComponent } from './components/topic-container/topic-container.component';
-import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
-import { ConnectedHeaderComponent } from './components/connected-header/connected-header.component';
-import { CommentContainerComponent } from './components/comment-container/comment-container.component';
-import { CommentTitleComponent } from './components/comment-title/comment-title.component';
-import { ArticleTitleComponent } from './components/article-title/article-title.component';
-import { BlackLineComponent } from './components/black-line/black-line.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ArticleContainerComponent } from './business/component/article-container/article-container.component';
+import { TopicContainerComponent } from './business/component/topic-container/topic-container.component';
+import { ShapeContainerComponent } from './business/component/shape-container/shape-container.component';
+import { ConnectedHeaderComponent } from './navigation/component/connected-header/connected-header.component';
+import { CommentContainerComponent } from './business/component/comment-container/comment-container.component';
+import { CommentTitleComponent } from './business/component/comment-title/comment-title.component';
+import { ArticleTitleComponent } from './business/component/article-title/article-title.component';
+
+import { ProfileComponent } from './business/component/profile/profile.component';
+import { NewArticleComponent } from './business/component/new-article/new-article.component';
+import { NewCommentComponent } from './business/component/new-comment/new-comment.component';
+import { SecurityModule } from './security/security.module';
+import { NowayModule } from './noway/noway.module';
+import { NavigationError } from '@angular/router';
+import { BusinessModule } from './business/business.module';
+import { SharedModule } from './shared/shared.module';
+import { NavigationModule } from './navigation/navigation.module';
+
 
 
 
@@ -63,31 +72,20 @@ Injection
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    AuthHeaderComponent,
-    TopicComponent,
-    LoginComponent,
-    TopicListComponent,
-    ArticleListComponent,
-    NewArticleComponent,
-    ConnectedHeaderComponent,
-    NewCommentComponent,
-    CommentListComponent,
-    WhitePageComponent,
-    ChangeCredentialsComponent,
-    ShapeListComponent,
-    ArticleTitleComponent,
-    ShapeContainerComponent,
-    TopicContainerComponent,
-    ArticleContainerComponent,
-    CommentContainerComponent,
-    CommentTitleComponent,
-    BlackLineComponent,
-    ProfileComponent
+    
 
   ],
   imports: [
-    BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule,FormsModule
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    BusinessModule,
+    NavigationModule,
+    NowayModule,
+    SecurityModule,
+    SharedModule
     /*
     ,
     ,
@@ -98,7 +96,7 @@ Injection
     */
   ],
   providers: [        
-    { provide: LOCALE_ID, useValue: 'fr-FR' },httpInterceptorProviders
+    
     ],
   bootstrap: [AppComponent]
 })

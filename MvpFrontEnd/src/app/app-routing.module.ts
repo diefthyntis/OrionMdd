@@ -1,28 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './components/landing/landing.component';
-import { RegisterComponent } from './components/register/register.component';
-import { TopicListComponent } from './components/topic-list/topic-list.component';
-import { LoginComponent } from './components/login/login.component';
-import { ArticleListComponent } from './components/article-list/article-list.component';
-import { ChangeCredentialsComponent } from './components/change-credentials/change-credentials.component';
-import { NewArticleComponent } from './components/new-article/new-article.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
-import { NewCommentComponent } from './components/new-comment/new-comment.component';
-import { ShapeListComponent } from './components/shape-list/shape-list.component';
-import { WhitePageComponent } from './components/white-page/white-page.component';
+import { LandingComponent } from './navigation/component/landing/landing.component';
+import { RegisterComponent } from './security/component/register/register.component';
+import { TopicListComponent } from './business/component/topic-list/topic-list.component';
+import { LoginComponent } from './security/component/login/login.component';
+import { ArticleListComponent } from './business/component/article-list/article-list.component';
+import { ChangeCredentialsComponent } from './business/component/change-credentials/change-credentials.component';
 
-import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
-import { TopicComponent } from './components/topic/topic.component';
-import { TopicContainerComponent } from './components/topic-container/topic-container.component';
-import { ArticleContainerComponent } from './components/article-container/article-container.component';
-import { CommentContainerComponent } from './components/comment-container/comment-container.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { CommentListComponent } from './business/component/comment-list/comment-list.component';
+
+import { ShapeListComponent } from './business/component/shape-list/shape-list.component';
+import { WhitePageComponent } from './noway/component/white-page/white-page.component';
+
+import { ShapeContainerComponent } from './business/component/shape-container/shape-container.component';
+import { TopicComponent } from './business/component/topic/topic.component';
+import { TopicContainerComponent } from './business/component/topic-container/topic-container.component';
+import { ArticleContainerComponent } from './business/component/article-container/article-container.component';
+import { CommentContainerComponent } from './business/component/comment-container/comment-container.component';
+import { ProfileComponent } from './business/component/profile/profile.component';
+import { NewArticleComponent } from './business/component/new-article/new-article.component';
+import { NewCommentComponent } from './business/component/new-comment/new-comment.component';
 
 
 
-const routes: Routes = [
-  { path: '',component:LandingComponent},
+const routes: Routes = [ 
   { path: 'register',component:RegisterComponent},
   { path: 'login',component:LoginComponent},
   { path: 'topicContainer',component:TopicContainerComponent},
@@ -36,7 +37,9 @@ const routes: Routes = [
   { path: 'whitePage',component:WhitePageComponent},
   { path: 'profile',component:ProfileComponent},
   { path: 'landing',component:LandingComponent},
+  { path: '', redirectTo: 'whitePage', pathMatch: 'full' }, // Redirection vers la page de bienvenue
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
