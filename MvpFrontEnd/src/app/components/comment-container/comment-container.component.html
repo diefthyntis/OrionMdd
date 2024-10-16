@@ -1,22 +1,26 @@
 <div class="screen">
-<app-connected-header></app-connected-header>
-<hr class="header-row">
-<div class="row">
-<div class="data">
-<app-comment-title [articleIdToReceive]="articleIdFromUrl" [speakerIdToReceive]="speakerIdFromUrl"></app-comment-title>
-</div>
-<div class="data">
-<app-new-comment (childEventEmitter)="onNewCreatedKomment($event)" ></app-new-comment>
-</div>
-</div>
-<hr class="header-row">
-<app-comment-list [articleIdToReceive]="articleIdFromUrl" 
-    [speakerIdToReceive]="speakerIdFromUrl" [childCommentList]="fatherCommentList"
-    ></app-comment-list>
-
-
-    <!-- Template du composant parent Container -->
-<div>
+    <app-connected-header></app-connected-header>
+    <hr class="black-line">
+    <div class="container1">
+        <div class="content">
+            <app-comment-title [articleIdToReceive]="articleIdFromUrl" [speakerIdToReceive]="speakerIdFromUrl"></app-comment-title>
+        </div>
+        <div class="content">
+            <app-new-comment (childEventEmitter)="onNewCreatedKomment($event)" ></app-new-comment>
+        </div>
+    </div>
+    <hr class="black-line">
+    <div class="container2">
+        <app-comment-list [articleIdToReceive]="articleIdFromUrl" 
+        [speakerIdToReceive]="speakerIdFromUrl" [childCommentList]="fatherCommentList">
+        </app-comment-list>
+    <div>
 </div>
 
+
+
+<!--
+app-connected-header height: 10vh
+
+-->
 

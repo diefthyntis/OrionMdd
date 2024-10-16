@@ -5,12 +5,13 @@
     margin: 0vh; 
     display: flex;
     justify-content: center;
-    //height: 12vh;
-    border:$borderSize solid rgb(179, 119, 92);
+    height: calc(50% - 2 * $borderSize);
+    border:$borderSize solid $borderColorLevelContent;
 }
 
 .container {
-    //height:22vh;
+    //height:20vh;
+    border:$borderSize solid $borderColorLevelContainer;
 }
 
 .data {

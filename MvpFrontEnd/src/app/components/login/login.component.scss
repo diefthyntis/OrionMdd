@@ -2,8 +2,6 @@
 
   
 input {
-    //font-family: 'Georgia', serif;
-    //font-weight: bold;
     width: calc(100% - 2 * $borderSize);
   }
 
@@ -14,7 +12,6 @@ input {
     width:calc($screenWidth - 2 * $borderSize);
     display: flex;
     flex-direction: column;
-    //justify-content: center;
   }
 
 .form-title {
@@ -30,31 +27,29 @@ margin-top: 1vh;
   .form-line{
     border: $borderSize solid pink;
     overflow-wrap: break-word;
-    background-color: #f1ecec;   
+    //background-color: #f1ecec;   
     color: cadetblue;
+    margin: 1px;
 }
   
    
 .form-button {
 display: flex;
-
 border: $borderSize solid pink;
 overflow-wrap: break-word;
-//width: $lineWidth;
-
 background-color:$greyPearlColor;   
 color: cadetblue; 
-
 justify-content: center;
-
-height: $lineHeight;
+//height: $lineHeight;
 }
   
  
 .box-label {
-    width:calc(50% - 2 * $borderSize);
+    width:calc(25% - 2 * $borderSize);
     border:$borderSize solid green;
     font-size: $bigFontSize;
+    display: flex;
+    align-items: center;
 }
 .box-input {
     width:calc(50% - 2 * $borderSize);
@@ -151,18 +146,31 @@ height: $lineHeight;
  ========================================================================*/
   // Code CTRL+F: QA
   /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
-@media (orientation: landscape) {
-    //$formWidth: calc($screenWidth * 1 - 2 * $borderSize);
-     .form-line {
-      //width: calc($screenWidth - 8vw);
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-  
+
+  @media screen and (orientation:landscape) {
+      .box-input {
+        width:calc(25% - 2 * $borderSize);
+        border:$borderSize solid rgb(255, 136, 0);
+    
+      }
+       .form-line {
+        //width: calc($screenWidth - 8vw);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    
+      }
+      .box-label {
+        width:calc(5% - 2 * $borderSize);
+        border:$borderSize solid rgb(91, 202, 17);
+        font-size: $bigFontSize;
+      }
     }
-}
+
   
-@media screen and (orientation: landscape) and (max-width: 850px) {
+
+  
+@media screen and (orientation: landscape) and (max-width: 855px) {
     // Contexte : Galaxy S10 en paysage
   
     .screen {
@@ -176,10 +184,15 @@ height: $lineHeight;
       width: calc(100% - 2 * $borderSize);
       justify-content: center;
     }
+    .box-label {
+      width:calc(20% - 2 * $borderSize);
+      border:$borderSize solid rgb(20, 17, 202);
+      font-size: $bigFontSize;
+    }
   
 }
   
-@media screen and (orientation: landscape) and (min-width: 851px) {
+@media screen and (orientation: landscape) and (min-width: 856px) {
     // Contexte : iPad en portrait
      .screen {
       font-size: $bigFontSize;
@@ -204,19 +217,12 @@ height: $lineHeight;
       width: calc(100% - 2 * $borderSize);
       height: 20%;
     }
-}
 
-@media screen and (orientation:landscape) {
-.box-label {
-    width:calc(25% - 2 * $borderSize);
-    border:$borderSize solid rgb(91, 202, 17);
-    font-size: $bigFontSize;
-}
-.box-input {
-    width:calc(25% - 2 * $borderSize);
-    border:$borderSize solid rgb(255, 136, 0);
-
-}
+    .box-label {
+      width:calc(20% - 2 * $borderSize);
+      border:$borderSize solid rgb(202, 69, 17);
+      font-size: $bigFontSize;
+    }
 }
 
 

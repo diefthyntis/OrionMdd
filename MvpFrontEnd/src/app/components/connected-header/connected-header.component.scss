@@ -2,55 +2,69 @@
 @import '../../../styles.scss';
 
 
-  .header img {
+  .container img {
     max-width: 100%;
     height: auto; /* Maintient les proportions de l'image */
     display: block; /* Évite les espaces blancs supplémentaires */
     object-fit: contain; 
 }
 
-.header {
-    height: 12vh;
+.container {
+    //height: 12vh;
     //font-size: $smallFontSize;
+    //height: 100%;
+    border: $borderSize solid $borderColorLevelContainer;
 }
 
 
-.header-link {
-    border: $borderSize solid rgb(120, 138, 219);
+.content {
+    border: $borderSize solid $borderColorLevelContent;
     display: flex;
     align-items: center;
     height: calc(100% - 2 * $borderSize);
-  }
+}
+
+@media screen and (orientation: portrait) {
+    .container {
+        height: calc(10% - 2 * $borderSize);
+    }
+}
+@media screen and (orientation: landscape) {
+    .container {
+        height: calc(10% - 2 * $borderSize);
+    }
+}
 
 
 
 @media screen and (orientation: portrait) and (max-height: 400px) {
-    .header {
+    .container {
         display: flex;
         flex-direction: row;
-        border: $borderSize solid #6131e6;
+        //border: $borderSize solid #6131e6;
+        //height: 10vh;
     }
 
 }
 
 @media screen and (orientation: portrait) and (min-height: 401px) {
       // contexte : iPad
-      .header {
+      .container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         //align-items: center; 
-        border: $borderSize solid #6131e6; 
+        //border: $borderSize solid #6131e6; 
     }
 }
 
 
 
 @media screen and (orientation: landscape) and (max-width: 850px) {
-    .header {
+    .container {
         display: flex;
         flex-direction: row;
-        border: $borderSize solid #e63158;
+        //border: $borderSize solid #e63158;
 
     }
 
@@ -59,12 +73,12 @@
 
 @media screen and (orientation: landscape) and (min-width: 851px) {
       // contexte : iPad
-      .header {
+      .container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center; 
-        border: $borderSize solid #31e63a; 
+        //border: $borderSize solid #31e63a; 
     }
 
 }

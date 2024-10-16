@@ -196,9 +196,17 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
     this.showInformationMessage = true;
     const sentenceControl = this.buildedForm.get('varSentence');
     if (sentenceControl) {
+      const tmp=(sentenceControl.value?.length || 0);
       this.charCount = 255 - (sentenceControl.value?.length || 0);
+      //this.informationMessage = this.charCount + " caractères restants";
+
+    if (this.charCount < 0 ) {
+      this.informationMessage = tmp + " caractères. Merci de supprimer des caractères, 250 max" 
+    }
+    else {
       this.informationMessage = this.charCount + " caractères restants";
     }
+  }
   }
 
 }

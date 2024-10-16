@@ -36,11 +36,12 @@ input {
     margin: 1vh;
     border: $borderSize solid rgb(226, 178, 20);
     overflow-wrap: break-word;
-    width:calc(100% - 2 * $borderSize - 1vh);
+    //width:calc(100% - 2 * $borderSize - 1vh);
   
     background-color: #f1ecec;   
     color: cadetblue; 
     display: flex;
+    justify-content: center;
     flex-direction: row;
 }
 
@@ -52,6 +53,11 @@ input {
     justify-content: center;
     margin-top: 1vh;
   }
+
+.form-button {
+    display: flex;
+    justify-content: center;
+}
 
 @media screen and (orientation:portrait) and (max-height:950px) {
     .box-label {

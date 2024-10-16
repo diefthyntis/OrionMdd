@@ -19,7 +19,7 @@ export class LoginComponent  {
 
   public hide = true;
   public onError:boolean = true;
-  public informationMessage:string ="OK";
+  public informationMessage:string ="";
 
   /*
   on déclare ce que l'on veut mettre dans le formulaire

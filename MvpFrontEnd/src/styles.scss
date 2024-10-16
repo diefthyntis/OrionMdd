@@ -5,25 +5,36 @@
   $titleColor:cadetblue;
   
   $titleHeight:10vh;
-  $borderSize:1vh;
+  $borderSize:0vh;
 
+  /*
   $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
   $headerHeight:25vh ;
   $buttonHeight:5vh;
   $buttonWidth:25vw;
+  */
 
-  $screenWidth:100%;
+  $screenWidth:99%;
   $smallFontSize:10px;
   $mediumFontSize:12px;
   $bigFontSize:14px;
-  
 
+  $borderColorLevelScreen:rgb(43, 255, 0);
+  $borderColorLevelContainer:yellow;
+  $borderColorLevelContent:green;
+
+  $blackLineHeight:0,1vh;
+
+
+  
+/*
   div {
     //width: 100px;
     //padding: 10px;
     border: $borderSize solid rgb(36, 23, 221);
     //////font-size: 11px;
   }
+    */
   
   body {
 

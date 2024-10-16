@@ -4,14 +4,15 @@ $screenWidth:99%;
 $padding:1vh;
 
 
-  .grid-container {
-    border: $borderSize solid #31c2e6;
+  .container {
+    border: $borderSize solid $borderColorLevelContainer;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    //height: calc (76vh - 2 * $borderSize);
-    max-height: 55vh;
+    //height: calc (vh - 6 * $borderSize);
+    //max-height: 50vh;
     overflow-y: auto;
+    height:60vh;
   }
   .grid-item {
     background-color:$greyPearlColor;
@@ -51,7 +52,7 @@ $padding:1vh;
  
 @media screen and (orientation: portrait) and (max-height: 850px) {
     // contexte : iPhone SE
-  .grid-container {
+  .container {
 
       //height: 60vh;
       overflow-y: auto;
@@ -92,13 +93,13 @@ $padding:1vh;
     // contexte : iPad
 
    
-    .grid-container {
+    .container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       //height:800px;
 
       overflow-y: auto;
-      border: $borderSize solid #051306;
+      //border: $borderSize solid #051306;
 
       
     }
@@ -110,7 +111,7 @@ $padding:1vh;
       //height:50%;
       //height: 30vh;
       //margin: 1vh;
-      border: $borderSize solid #0b07e4;
+      border: $borderSize solid #e407ad;
     }
   
     .row {
@@ -150,7 +151,7 @@ $padding:1vh;
   
   @media screen and (orientation: landscape) and (max-width: 850px) {
     // Contexte : Galaxy S10 en paysage
-    .grid-container {
+    .container {
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
       width:98vw; 
       overflow-y: auto;
@@ -174,7 +175,7 @@ $padding:1vh;
 
 
 
-    .grid-container {
+    .container {
       //height: 400px;
       overflow-y: auto;
       grid-template-columns: repeat(3, 1fr);

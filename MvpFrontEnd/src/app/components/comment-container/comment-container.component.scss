@@ -1,45 +1,62 @@
 @import '../../../styles.scss';
 
-
-.row {
+.screen {
+    height: 100%;
+    border: $borderSize solid $borderColorLevelScreen;
+}
+.container1 {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: calc(100% - 2 * $borderSize);
-    border: $borderSize solid rgb(126, 8, 28); 
+    border: $borderSize solid $borderColorLevelContainer; 
+    height: calc(30% - 2 * $borderSize);
+}
+.container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: calc(100% - 2 * $borderSize);
+    border: $borderSize solid $borderColorLevelContainer; 
+    //height: 10vh;
+    height: calc(60% - 2 * $borderSize);
+    overflow-y: auto;
 }
 
-.data {
+.content {
     width: calc(50% - 2 * $borderSize - 1vh);
-    border: $borderSize solid rgb(11, 223, 22); 
-    //height: calc(50% - 2 * $borderSize);
+    border: $borderSize solid $borderColorLevelContent; 
+    height: calc(50% - 2 * $borderSize);
     margin: 1vh;
 }
 
+.black-line {
+    height:$blackLineHeight;
+}
 
 
 @media (orientation: landscape) {
-    .row {
+    .container1 {
         display: flex;
         flex-direction: row;
         width: calc(100% - 2 * $borderSize);
 
     }
 
-    .data {
+    .content {
         width: calc(50% - 2 * $borderSize);
     }
 
 }
 
 @media (orientation: portrait) {
-    .row {
+    .container1 {
         display: flex;
         flex-direction: column;
         width: calc(100% - 2 * $borderSize);
     }
 
-    .data {
+    .content {
         width: calc(100% - 2 * $borderSize);
     }
 

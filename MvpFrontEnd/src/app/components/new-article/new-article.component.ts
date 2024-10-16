@@ -21,6 +21,7 @@ import { TopicResponse } from 'src/app/dto/response/topicResponse.interface';
 })
 export class NewArticleComponent implements OnInit {
 
+
   public connectedSpeaker!:SpeakerResponse;
 
   public topicList:Topic[]=[];
@@ -114,6 +115,30 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
           this.bigErrorMessage = obj.error;
         }
       )
+    }
+  }
+
+  //public showSuccessMessage: boolean = false;
+  //public laius!: string;
+  //public showCharCount: boolean=false;
+  public charCount: number = 255;
+  public showInformationMessage: boolean = false;
+  public informationMessage!:string;
+
+
+  updateCharCount() {
+    this.showInformationMessage = true;
+    const sentenceControl = this.buildedForm.get('varSentence');
+    if (sentenceControl) {
+      const tmp=(sentenceControl.value?.length || 0);
+      this.charCount = 255 - (sentenceControl.value?.length || 0);
+      //this.informationMessage = this.charCount + " caractères restants";
+      if (this.charCount < 0 ) {
+        this.informationMessage = tmp + " caractères. Merci de supprimer des caractères, 250 max" 
+      }
+      else {
+        this.informationMessage = this.charCount + " caractères restants";
+      }
     }
   }
 }

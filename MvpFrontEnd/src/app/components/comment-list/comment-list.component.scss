@@ -3,10 +3,17 @@
 $screenWidth:99%;
 $padding:1vh;
 
+.container {
+  //height:20vh;
+  border:$borderSize solid $borderColorLevelContainer;
+  //height: calc (100vh - 6 * $borderSize);
+  //max-height: 50vh;
+  overflow-y: auto;
+}
 
-.frame-title {
+.content {
   ////font-size: $bigFontSize;
-  border: $borderSize solid #e66a31;
+  border: $borderSize solid $borderColorLevelContent;
   color:$titleColor;
   display: flex;
   justify-content: center; /* Centre horizontalement */
@@ -25,15 +32,15 @@ $padding:1vh;
   align-items: center; /* Centre verticalement */
   //justify-content: left;
   width:calc(100% - 2 * $borderSize);
-
+  margin-top: 1vh;
 }
 
   .grid-container {
-    border: $borderSize solid #31c2e6;
+    border: $borderSize solid $borderColorLevelContent;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 40vh;
+    height: 30vh;
     overflow-y: auto;
   }
   .grid-item {

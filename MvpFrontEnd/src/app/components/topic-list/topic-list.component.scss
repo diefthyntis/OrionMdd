@@ -1,6 +1,6 @@
 @import '../../../styles.scss';
 
-//$screenWidth:99%;
+
 //$padding:1vh;
 
 
@@ -10,7 +10,7 @@
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 1500px;
+    height: calc(80vh - 2 * $borderSize);
     overflow-y: auto;
   }
   .grid-item {
@@ -18,10 +18,10 @@
     //text-align: center;
     border: $borderSize solid #e631bf;
     margin: 1vh;
-    //padding: $padding; 
+    padding: 0vh; 
     overflow-wrap: break-word;
     width:calc(22vw - 2 * $borderSize);
-    max-height: 50vh;
+    //max-height: 50vh;
   }
   .row {
     //display: flex;
@@ -29,13 +29,14 @@
     justify-content: center;
     width:calc(100% - 2 * $borderSize);
     border: $borderSize solid #31e63a;
+    //margin: 0.5vh;
   }
 
   .data {
     //width:100%;
     border: $borderSize solid rgb(14, 141, 226);
     //margin:1vh;
-    padding: 2vh;
+    padding: 1vh;
     word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
     white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
     font-weight: normal;
@@ -44,10 +45,7 @@
 
 
 
-  .bold {
-    border: $borderSize solid rgb(226, 176, 14);
-  }
-    
+
     }
 
     .information {
@@ -84,7 +82,7 @@
     // contexte : iPhone SE
   .grid-container {
 
-      height: 60vh;
+      //height: 60vh;
       overflow-y: auto;
       grid-template-columns: 1fr; /* Toujours 2 colonnes */
   }
@@ -126,7 +124,7 @@
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      height:800px;
+      //height:800px;
 
       overflow-y: auto;
       border: $borderSize solid #051306;
@@ -185,7 +183,7 @@
       grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
       width:98vw; 
       overflow-y: auto;
-      height: 200px;
+      //height: 200px;
     }
 
     .grid-item {
@@ -206,7 +204,7 @@
 
 
     .grid-container {
-      height: 400px;
+      //height: 400px;
       overflow-y: auto;
       grid-template-columns: repeat(3, 1fr);
 
@@ -225,3 +223,10 @@
   
   
   
+
+  .bold {
+    border: $borderSize solid rgb(226, 176, 14);
+    font-weight: bold;
+    padding: 1vh;
+  }
+    

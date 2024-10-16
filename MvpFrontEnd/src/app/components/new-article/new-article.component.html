@@ -12,10 +12,20 @@
             <input class="input-text" type="text" id="title" formControlName="varTitle"></div>
         </div>
         <div class="input-line">
-          <div class="input-label"><h2>Rédaction :</h2></div>
-          <div class="input-box"><input class="input-blablabla" type="text" id="sentence" formControlName="varSentence">
+          <div class="input-label"><h2>Rédaction :</h2>
           </div>
+          <div class="input-box"><input class="input-blablabla" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
           </div>
+        </div>
+        <div class="input-line">
+          <div class="row">
+            <div *ngIf="showInformationMessage" class="information">
+              <label>{{informationMessage}}</label>
+            </div>
+          </div>
+        </div>
+
+
         <div class="input-line" >
           <div class="input-label"><h2>Thème :</h2></div>
           <div class="input-box">
@@ -29,8 +39,9 @@
         </div>
         </div>
         <div class="input-line">
-        <button type="submit" >Créer</button>
-      </div>
+          <button type="submit" >Créer</button>
+        </div>
+
       
       </form>
 </div>

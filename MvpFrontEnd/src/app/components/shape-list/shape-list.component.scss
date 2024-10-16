@@ -8,7 +8,7 @@ $padding:1vh;
     background-color:white; 
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    height: 9vh;
+    //height: calc(10vh - 2 * $borderSize);
     overflow-y: auto;
     width:calc(100% - 2 * $borderSize);
   }
@@ -17,9 +17,10 @@ $padding:1vh;
     //text-align: center;
     border: $borderSize solid #e631bf;
     margin: 1vh;
-    //padding: $padding; 
+    padding: 0vh; 
     overflow-wrap: break-word;
     width:calc(22vw - 2 * $borderSize);
+    //height: 20%;
   }
   .row {
     display: flex;
@@ -28,6 +29,7 @@ $padding:1vh;
     width:calc(100% - 2 * $borderSize);
     border: $borderSize solid #31e63a;
     font-weight:normal ;
+    padding: 1vh;
   }
 
   .title {
@@ -36,6 +38,8 @@ $padding:1vh;
     //justify-content: left;
     width:calc(100% - 2 * $borderSize);
     border: $borderSize solid #31e63a;
+    padding: 1vh;
+    font-weight: bold;
   }
 
 
