@@ -62,8 +62,8 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
 
   public buildedForm = this.formBuilder.group({
     varTopic: [7,[Validators.required]],
-    varTitle: ['',[Validators.required]],
-    varSentence:['',[Validators.required]]}
+    varTitle: ['Titre de l\'arcticle',[Validators.required]],
+    varSentence:['Contenu de l\'article',[Validators.required]]}
   )
 
 

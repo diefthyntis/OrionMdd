@@ -1,243 +1,144 @@
 @import '../../../styles.scss';
 
-$screenWidth:99%;
-$padding:1vh;
 
-.container {
-  //height:20vh;
-  border:$borderSize solid $borderColorLevelContainer;
-  //height: calc (100vh - 6 * $borderSize);
-  //max-height: 50vh;
+
+.grid-container {
+  //border: $borderSize solid $borderColorLevelContent;
+  border: $borderSize solid yellow;
+  background-color:white; 
+  display: grid;
+  //grid-template-columns: repeat(1,1fr);
+  height: 45vh;
   overflow-y: auto;
-}
-
-.content {
-  ////font-size: $bigFontSize;
-  border: $borderSize solid $borderColorLevelContent;
-  color:$titleColor;
-  display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  //justify-content: left;
   width:calc(100% - 2 * $borderSize);
-
+  overflow-x: hidden;
 }
 
-.grid-title {
-  ////font-size: $mediumFontSize;
-  border: $borderSize solid #e66a31;
-  color:$titleColor;
-  display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  //justify-content: left;
+
+.grid-item {
+  border: $borderSize solid #e631bf;
   width:calc(100% - 2 * $borderSize);
-  margin-top: 1vh;
+  margin: 1vh;
 }
 
-  .grid-container {
-    border: $borderSize solid $borderColorLevelContent;
-    background-color:white; 
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    height: 30vh;
-    overflow-y: auto;
-  }
-  .grid-item {
-    background-color:$greyPearlColor;
-    //text-align: center;
-    border: $borderSize solid #e631bf;
-    margin: 1vh;
-    //padding: $padding; 
-    overflow-wrap: break-word;
-    width:calc(22vw - 2 * $borderSize);
-    //max-height: 50vh;
-  }
+.grid-item-title {
+  border: $borderSize solid #31e64f;
+  color:$gridItemTitleColor;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center; 
+  width:calc(100% - 2 * $borderSize);
+  //margin: 1vh;
+  background-color:$defaultBackgroundColor;
 
-  .grid-data {
-    width:calc(96% - 2 * $borderSize);
+}
+
+
+
+  .grid-item-data {
+    width:calc(100% - 2 * $borderSize);
     border: $borderSize solid rgb(226, 14, 14);
-    //margin:1vh;
-    padding: 2vh;
-    ////font-size: $mediumFontSize;
+    background-color:$gridItemBackgroundColor;
+    word-wrap: break-word;
+    white-space: normal;
+    }
 
-    word-wrap: break-word; /* Permet de couper le texte et d'aller à la ligne */
-    white-space: normal;   /* Assure que le texte ne reste pas sur une seule ligne */
 
+
+
+  @media screen and (orientation: portrait) {
+    .landscape-only {
+      display: none;
+      
+    }
+    .portrait-only {
+      display: flex;
+      flex-direction: column;
+      border: $borderSize solid #e63140;
+      justify-content: right;
+    }
+
+    .grid-item-title {
+      width:calc(100% - 2 * $borderSize - 4vw);
+      display: flex;
+      justify-content: right;
+      padding: 1vw;
+    }
+    .grid-item-data {
+      width:calc(100% - 2 * $borderSize);  
+    }
+
+    .grid-container {
+      //border: $borderSize solid $borderColorLevelContent;
+      border: $borderSize solid yellow;
+
+      //grid-template-columns: repeat(1,1fr);
+      height: 45vh;
+
+    }
+  }
+  
+  /* Cacher une div en mode paysage */
+  @media screen and (orientation: landscape) {
+    .portrait-only {
+      display: none;
+    }
+    .landscape-only {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      border: $borderSize solid #7631e6;
+    }
+
+    .grid-item-title {
+      width:calc(5% - 2 * $borderSize);
+    }
+    .grid-item-data {
+      width:calc(90% - 2 * $borderSize);  
+    }
+
+    .grid-container {
+      //border: $borderSize solid $borderColorLevelContent;
+      border: $borderSize solid yellow;
+
+      //grid-template-columns: repeat(1,1fr);
+      height: 25vh;
+
+    }
+  }
+
+
+
+
+  
+  /* Cacher une div en mode paysage */
+  @media screen and (orientation: landscape) and (min-width:1000px) {
+   
+
+    .grid-container {
+      //border: $borderSize solid $borderColorLevelContent;
+      border: $borderSize solid yellow;
+
+      //grid-template-columns: repeat(1,1fr);
+      height: 45vh;
+
+    }
+  }
+
+
+
+  
+
+  @media screen and (orientation: portrait) and (min-height:1000px) {
     
-    }
-
-
-  
-
-//=========================================================
-// ======================= PORTRAIT =======================
-/* Mode portrait (hauteur > largeur) : les éléments s'empilent verticalement */
- 
-@media screen and (orientation: portrait) and (max-height: 400px) {
-    // contexte : iPhone SE
-
-
-  .grid-container {
-
-      //height: 80vh;
-      overflow-y: auto;
-      grid-template-columns: 1fr; /* Toujours 2 colonnes */
-  }
-
-  .grid-item {
-      
-      width:calc(88vw - 2 * $borderSize);
-      //height: 50%;
-      display:flex;
-      flex-direction: column;
-
-
-    }
-  
-
-
-  .grid-data {
-    //width:calc(96% - 2 * $borderSize);
-    border: $borderSize solid rgb(226, 14, 14);
-    //margin:1vh;
-    padding: 1vh;
-    ////font-size:$smallFontSize;
-
-    }
-
-    .grid-title {
-      ////font-size:$smallFontSize;
-      border: $borderSize solid #314ce6;
-    }
-
-  
-  }
-  
-  @media screen and (orientation: portrait) and (min-height: 401px) {
-    // contexte : iPad
-
 
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      //height:800px;
+      //border: $borderSize solid $borderColorLevelContent;
+      border: $borderSize solid yellow;
 
-      overflow-y: auto;
-      border: $borderSize solid #051306;
+      //grid-template-columns: repeat(1,1fr);
+      height: 65vh;
 
-      
-    }
-  
-    .grid-item {
-      width:calc(45vw - 2 * $borderSize);
-      display:flex;
-      flex-direction: column;
-      //height:50%;
-      //height: 30vh;
-      //margin: 1vh;
-      border: $borderSize solid #0b07e4;
-    }
-  
-
-
-    .grid-data {
-      width:calc(88% - 2 * $borderSize);
-      ////font-size: $mediumFontSize;
-    }
-
-  
-    .grid-title {
-      ////font-size: $smallFontSize;
-      border: $borderSize solid #37e631;
-    }
-  
-  }
-  
-  
-  
-  //=========================================================
-  // ======================= PAYSAGE =======================
-   /* Mode paysage (largeur > hauteur) : les éléments s'alignent en ligne */
-  
-
-  
-  
-  
-  @media screen and (orientation: landscape) and (max-width: 850px) {
-    // Contexte : Galaxy S10 en paysage
-    .grid-container {
-      grid-template-columns: repeat(3, 1fr); /* Toujours 2 colonnes */
-      width:98vw; 
-      overflow-y: auto;
-      //height: 60vh;
-    }
-
-    .grid-item {
-      width:calc(32vw - 2 * $borderSize);
-    }
-
-    .grid-data {
-      width:calc(92% - 2 * $borderSize);
-      border: $borderSize solid #3152e6;
-      ////font-size: x-small;
-    }
-
-    .grid-title {
-      width:calc(92% - 2 * $borderSize);
-      border: $borderSize solid #3152e6;
-      ////font-size: x-large;
-    }
-  
-    .frame-title {
-      ////font-size: x-large;
-      border: $borderSize solid #31e6d7;
-    }
-
-
-  }
-  
-  @media screen and (orientation: landscape) and (min-width: 851px) {
-    // Contexte : iPad en portrait
-
-
-
-    .grid-container {
-      //height:70vh;
-      overflow-y: auto;
-      grid-template-columns: repeat(3, 1fr);
-
-    }
-
-    .grid-item {
-      width: calc(31vw - 2 * $borderSize);
-    }
-    .grid-data {
-      width: calc(90% - 2 * $borderSize);
-    }
-
-    .grid-title {
-      ////font-size: xx-large;
-      border: $borderSize solid #31c2e6;
     }
   }
   
-  
-  
-  
-
-  @media (orientation: portrait) and (max-width:430px) {
-    .grid-item {
-  
-        font-size: $smallFontSize;
-        border: $borderSize solid #31c2e6;
-    }
-  }
-  
-  @media (orientation: portrait) and (min-width:431px) {
-    .grid-item {
-  
-        font-size: $mediumFontSize;
-        border: $borderSize solid #e63140;
-    }
-  }

@@ -6,16 +6,20 @@
         <div class="input-line">
           <div class="input-title"><h1>Créer un nouvel article</h1></div>
         </div>
-        <div class="input-line">
-          <div class="input-label"><h2>Titre :</h2></div>
-          <div class="input-box">
-            <input class="input-text" type="text" id="title" formControlName="varTitle"></div>
+        <div class="input-line" >
+          <select class="input-select" (change)="onOptionSelected($event)" formControlName="varTopic">
+            <option value="" disabled >Sélectionner un thème</option>
+            <option *ngFor="let oneTopic of topicList" [value]="oneTopic.id">
+            {{ oneTopic.title }}
+          </option>
+          </select>
         </div>
         <div class="input-line">
-          <div class="input-label"><h2>Rédaction :</h2>
-          </div>
-          <div class="input-box"><input class="input-blablabla" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
-          </div>
+          <input class="input-text" type="text" id="title" formControlName="varTitle">
+        </div>
+        <div class="input-line">
+          <textarea rows="3" cols="90" class="input-text" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
+          </textarea>
         </div>
         <div class="input-line">
           <div class="row">
@@ -24,25 +28,10 @@
             </div>
           </div>
         </div>
-
-
-        <div class="input-line" >
-          <div class="input-label"><h2>Thème :</h2></div>
-          <div class="input-box">
-
-          <select class="input-select" (change)="onOptionSelected($event)" formControlName="varTopic">
-          <option *ngFor="let oneTopic of topicList" [value]="oneTopic.id">
-            {{ oneTopic.title }}
-          </option>
-          </select>
-
-        </div>
-        </div>
         <div class="input-line">
           <button type="submit" >Créer</button>
         </div>
-
-      
+    
       </form>
 </div>
 

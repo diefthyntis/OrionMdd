@@ -1,4 +1,4 @@
-$borderSize: 0vh;
+@import '../../../styles.scss';
 
 .fullscreen {
     width: 100%;
@@ -11,7 +11,7 @@ $borderSize: 0vh;
     width:25%;
     ////font-size: large;
     font-weight: bold;
-    color: cadetblue;
+    color: $defaultFontColor;
     background-color: white;
     
 }

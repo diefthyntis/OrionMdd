@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .title-line {
-    color:cadetblue;
+    color:$defaultFontColor;
     margin: 2vh; 
 }
 
@@ -13,8 +13,6 @@
     font-size: $mediumFontSize;
 }
 
-$greyPearlColor:#f1ecec;
-
 
   .input-title {
     display: flex;
@@ -23,7 +21,7 @@ $greyPearlColor:#f1ecec;
     background-color:$greyPearlColor; 
     border: $borderSize solid #5be631;
     margin: 2vh;
-    color: cadetblue;
+    color: $defaultFontColor;
     ////font-size: xx-large;
     width:calc(100% - 2 * $borderSize);
 }
@@ -35,7 +33,7 @@ $greyPearlColor:#f1ecec;
     background-color:$greyPearlColor; 
     border: $borderSize solid #d82828;
     width:18vh;
-    color: cadetblue;
+    color: $defaultFontColor;
     font-size: $mediumFontSize;
    }
    .input-box {
@@ -56,24 +54,15 @@ $greyPearlColor:#f1ecec;
 }
 
 
-.input-blablabla {
-    //height: 200px; 
-    width: calc(100% - 2 * $borderSize);
-    font-weight: normal;
-    padding: 1vh;
-    font-family: 'Georgia', serif;
-    
-}
 
-.input-select {
-    width:calc(100% - 2 * $borderSize);
-}
+
+
 
 .input-text {
     width:calc(100% - 2 * $borderSize);
     font-weight: normal;
     padding: 1vh;
-    font-family: 'Georgia', serif;
+    font-family: $fontFamily;
 }
 
 
@@ -92,4 +81,29 @@ $greyPearlColor:#f1ecec;
         font-size: $mediumFontSize;
         border: $borderSize solid #e63140;
     }
+  }
+
+
+  @media (orientation: portrait)  {
+    .input-text {
+        width:calc(50% - 2 * $borderSize);
+        
+    }
+    .input-select {
+        width:calc(50% - 2 * $borderSize);
+        
+    }
+    
+  }
+  
+  @media (orientation: landscape) {
+    .input-text {
+        width:calc(50% - 2 * $borderSize);
+
+    }
+    .input-select {
+        width:calc(50% - 2 * $borderSize);
+        
+    }
+    
   }

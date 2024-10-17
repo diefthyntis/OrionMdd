@@ -2,7 +2,13 @@
   // Variable pour la couleur des liens
   $lavandeColor: rgb(150, 131, 236); // Exemple d'une couleur bleue
   $greyPearlColor:#f1ecec;
-  $titleColor:cadetblue;
+  //$titleColor:cadetblue;
+  $defaultBackgroundColor:white;
+  $defaultFontColor:black;
+  $fontFamily:'Arial',sans serif;
+  $titleScreenColor:cadetblue;
+  $gridItemTitleColor:cadetblue;
+  $gridItemBackgroundColor:$greyPearlColor;
   
   $titleHeight:10vh;
   $borderSize:0vh;
@@ -38,8 +44,8 @@
   
   body {
 
-    color: #333; /* Couleur de texte par défaut */
-    font-family: 'Georgia', serif;
+    color:$defaultFontColor; /* Couleur de texte par défaut */
+    font-family: $fontFamily;
     //font-weight: bold;
     overflow: hidden;
     //font-size:$mediumFontSize;
@@ -59,7 +65,7 @@
     width: auto; /* Par défaut, la largeur du bouton s'adapte au contenu */
     height: auto;
     margin: 1vh;
-    font-family: 'Georgia', serif;
+    font-family: $fontFamily;
     font-weight: bold;
   }
 

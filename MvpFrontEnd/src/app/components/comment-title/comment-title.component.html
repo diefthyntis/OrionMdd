@@ -1,17 +1,15 @@
 
 <div class="container">
 <div class="comment-row">
-  <div class="comment-title">
-    <h2>{{currentBlurb.articleTitle}}</h2>
+  <div class="comment-title"><b>{{currentBlurb.articleTitle}}</b>
   </div>
 </div>
 
 <div class="comment-row">
 
-  <div class="comment-data">Création:{{currentBlurb.creationDate | date:'dd/MM/yyyy'}}</div>
-
-  <div class="comment-data">Auteur:{{currentBlurb.authorPseudonym}}</div>
-  <div class="comment-data">Thème:{{currentBlurb.topicTitle}}</div>
+  <div class="comment-data">{{currentBlurb.creationDate | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+  <div class="comment-data">{{currentBlurb.authorPseudonym}}</div>
+  <div class="comment-data">{{currentBlurb.topicTitle}}</div>
 </div>
 <div class="comment-row">
   <div class="comment-data">

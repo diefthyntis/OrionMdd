@@ -4,6 +4,8 @@
     height: 100%;
     border: $borderSize solid $borderColorLevelScreen;
 }
+
+/*
 .container1 {
     display: flex;
     flex-direction: row;
@@ -22,12 +24,13 @@
     height: calc(60% - 2 * $borderSize);
     overflow-y: auto;
 }
+    */
 
 .content {
-    width: calc(50% - 2 * $borderSize - 1vh);
+    width: calc(100% - 2 * $borderSize - 1vh);
     border: $borderSize solid $borderColorLevelContent; 
     height: calc(50% - 2 * $borderSize);
-    margin: 1vh;
+    //margin: 1vh;
 }
 
 .black-line {
@@ -44,7 +47,7 @@
     }
 
     .content {
-        width: calc(50% - 2 * $borderSize);
+        //width: calc(50% - 2 * $borderSize);
     }
 
 }

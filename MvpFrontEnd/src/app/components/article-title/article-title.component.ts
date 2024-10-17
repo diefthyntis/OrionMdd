@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ArticleTitleComponent implements OnInit {
 
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -18,6 +19,10 @@ export class ArticleTitleComponent implements OnInit {
     this.router.navigate(['/newArticle']);
   
   }
+
+  sortByDate() {
+    throw new Error('Method not implemented.');
+    }
   
 
 }

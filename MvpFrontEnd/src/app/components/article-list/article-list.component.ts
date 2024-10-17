@@ -18,6 +18,7 @@ import { SessionService } from 'src/app/services/session.service';
 export class ArticleListComponent implements OnInit {
 
 
+
 navigateToCommentList(speakerId: string,articleId: string) {
   this.router.navigate(['/commentContainer', speakerId,articleId]);
 
@@ -39,6 +40,12 @@ navigateToCommentList(speakerId: string,articleId: string) {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.load();
+   
+    
+  }
+
+  load(): void {
     let speakerToCome$ = this.authService.me();
     //let asyncGetListArticle = ;
     speakerToCome$.pipe(
@@ -62,6 +69,7 @@ navigateToCommentList(speakerId: string,articleId: string) {
             this.articleList.push(oneArticle);
             console.log("ArticleListComponent oneArticle",oneArticle);
             });
+            this.sortByTitle();
           },
           error: (err) => {
             console.error("ArticleListComponent.ngOnInit Erreur lors de la récupération des articles", err);
@@ -71,6 +79,21 @@ navigateToCommentList(speakerId: string,articleId: string) {
           }
         });
       }
+
+      sortByTitle():void {
+        console.log("ArticleListComponent.sortByTitle");
+        this.articleList.sort((a: Article, b: Article) => 
+          a.title.localeCompare(b.title)
+        );
+      }
+
+      sortByDate(): void {
+        console.log("ArticleListComponent.sortByDate");
+        this.articleList.sort((a: Article, b: Article) => 
+          new Date(a.creationDate).getTime() - new Date(b.creationDate).getTime()
+        );
+        
+        }
 }
 
 /*

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { Topic } from 'src/app/dto/models/topic.class';
@@ -24,6 +24,11 @@ import { Komment } from 'src/app/dto/models/komment.class';
   styleUrls: ['./new-comment.component.scss']
 })
 export class NewCommentComponent implements OnInit {
+
+  // Utilisation de ViewChild pour accéder au bouton de soumission
+  @ViewChild('submitButton') submitButton: any;
+  
+
 
   public articleTitle!: string;
   public currentTopic!: Topic;
@@ -113,7 +118,7 @@ console.log("B new-comment.component.ts.ngOnInit params="+params);
 public invalidFormMessage = false;  // Variable pour afficher le message "formulaire non valide"
 
   public buildedForm = this.formBuilder.group({
-    varSentence:['',[Validators.required]]}
+    varSentence:['Ecrivez ici votre commentaire',[Validators.required]]}
   )
 
 
@@ -126,7 +131,7 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
     this.showInformationMessage = false;
     if (this.buildedForm.invalid) {
       this.showInformationMessage = true; // Affiche le message d'erreur
-      this.informationMessage="Please fill the field";
+      this.informationMessage="Merci de remplir tous les champs";
       console.log("NewCommentComponent.submit Formulaire non valide");
       return;
     }
@@ -207,6 +212,10 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
       this.informationMessage = this.charCount + " caractères restants";
     }
   }
+  }
+
+  submitForm() {
+    this.submitButton.nativeElement.click();
   }
 
 }

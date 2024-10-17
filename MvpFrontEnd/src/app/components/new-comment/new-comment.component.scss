@@ -4,8 +4,10 @@
   width:calc(100% - 2 * $borderSize);
   border: $borderSize solid #7631e6;
   display: flex;
-  justify-content: center;
-  background-color:$greyPearlColor;
+  flex-direction: row;
+  align-items: center;
+  background-color:$defaultBackgroundColor;
+  margin: 1vh;
 }
 .container {
   display: flex;
@@ -21,7 +23,7 @@ justify-content: center;
 background-color:$greyPearlColor; 
 border: $borderSize solid #31c2e6;
 ////font-size: xx-large;
-color: $titleColor;
+color: $titleScreenColor;
 }
 
 .input-text {
@@ -31,15 +33,24 @@ color: $titleColor;
 
 .textarea {
   width: calc(85% - 2* $borderSize );
-  border: $borderSize solid #31c2e6;
+  border: $borderSize solid #e63149;
+  display: flex;
+  flex-direction: row;
 }
 
+.fly {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  border: $borderSize solid #31c2e6;
+  margin: 1vw;
+}
 
 .count {
   width: calc(15% - 2* $borderSize - 1vh);
   border: $borderSize solid #31c2e6;
   padding:1vh;
-  color:cadetblue;
+  color:$defaultFontColor;
   margin:1vh;
 }
 
@@ -47,7 +58,7 @@ color: $titleColor;
   width: calc(100% - 2* $borderSize - 1vh);
   border: $borderSize solid #31c2e6;
   padding:1vh;
-  color:cadetblue;
+  color:$defaultFontColor;
 }
 
 //=========================================================

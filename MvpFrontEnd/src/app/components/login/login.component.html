@@ -2,10 +2,10 @@
 <app-auth-header></app-auth-header>
 <div class="form-container">
 <form [formGroup]="buildedForm" class="register-form"  (ngSubmit)="submit()">
-  <div class="form-title" ><h1>Connexion</h1>
+  <div class="form-title" ><h1>Se connecter</h1>
   </div>
 <div class="form-line">
-  <div class="box-label" for="pseudonym">Adresse e-mail:</div>
+  <div class="box-label" for="pseudonym">E-mail ou nom d'utilisateur:</div>
   <div class="box-input">
     <input (click)="onInputClick()" class="input" formControlName="varEmailAddress" type="text" id="login">
   </div>
