@@ -11,16 +11,18 @@ $padding:1vh;
     //height: calc(10vh - 2 * $borderSize);
     overflow-y: auto;
     width:calc(100% - 2 * $borderSize);
+    grid-gap:10px;
   }
   .grid-item {
     background-color:$greyPearlColor;
     //text-align: center;
     border: $borderSize solid #e631bf;
-    margin: 1vh;
     padding: 0vh; 
     overflow-wrap: break-word;
     width:calc(22vw - 2 * $borderSize);
     //height: 20%;
+    max-height: 150px;
+    
   }
   .row {
     display: flex;
@@ -78,7 +80,7 @@ $padding:1vh;
 
   .grid-item {
       
-      width:calc(88vw - 2 * $borderSize);
+      width:calc(100% - 2 * $borderSize);
       //height: 50%;
       display:flex;
       flex-direction: column;
@@ -129,6 +131,7 @@ $padding:1vh;
       //height: 30vh;
       //margin: 1vh;
       border: $borderSize solid #0b07e4;
+      
     }
   
     .row {
@@ -200,7 +203,7 @@ $padding:1vh;
     }
 
     .grid-item {
-      width: calc(31vw - 2 * $borderSize);
+      width: calc(100% - 2 * $borderSize);
     }
     .data {
       width: calc(90% - 2 * $borderSize);
