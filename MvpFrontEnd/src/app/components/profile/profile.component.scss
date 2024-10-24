@@ -1,0 +1,7 @@
+@import '../../../styles.scss';
+
+.center {
+    display: flex;
+    justify-content: center;
+    border: $borderSize solid black;
+}

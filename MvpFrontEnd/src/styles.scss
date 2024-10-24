@@ -6,12 +6,15 @@
   $defaultBackgroundColor:white;
   $defaultFontColor:black;
   $fontFamily:'Arial',sans serif;
-  $titleScreenColor:cadetblue;
+  $titleScreenColor:black;
   $gridItemTitleColor:cadetblue;
   $gridItemBackgroundColor:$greyPearlColor;
   
   $titleHeight:10vh;
   $borderSize:0vh;
+
+  $maxWidthMobile: 768px; // Généralement, 768px est le seuil entre mobile et tablette/ordinateur
+
 
   /*
   $lineHeight:10vh; // mettre en vh absolument car utilisé pour le positionnement des fenêtres
@@ -95,3 +98,15 @@ a.active-link {
 
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+  font-family: 'Arial',sans serif;
+}
+
+
+h2 {
+  font-weight: bold;
+}

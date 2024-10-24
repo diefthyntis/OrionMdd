@@ -1,7 +1,8 @@
 
     <div class="container">
-            <div class="content">
+            <div class="cloud">
                 <a routerLink="/welcome">
+                    
                     <img src="../../assets/images/Logo2.png" alt="Accueil">
                </a>
             </div>
@@ -20,8 +21,20 @@
                 <a routerLink="/profile">
                  <img src="../../assets/images/Person.png" alt="Profil utilisateur">
                 </a>
+                &nbsp;
             </div>
-
+            <div class="menu">
+                <a mat-button [matMenuTriggerFor]="menu"><img src="../../assets/images/Menu.png"></a>
+            
+                <mat-menu #menu="matMenu">
+                    <a mat-menu-item routerLink="/articleContainer" routerLinkActive="active-link" >Articles</a>
+                    <a mat-menu-item routerLink="/topicContainer" routerLinkActive="active-link" >Thèmes</a>
+                    <a mat-menu-item routerLink="/profile">
+                        <img src="../../assets/images/Person.png" alt="Profil utilisateur">
+                       </a>
+                </mat-menu>
+                
+            </div>
     </div>
 
 

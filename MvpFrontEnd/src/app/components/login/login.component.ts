@@ -25,7 +25,7 @@ export class LoginComponent  {
   on déclare ce que l'on veut mettre dans le formulaire
   */
   public buildedForm = this.fb.group({
-    varEmailAddress: ['', [Validators.required, Validators.email]],
+    varEmailAddress: ['', [Validators.required]],
     varPassword: ['', [Validators.required]]
   });
 

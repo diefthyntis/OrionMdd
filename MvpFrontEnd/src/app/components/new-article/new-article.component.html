@@ -3,10 +3,11 @@
 <div class="container">
     
       <form [formGroup]="buildedForm" (ngSubmit)="submit()" >
-        <div class="input-line">
+        <div class="row">
           <div class="input-title"><h1>Créer un nouvel article</h1></div>
         </div>
-        <div class="input-line" >
+        <div class="row" >
+          <div class="input">
           <select class="input-select" (change)="onOptionSelected($event)" formControlName="varTopic">
             <option value="" disabled >Sélectionner un thème</option>
             <option *ngFor="let oneTopic of topicList" [value]="oneTopic.id">
@@ -14,21 +15,26 @@
           </option>
           </select>
         </div>
-        <div class="input-line">
+        </div>
+        <div class="row">
+          <div class="input">
           <input class="input-text" type="text" id="title" formControlName="varTitle">
         </div>
-        <div class="input-line">
+        </div>
+        <div class="row">
+          <div class="input">
           <textarea rows="3" cols="90" class="input-text" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
           </textarea>
         </div>
-        <div class="input-line">
+        </div>
+
           <div class="row">
             <div *ngIf="showInformationMessage" class="information">
               <label>{{informationMessage}}</label>
             </div>
           </div>
-        </div>
-        <div class="input-line">
+
+        <div class="row">
           <button type="submit" >Créer</button>
         </div>
     

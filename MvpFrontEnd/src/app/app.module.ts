@@ -42,7 +42,8 @@ import { CommentTitleComponent } from './components/comment-title/comment-title.
 import { ArticleTitleComponent } from './components/article-title/article-title.component';
 import { BlackLineComponent } from './components/black-line/black-line.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -87,7 +88,8 @@ Injection
 
   ],
   imports: [
-    BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule,FormsModule
+    BrowserModule,AppRoutingModule,ReactiveFormsModule,HttpClientModule,
+    FormsModule, BrowserAnimationsModule,MatMenuModule
     /*
     ,
     ,

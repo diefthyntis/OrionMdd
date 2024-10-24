@@ -5,6 +5,12 @@ input {
     width: calc(100% - 2 * $borderSize);
   }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: $borderSize solid #5831e6;
+}
   
 .form-container {
     border: $borderSize solid #31c2e6;
@@ -30,6 +36,9 @@ margin-top: 1vh;
     //background-color: #f1ecec;   
     color: $defaultFontColor;
     margin: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
   
    
@@ -58,7 +67,7 @@ justify-content: center;
  
   //=========================================================
   // ======================= PORTRAIT =======================
-  @media screen and (orientation: portrait) and (max-width:430px) {
+  @media screen and (orientation: portrait) and (max-width:808px) {
 
     .form-line {
       display: flex;

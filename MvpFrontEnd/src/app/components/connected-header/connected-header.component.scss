@@ -2,27 +2,46 @@
 @import '../../../styles.scss';
 
 
-  .container img {
+  .container {
     max-width: 100%;
-    height: auto; /* Maintient les proportions de l'image */
-    display: block; /* Évite les espaces blancs supplémentaires */
-    object-fit: contain; 
+    
+    display: flex; /* Évite les espaces blancs supplémentaires */
+    justify-content: space-between;
+    align-items: center;
+    border: $borderSize solid $borderColorLevelContainer;
+    height: auto;
 }
 
-.container {
-    //height: 12vh;
-    //font-size: $smallFontSize;
-    //height: 100%;
-    border: $borderSize solid $borderColorLevelContainer;
-}
 
 
 .content {
     border: $borderSize solid $borderColorLevelContent;
     display: flex;
-    align-items: center;
-    height: calc(100% - 2 * $borderSize);
+    vertical-align: center;
+    height: auto;
+    margin: 10px;
+    justify-content: center;
 }
+
+
+.cloud {
+    border: $borderSize solid rgb(106, 160, 95);
+    display: flex;
+    align-items: center;
+    //height: calc(100% - 2 * $borderSize);
+    margin: 10px;
+    height: auto;
+}
+
+
+.menu {
+    display: block; /* Affiche le div */
+    border: $borderSize solid #031b13;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    height: auto;
+  }
 
 @media screen and (orientation: portrait) {
     .container {
@@ -99,7 +118,30 @@
         border: $borderSize solid #e63140;
     }
   }
+
+
+  @media screen and (orientation: portrait) {
+    .content {
+      display: none; /* Affiche le div */
+      border: $borderSize solid #d4e631;
+    }
+    .menu {
+        //display: block; /* Affiche le div */
+        border: $borderSize solid #078a28;
+      }
+  }
   
+  /* Masquer le div en orientation paysage */
+  @media screen and (orientation: landscape) {
+    .content {
+        //display: block; /* Affiche le div */
+        border: $borderSize solid #e631d7;
+      }
+    .menu {
+          display: none; /* Affiche le div */
+          border: $borderSize solid #313de6;
+        }
+  }
 
 
 

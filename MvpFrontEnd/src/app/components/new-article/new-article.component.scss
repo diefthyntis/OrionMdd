@@ -13,12 +13,22 @@
     font-size: $mediumFontSize;
 }
 
+#sentence {
+    font-size: $mediumFontSize;
+}
+
+.input {
+    width: 50%;
+    border: $borderSize solid #5231e6;
+    display: flex;
+    justify-content: center;
+}
 
   .input-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:$greyPearlColor; 
+    background-color:$defaultBackgroundColor; 
     border: $borderSize solid #5be631;
     margin: 2vh;
     color: $defaultFontColor;
@@ -27,11 +37,19 @@
 }
    
 
+
+.input-select {
+    width:calc(100% - 2 * $borderSize);
+    border: 2px solid $lavandeColor; 
+    border-radius: 5px;
+    width: 100%;
+}
+
    .input-label {
     display: flex;
     justify-content: left;
     background-color:$greyPearlColor; 
-    border: $borderSize solid #d82828;
+    border: $borderSize solid $lavandeColor;
     width:18vh;
     color: $defaultFontColor;
     font-size: $mediumFontSize;
@@ -45,10 +63,10 @@
     
     
    }
-.input-line {
+.row {
     display: flex;
     justify-content: center;
-    background-color:$greyPearlColor;
+    background-color:$defaultBackgroundColor;
     border: $borderSize solid #31c2e6; 
     margin: 1vh;
 }
@@ -59,10 +77,13 @@
 
 
 .input-text {
-    width:calc(100% - 2 * $borderSize);
+    //width:calc(100% - 2 * $borderSize);
     font-weight: normal;
     padding: 1vh;
     font-family: $fontFamily;
+    border: 2px solid $lavandeColor; 
+    border-radius: 5px;
+    width: 100%;
 }
 
 
@@ -86,11 +107,11 @@
 
   @media (orientation: portrait)  {
     .input-text {
-        width:calc(50% - 2 * $borderSize);
+        //width:calc(50% - 2 * $borderSize);
         
     }
     .input-select {
-        width:calc(50% - 2 * $borderSize);
+        //width:calc(50% - 2 * $borderSize);
         
     }
     
@@ -98,11 +119,11 @@
   
   @media (orientation: landscape) {
     .input-text {
-        width:calc(50% - 2 * $borderSize);
+        //width:calc(50% - 2 * $borderSize);
 
     }
     .input-select {
-        width:calc(50% - 2 * $borderSize);
+        //width:calc(50% - 2 * $borderSize);
         
     }
     

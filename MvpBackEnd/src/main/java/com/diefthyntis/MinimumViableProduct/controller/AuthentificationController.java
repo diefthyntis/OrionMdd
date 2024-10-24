@@ -116,8 +116,10 @@ public class AuthentificationController {
     public ResponseEntity<?> connexionUser(final @RequestBody SignInRequest signinRequest) {
 		
 		// ? signifie la généricité, donc je peux passer n'importe quel type d'objet dans la méthode responseEntity.ok
-		if (!speakerService.existsByEmailaddress(signinRequest.getLogin()) &&
-				!speakerService.existsByPseudonym(signinRequest.getLogin())	) {
+		final boolean existsByEmailaddress = speakerService.existsByEmailaddress(signinRequest.getLogin());
+		final boolean existsByPseudonym = speakerService.existsByPseudonym(signinRequest.getLogin());
+		
+		if (!existsByEmailaddress && !existsByPseudonym	) {
 			throw new BadCredentialException("Bad credential");
         }
 		
