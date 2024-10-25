@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConnectedHeaderComponent } from './component/connected-header/connected-header.component';
 import { WhitePageComponent } from '../noway/component/white-page/white-page.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ import { WhitePageComponent } from '../noway/component/white-page/white-page.com
     ConnectedHeaderComponent,WhitePageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,RouterModule
   ],
   exports: [ConnectedHeaderComponent] 
 })
