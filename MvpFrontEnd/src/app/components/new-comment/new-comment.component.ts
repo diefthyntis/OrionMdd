@@ -4,7 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Topic } from 'src/app/dto/models/topic.class';
 import { AuthService } from 'src/app/services/auth.service';
 import { TopicService } from 'src/app/services/topic.service';
-import { TopicComponent } from '../topic/topic.component';
 import { Article } from 'src/app/dto/models/article.class';
 import { ArticleService } from 'src/app/services/article.service';
 import { DateTool } from 'src/app/tools/date.tool';

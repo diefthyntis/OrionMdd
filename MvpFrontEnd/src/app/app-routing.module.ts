@@ -13,7 +13,6 @@ import { ShapeListComponent } from './components/shape-list/shape-list.component
 import { WhitePageComponent } from './components/white-page/white-page.component';
 
 import { ShapeContainerComponent } from './components/shape-container/shape-container.component';
-import { TopicComponent } from './components/topic/topic.component';
 import { TopicContainerComponent } from './components/topic-container/topic-container.component';
 import { ArticleContainerComponent } from './components/article-container/article-container.component';
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';

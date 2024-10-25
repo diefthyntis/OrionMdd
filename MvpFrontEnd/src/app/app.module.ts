@@ -12,8 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthHeaderComponent } from './components/auth-header/auth-header.component';
-
-import { TopicComponent } from './components/topic/topic.component';
 import { LoginComponent } from './components/login/login.component';
 import { TopicListComponent } from './components/topic-list/topic-list.component';
 import { httpInterceptorProviders } from './interceptors';
@@ -40,7 +38,6 @@ import { ConnectedHeaderComponent } from './components/connected-header/connecte
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 import { CommentTitleComponent } from './components/comment-title/comment-title.component';
 import { ArticleTitleComponent } from './components/article-title/article-title.component';
-import { BlackLineComponent } from './components/black-line/black-line.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
@@ -66,7 +63,6 @@ Injection
     AppComponent,
     RegisterComponent,
     AuthHeaderComponent,
-    TopicComponent,
     LoginComponent,
     TopicListComponent,
     ArticleListComponent,
@@ -83,7 +79,6 @@ Injection
     ArticleContainerComponent,
     CommentContainerComponent,
     CommentTitleComponent,
-    BlackLineComponent,
     ProfileComponent
 
   ],
