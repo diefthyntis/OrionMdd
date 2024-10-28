@@ -17,6 +17,7 @@ import { TopicContainerComponent } from './components/topic-container/topic-cont
 import { ArticleContainerComponent } from './components/article-container/article-container.component';
 import { CommentContainerComponent } from './components/comment-container/comment-container.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { GuardService } from './services/guard.service';
 
 
 
@@ -24,16 +25,16 @@ const routes: Routes = [
   { path: '',component:LandingComponent},
   { path: 'register',component:RegisterComponent},
   { path: 'login',component:LoginComponent},
-  { path: 'topicContainer',component:TopicContainerComponent},
-  { path: 'articleContainer',component:ArticleContainerComponent},
-  { path: 'shapeContainer',component:ShapeContainerComponent},
-  { path: 'newArticle',component:NewArticleComponent},
-  { path: 'commentContainer/:speakerId/:articleId', component: CommentContainerComponent },
-  { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent },
-  { path: 'changeCredentials',component:ChangeCredentialsComponent},
-  { path: 'welcome',component:LandingComponent},
-  { path: 'whitePage',component:WhitePageComponent},
-  { path: 'profile',component:ProfileComponent},
+  { path: 'topicContainer',component:TopicContainerComponent, canActivate: [GuardService]},
+  { path: 'articleContainer',component:ArticleContainerComponent, canActivate: [GuardService]},
+  { path: 'shapeContainer',component:ShapeContainerComponent, canActivate: [GuardService]},
+  { path: 'newArticle',component:NewArticleComponent, canActivate: [GuardService]},
+  { path: 'commentContainer/:speakerId/:articleId', component: CommentContainerComponent, canActivate: [GuardService] },
+  { path: 'newComment/:speakerId/:articleId', component: NewCommentComponent, canActivate: [GuardService] },
+  { path: 'changeCredentials',component:ChangeCredentialsComponent, canActivate: [GuardService]},
+  { path: 'welcome',component:LandingComponent, canActivate: [GuardService]},
+  { path: 'whitePage',component:WhitePageComponent, canActivate: [GuardService]},
+  { path: 'profile',component:ProfileComponent, canActivate: [GuardService]},
   { path: 'landing',component:LandingComponent},
 ];
 
@@ -42,3 +43,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { } 
+
+
+
