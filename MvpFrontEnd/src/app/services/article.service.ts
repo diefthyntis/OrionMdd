@@ -8,6 +8,7 @@ import { ArticleRequest } from '../dto/request/articleRequest.interface';
 import { Speaker } from '../dto/models/speaker.interface';
 import { SpeakerResponse } from '../dto/response/speakerResponse.interface';
 import { BlurbResponse } from '../dto/response/blurbResponse.interface';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -17,7 +18,10 @@ import { BlurbResponse } from '../dto/response/blurbResponse.interface';
 })
 export class ArticleService {
 
-  private rootUrl = 'api/articles';
+  //private rootUrl = 'api/articles';
+  private rootUrl = environment.apiUrl+'articles';
+
+  
 
   constructor(private httpClient: HttpClient,private dateTool:DateTool) { }
 

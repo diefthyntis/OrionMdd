@@ -60,7 +60,7 @@ public submit(): void {
     },
     (error) => {
       console.error("login.component.ts.submit Erreur lors de la connexion", error);
-      this.informationMessage=error.error;
+      this.informationMessage=error.message;
       this.onError = true;
       ;
     }

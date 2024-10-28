@@ -3,7 +3,7 @@ package com.diefthyntis.MinimumViableProduct.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +24,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 @RequiredArgsConstructor
 @Slf4j
 public class TopicController {
 	private final TopicService topicService;
 	private final TopicMapping topicMapping;
+	
 	
 	
 	@GetMapping("/topics")

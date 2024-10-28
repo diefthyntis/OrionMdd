@@ -111,10 +111,10 @@ public invalidFormMessage = false;  // Variable pour afficher le message "formul
         },
         (obj) => {
           console.error('new-article.component.ts.submit', obj.error);
-          this.bigErrorMessage = obj.error;
+          this.bigErrorMessage = obj.error.message;
         }
       )
-    }
+    } 
   }
 
   //public showSuccessMessage: boolean = false;

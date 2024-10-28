@@ -5,12 +5,13 @@ import { Komment } from "../dto/models/komment.class";
 import { CommentRequest } from "../dto/request/commentRequest.interface";
 import { Injectable } from "@angular/core";
 import { CommentResponse } from "../dto/response/CommentResponse.interface";
+import { environment } from "src/environments/environment";
 
 @Injectable({
      providedIn: 'root'
    })
 export class CommentService {
-    private apiRootUrl="api/";
+    private apiRootUrl=environment.apiUrl;
 
 
     

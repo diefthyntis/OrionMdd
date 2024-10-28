@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom, Observable } from 'rxjs';
 import { TopicResponse } from '../dto/response/topicResponse.interface';
 import { Topic } from '../dto/models/topic.class';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -11,8 +12,7 @@ import { Topic } from '../dto/models/topic.class';
 })
 export class TopicService {
 
-  private pathService = 'api/topics';
-  private apiUrl = 'api/topics';  // L'URL de votre API backend
+  private apiUrl = environment.apiUrl+'topics';  // L'URL de votre API backend
 
 
   constructor(private httpClient: HttpClient) { }

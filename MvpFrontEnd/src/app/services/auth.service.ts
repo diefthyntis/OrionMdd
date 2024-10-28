@@ -9,6 +9,7 @@ import { LoginRequest } from '../dto/request/loginRequest.interface';
 import { SpeakerResponse } from '../dto/response/speakerResponse.interface';
 import { RegisterRequest } from '../dto/request/registerRequest.interface';
 import { AuthSuccess } from '../dto/response/authSuccess.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ import { AuthSuccess } from '../dto/response/authSuccess.interface';
 export class AuthService {
 
   //private token = 'aLaneSTnélE27aOut19SoiXAnteTrEiZE';
-  private pathService = 'api/auth';
+  private pathService = environment.apiUrl+'auth';
   //private tokenKey: string = 'aLaneSTnélE27aOut19SoiXAnteTrEiZE';
   private tokenKey: string = 'jwt';
 

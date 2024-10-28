@@ -1,6 +1,6 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 
@@ -39,8 +39,23 @@ export class AuthInterceptor implements HttpInterceptor {
     console.log(tmp);
    
     
-    console.log("auth.interceptor.ts.intercept terminée");
-    return next.handle(modifiedReq);
+    console.log("AuthInterceptor.intercept terminée");
+    return next.handle(modifiedReq).pipe(
+      catchError((error) => {
+        console.log("AuthInterceptor.intercept Erreur détectée :", error.error);
+        console.log("AuthInterceptor.intercept Erreur détectée :", error.message);
+        /*
+        console.log("AuthInterceptor.intercept Erreur détectée :", error.status);
+        console.log("AuthInterceptor.intercept Erreur détectée :", error.statusText);
+        if (error.status === 403 && error.error?.includes('CORS')) {
+          console.log("AuthInterceptor.intercept Erreur CORS détectée :", error.message);
+        } else {
+          console.log("AuthInterceptor.intercept Erreur HTTP détectée :", error.message);
+        }
+          */
+        return throwError(() => error);
+      })
+    );
 
   }
 }

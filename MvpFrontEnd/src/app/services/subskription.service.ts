@@ -8,6 +8,7 @@ import { SubskriptionRequest } from '../dto/request/subskriptionRequest.interfac
 
 import { GenericResponse } from '../dto/response/genericResponse.interface';
 import { ShapeResponse } from '../dto/response/shapeResponse.interface';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -19,7 +20,7 @@ import { ShapeResponse } from '../dto/response/shapeResponse.interface';
 export class SubskriptionService {
 
 
-  private rootUrl = 'api/subscription';
+  private rootUrl = environment.apiUrl+'subscription';
 
   constructor(private httpClient: HttpClient,private dateTool:DateTool) { }
 
