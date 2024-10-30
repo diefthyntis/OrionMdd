@@ -2,7 +2,7 @@
   <form [formGroup]="buildedForm" (ngSubmit)="submit()">
 
 <div class="row">
-      <textarea rows="3" cols="90" class="input-text" [(ngModel)]="laius" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
+      <textarea rows="3" class="input-text" [(ngModel)]="laius" type="text" id="sentence" formControlName="varSentence" (input)="updateCharCount()">
       </textarea>
       <div class="fly">
         <img src="../../assets/images/Fly.png" (click)="submitForm()">

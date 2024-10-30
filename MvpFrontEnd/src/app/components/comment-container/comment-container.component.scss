@@ -27,7 +27,7 @@
     */
 
 .content {
-    width: calc(100% - 2 * $borderSize - 1vh);
+    width: calc(100% - 2 * $borderSize);
     border: $borderSize solid $borderColorLevelContent; 
     height: calc(50% - 2 * $borderSize);
     //margin: 1vh;

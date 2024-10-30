@@ -9,16 +9,16 @@
   display: grid;
   //grid-template-columns: repeat(1,1fr);
   height: 45vh;
-  overflow-y: auto;
+  overflow: auto;
   width:calc(100% - 2 * $borderSize);
-  overflow-x: hidden;
+  
 }
 
 
 .grid-item {
   border: $borderSize solid #e631bf;
   width:calc(100% - 2 * $borderSize);
-  margin: 1vh;
+  //margin: 1vh;
 }
 
 .grid-item-title {
