@@ -9,6 +9,7 @@ import { LoginRequest } from '../dto/request/loginRequest.interface';
 import { SpeakerResponse } from '../dto/response/speakerResponse.interface';
 import { RegisterRequest } from '../dto/request/registerRequest.interface';
 import { AuthSuccess } from '../dto/response/authSuccess.interface';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 
 
 @Injectable({
@@ -23,6 +24,7 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient) { }
+
 
   public register(registerRequest: RegisterRequest): Observable<AuthSuccess> {
     return this.httpClient.post<AuthSuccess>(`${this.pathService}/register`, registerRequest);
@@ -65,4 +67,5 @@ export class AuthService {
     this.removeToken();
     
   }
+
 }
